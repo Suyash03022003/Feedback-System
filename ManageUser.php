@@ -1,3 +1,30 @@
+<?php
+
+include('connect.php');
+
+if (isset($_POST["submit"])) {
+
+  if ($_FILES['file']['name']) {
+    $filename = explode(".", $_FILES['file']['name']);
+    if ($filename[1] == 'csv') {
+      $handle = fopen($_FILES['file']['tmp_name'], "r");
+      while ($data = fgetcsv($handle)) {
+        $item1 = mysqli_real_escape_string($conn, $data[0]);
+        $item2 = mysqli_real_escape_string($conn, $data[1]);
+        $item3 = mysqli_real_escape_string($conn, $data[2]);
+        $item4 = mysqli_real_escape_string($conn, $data[3]);
+        $item5 = mysqli_real_escape_string($conn, $data[4]);
+        $item6 = mysqli_real_escape_string($conn, $data[5]);
+        $query = "INSERT into login (fname, lname, username, category, email, password) values('$item1','$item2','$item3','$item4','$item5','$item6')";
+        mysqli_query($conn, $query);
+      }
+      fclose($handle);
+      
+    }
+  }
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -5,13 +32,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manage User</title>
-  <link rel="stylesheet" href="css/ManageUser.css">
+  <link rel="stylesheet" href="css/ManageUser.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <div class="login" id="log">
+    <div class="form">
+      <div class="frm animate">
+        <button onclick="document.getElementById('log').style.display='none'">&times;</button>
+        <h2>Select CSV File: </h2>
+        <form method="post" enctype="multipart/form-data">
+          <input type="file" name="file">
+          <br>
+          <input type="submit" name="submit" value="Import">
+        </form>
+      </div>
+    </div>
+  </div>
   <div class="nav">
     <div class="img">
       <img id="img" src="images/bitlogo.jpg" alt="BIT Logo">
@@ -38,7 +78,7 @@
     <div class="right">
       <h1>Manage User</h1>
       <br>
-      <p class="s1">Dashboard/<span>Manage User</span></p>
+      <p class="s1">Dashboard/ <span>Manage User</span></p>
       <br>
       <div class="User">
         <!-- <div class="Filter">
@@ -61,24 +101,24 @@
 
         <div class="options">
           <div class="option" id="option">
-              <p class="head">Year:</p>
-              <p class="dropdown" id="dropdown1">Select</p>
-              <div class="drop" id="drop">
-                  <p onclick="clicked1('I')">I</p>
-                  <p onclick="clicked1('II')">II</p>
-                  <p onclick="clicked1('III')">III</p>
-                  <p onclick="clicked1('IV')">IV</p>
-              </div>
+            <p class="head">Year:</p>
+            <p class="dropdown" id="dropdown1">Select</p>
+            <div class="drop" id="drop">
+              <p onclick="clicked1('I')">I</p>
+              <p onclick="clicked1('II')">II</p>
+              <p onclick="clicked1('III')">III</p>
+              <p onclick="clicked1('IV')">IV</p>
+            </div>
           </div>
           <div class="option" id="option">
-              <p class="head">Branch:</p>
-              <p class="dropdown" id="dropdown2">Select</p>
-              <div class="drop" id="drop">
-                  <p onclick="clicked2('Computer')">Computer</p>
-                  <p onclick="clicked2('Electrical')">Electrical</p>
-                  <p onclick="clicked2('Mechanical')">Mechanical</p>
-                  <p onclick="clicked2('Civil')">Civil</p>
-              </div>
+            <p class="head">Branch:</p>
+            <p class="dropdown" id="dropdown2">Select</p>
+            <div class="drop" id="drop">
+              <p onclick="clicked2('Computer')">Computer</p>
+              <p onclick="clicked2('Electrical')">Electrical</p>
+              <p onclick="clicked2('Mechanical')">Mechanical</p>
+              <p onclick="clicked2('Civil')">Civil</p>
+            </div>
           </div>
         </div>
 
@@ -132,19 +172,26 @@
             <td>Delete</td>
           </tr>
         </table>
-        <button>Add User</button>
+        <button class="adduser" onclick="login()">Add User</button>
       </div>
     </div>
     <script>
       var dropdown = document.getElementById("dropdown1");
       var dropdown = document.getElementById("dropdown2");
+
       function clicked1(char) {
-          dropdown1.innerHTML = char;
+        dropdown1.innerHTML = char;
       }
+
       function clicked2(char) {
-          dropdown2.innerHTML = char;
+        dropdown2.innerHTML = char;
       }
-  </script>
+
+      function login() {
+        var log = document.getElementById('log');
+        log.style.display = 'block';
+      }
+    </script>
 </body>
 
 </html>

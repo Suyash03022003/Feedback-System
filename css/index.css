@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -27,7 +27,7 @@ body {
     height: 100%;
     float: left;
     width: 8%;
-    
+
 }
 
 #img {
@@ -48,6 +48,7 @@ body {
     width: 30%;
     align-items: center;
     padding: 1%;
+    font-family: 'Poppins', sans-serif;
 }
 
 .nav .links {
@@ -60,6 +61,7 @@ body {
     align-items: center;
     justify-content: right;
     gap: 4%;
+    font-family: 'Poppins', sans-serif;
 }
 
 .links a {
@@ -116,6 +118,7 @@ a {
 
 .cards p {
     margin: 10px auto;
+    font-weight: bold;
 }
 
 .cards img {
@@ -133,17 +136,20 @@ a {
     margin-left: 3%;
 }
 
-#card1, #card3 {
+#card1,
+#card3 {
     margin-right: 200px;
 }
 
-#card2, #card4 {
+#card2,
+#card4 {
     margin-left: 200px;
 }
 
 #card5 {
     margin-top: 240px;
 }
+
 .cards {
     text-decoration: none;
     color: black;
@@ -160,6 +166,7 @@ a {
     transition: 0.5s;
     border: 2px solid #102543;
 }
+
 .cards:hover {
     box-shadow: 0px 5px 10px #102543;
     transform: scale(1.05, 1.05);
@@ -170,4 +177,93 @@ a {
     text-align: center;
     color: white;
     padding: 10px;
+}
+
+.login {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: none;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frm {
+    width: 40%;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px #555;
+    position: relative;
+}
+
+.frm h2 {
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+.frm input {
+    width: 70%;
+    margin: 10px;
+    padding: 10px;
+}
+
+form a {
+    color: blue;
+}
+
+#btn {
+    margin: 30px;
+}
+
+.frm button {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    border: 0;
+    background-color: transparent;
+    font-size: 35px;
+}
+
+.frm button:hover {
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
 }

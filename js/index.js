@@ -21,7 +21,7 @@ function loaded() {
     var l = document.getElementById("links");
     var link = document.getElementsByClassName("link");
     var heading = document.getElementById("heading");
-    if (pageYOffset >= length) {
+    if (window.pageYOffset >= length) {
         img.style.height = "95%";
         ele.style.backgroundColor = "#102543";
         heading.style.color = "white";
@@ -43,7 +43,7 @@ function loaded() {
         link[1].style.color = "#102543";
         link[2].style.color = "#102543";
     }
-    if (pageYOffset >= length1) {
+    if (window.pageYOffset >= length1) {
         h.style.marginLeft = "0%";
         h.style.fontSize = "35px";
         h.style.color = "#102543";
@@ -53,7 +53,7 @@ function loaded() {
         h.style.color = "#E4EDF9";
         h.style.fontSize = "10px";
     }
-    if (pageYOffset >= length2) {
+    if (window.pageYOffset >= length2) {
         card1.style.marginRight = "20px";
         card2.style.marginLeft = "20px";
         card1.style.opacity = "1";
@@ -65,7 +65,7 @@ function loaded() {
         card1.style.opacity = "0";
         card2.style.opacity = "0";
     }
-    if (pageYOffset >= length3) {
+    if (window.pageYOffset >= length3) {
         card3.style.marginRight = "20px";
         card4.style.marginLeft = "20px";
         card3.style.opacity = "1";
@@ -77,7 +77,7 @@ function loaded() {
         card3.style.opacity = "0";
         card4.style.opacity = "0";
     }
-    if (pageYOffset >= length4) {
+    if (window.pageYOffset >= length4) {
         card5.style.marginTop = "20px";
         card5.style.opacity = "1";
     }
@@ -85,4 +85,29 @@ function loaded() {
         card5.style.marginTop = "200px";
         card5.style.opacity = "0";
     }
+    
+}
+
+function validation() {
+    var id = document.f1.user.value;
+    var ps = document.f1.pass.value;
+    if (id.length == "" && ps.length == "") {
+        alert("User Name and Password fields are empty");
+        return false;
+    }
+    else {
+        if (id.length == "") {
+            alert("User Name is empty");
+            return false;
+        }
+        if (ps.length == "") {
+            alert("Password field is empty");
+            return false;
+        }
+    }
+}
+
+function login() {
+    var log = document.getElementById('log');
+    log.style.display = 'block';
 }

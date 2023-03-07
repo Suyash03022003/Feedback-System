@@ -14,7 +14,7 @@
 <body>
   <div class="nav">
     <div class="img">
-      <img id="img" src="images/bitlogo.jpg" alt="BIT Logo">
+      <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">
     </div>
     <h2 id="heading">Student Feedback System</h2>
     <div class="links" id="links">
@@ -28,7 +28,7 @@
       <ul>
         <li><a href="ManageUser.php">Manage User</a></li>
         <li><a href="Subject.php">Subject</a></li>
-        <li><a href="generatefeedback.php">Generate Feedback</a></li>
+        <li><a href="gfeedback.php">Generate Feedback</a></li>
         <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>
     </div>
@@ -68,7 +68,7 @@
           <div class="down-card">
             <img src="images/gfeedback.jpg" alt="Manage User">
             <h3>Generate Feedback</h3>
-            <a href="generatefeedback.php">
+            <a href="gfeedback.php">
               <div class="view">
                 <button>View</button>
               </div>
