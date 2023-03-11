@@ -1,9 +1,11 @@
 <?php
 
 include('connect.php');
+$query = "select * from login";
+$query1 = "select * from faculty";
+$result = mysqli_query($conn, $query);
 
 if (isset($_POST["submit"])) {
-
   if ($_FILES['file']['name']) {
     $filename = explode(".", $_FILES['file']['name']);
     if ($filename[1] == 'csv') {
@@ -18,17 +20,16 @@ if (isset($_POST["submit"])) {
         $query = "INSERT into login (fname, lname, username, category, email, password) values('$item1','$item2','$item3','$item4','$item5','$item6')";
         mysqli_query($conn, $query);
       }
-      fclose($handle);
-      
+      fclose($handle);      
     }
   }
 }
-?>
 
+?>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8">  
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manage User</title>
@@ -80,27 +81,62 @@ if (isset($_POST["submit"])) {
       <br>
       <p class="s1">Dashboard/ <span>Manage User</span></p>
       <br>
-      <div class="User">
-        <!-- <div class="Filter">
-          <div>
-            <label for="User">Select User:</label>
-            <select name="User" id="User">
-              <option value="Principal">Principal</option>
-              <option value="Teacher">Teacher</option>
-              <option value="Student">Student</option>
-            </select>
-            <label for="Branch" id="Branch">Select Branch:</label>
-            <select name="User" id="User">
-              <option value="Principal">CE</option>
-              <option value="Teacher">EE</option>
-              <option value="Student">ME</option>
-              <option value="Student">Civil</option>
-            </select>
-          </div>
-        </div> -->
 
+      <form action="#" method="POST">
+          <div>
+            <label>FIRST NAME</label>
+            <input type="text" name="FNAME"/>
+          </div>
+          <div>
+            <label>LAST NAME</label>
+            <input type="text" name="LNAME"/>
+          </div>
+          <div>
+            <label>CONTACT</label>
+            <input type="text" name="CONTACT"/>
+          </div>
+          <div>
+            <label>CATEGORY</label>
+            <div>
+              <select name="CATEGORY">
+                <option value="Not Selected">SELECT</option>
+                <option value="TEACHER">TEACHER</option>
+                <option value="HOD">HOD</option>
+                <option value="PRINCIPAL">PRINCIPAL</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label >EMAIL</label>
+            <input type="text" name="EMAIL"/>
+          </div>
+          <div>
+            <label>DEPARTMENT</label>
+            <div>
+              <select name="DEPARTMENT">
+                <option value="Not Selected">SELECT</option>
+                <option value="COMPUTER">COMPUTER</option>
+                <option value="ELECTRICAL">ELECTRICAL</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="MECHANICAL">MECHANICAL</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label >USERNAME</label>
+            <input type="text" name="USERNAME"/>
+          </div>
+          <div>
+            <label>PASSWORD</label>
+            <input type="text" name="PASSWORD"/>
+          </div>  
+           <input type="submit" name="submit1">
+          </form>          
+          <button class="adduser" onclick="login()">Import CSV</button>
+
+      <div class="User">
         <div class="options">
-          <div class="option" id="option">
+          <!-- <div class="option" id="option">
             <p class="head">Year:</p>
             <p class="dropdown" id="dropdown1">Select</p>
             <div class="drop" id="drop">
@@ -109,7 +145,7 @@ if (isset($_POST["submit"])) {
               <p onclick="clicked1('III')">III</p>
               <p onclick="clicked1('IV')">IV</p>
             </div>
-          </div>
+          </div> -->
           <div class="option" id="option">
             <p class="head">Branch:</p>
             <p class="dropdown" id="dropdown2">Select</p>
@@ -120,64 +156,56 @@ if (isset($_POST["submit"])) {
               <p onclick="clicked2('Civil')">Civil</p>
             </div>
           </div>
+          <div class="option" id="option">
+            <p class="head">Category:</p>
+            <p class="dropdown" id="dropdown3">Select</p>
+            <div class="drop" id="drop">
+              <p onclick="clicked3('Teacher')">Teacher</p>
+              <p onclick="clicked3('Student')">Student</p>
+            </div>
+          </div>
+         
         </div>
 
-        <table>
+        <table class="tablecontent" >
+          <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th colspan="2">Action</th>
-          </tr>
+          <th>SR NO.</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>USERNAME</th>
+            <th>EMAIL</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+          </tr >
+          </thead>
+          <tbody>
           <tr>
-            <td>ABC</td>
-            <td>abc@gmail.com</td>
-            <td>7559475990</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
-          <tr>
-            <td>DEF</td>
-            <td>def@gmail.com</td>
-            <td>7741856385</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
-          <tr>
-            <td>GHI</td>
-            <td>ghi@gmail.com</td>
-            <td>9850432251</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
-          <tr>
-            <td>HIJ</td>
-            <td>hij@gmail.com</td>
-            <td>8483024851</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
-          <tr>
-            <td>KLM</td>
-            <td>klm@gmail.com</td>
-            <td>9852432251</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
-          <tr>
-            <td>XYZ</td>
-            <td>xyz@gmail.com</td>
-            <td>8486024852</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
+            <?php
+              while ($row = mysqli_fetch_assoc($result))
+              {
+                ?>
+                <td><?php echo $row['id'];?></td>
+                 <td><?php echo $row['fname'];?></td>
+                 <td><?php echo $row['lname'];?></td>
+                 <td><?php echo $row['username'];?></td>                
+                 <td><?php echo $row['email'];?></td>                
+                 <!-- <td><a href="#" name="delete"><img src= images/edit.png width="10" height="20"> </a></td> -->
+                 <td><button type="submit" name="delete" value="<?=$row['fname'];?>">Delete</button></td>
+                 <!-- <td><img src= images/delete.png width="20" height="20"></td> -->
+                </tr>
+                </tbody> 
+                <?php
+                }
+              ?>
         </table>
-        <button class="adduser" onclick="login()">Add User</button>
       </div>
     </div>
     <script>
       var dropdown = document.getElementById("dropdown1");
       var dropdown = document.getElementById("dropdown2");
+      var dropdown = document.getElementById("dropdown3");
+
 
       function clicked1(char) {
         dropdown1.innerHTML = char;
@@ -187,11 +215,40 @@ if (isset($_POST["submit"])) {
         dropdown2.innerHTML = char;
       }
 
+      function clicked3(char) {
+        dropdown3.innerHTML = char;
+      }
+
       function login() {
         var log = document.getElementById('log');
         log.style.display = 'block';
       }
     </script>
 </body>
-
 </html>
+<?php
+if($_POST['submit1'])
+{
+  $FNAME = $_POST['FNAME'];
+  $LNAME = $_POST['LNAME'];
+  $CONTACT = $_POST['CONTACT'];
+  $CATEGORY = $_POST['CATEGORY'];
+  $EMAIL = $_POST['EMAIL'];
+  $DEPARTMENT = $_POST['DEPARTMENT'];
+  $USERNAME = $_POST['USERNAME'];
+  $PASSWORD = $_POST['PASSWORD'];
+  $ans = "INSERT INTO faculty (FNAME, LNAME, CONTACT,CATEGORY, EMAIL, DEPARTMENT, USERNAME, PASSWORD) values('$FNAME','$LNAME', '$CONTACT','$CATEGORY','$EMAIL','$DEPARTMENT','$USERNAME','$PASSWORD')";
+   $data = mysqli_query($conn, $ans);
+
+   if($data){
+    $ans1 = "INSERT INTO login (fname, lname, username,category, email, password) values('$FNAME','$LNAME', '$USERNAME','$CATEGORY','$EMAIL','$PASSWORD')";
+    $data1 = mysqli_query($conn, $ans1);
+   }
+}
+
+if($_POST['delete']){
+  $fname = $_POST['fname'];
+  $delete = "DELETE FROM login WHERE fname=' $fname'";
+  $data2 = mysqli_query($conn, $delete);
+}
+?>

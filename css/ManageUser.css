@@ -162,34 +162,42 @@ h2 {
   color: white;
 }
 
-table {
-  font-family: arial, sans-serif;
+.tablecontent{
   border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9 em;
   width: 100%;
-  margin-top: 20px;
-  padding-top: 100%;
+  
 }
 
-td,
-th {
-  border: 1px solid #4a4646;
+.tablecontent thead tr{
+  background-color: #0a223d;
+  color: white;
+  text-align: left;
+}
+
+.tablecontent th{
   text-align: center;
-  padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+.tablecontent th,
+.tablecontent td{
+  border-bottom: 7px solid rgb(208, 221, 234);
+}
+
+.tablecontent tbody tr{
+  background-color: #e8f3fc;
+
 }
 
 .adduser {
+  margin-left: 45%;
   font-size: 18px;
   background-color: #1B81BF;
   border: none;
   padding: 12px;
   color: white;
   border-radius: 10px;
-  margin-left: 89%;
-  margin-top: 2%;
 }
 
 .adduser:hover {
@@ -206,12 +214,12 @@ tr:nth-child(even) {
 
 .option {
   display: inline-block;
-  margin: 15px 5px;
-  border-radius: 5px;
-  padding: 10px;
+  margin: 7px 2px;
+  border-radius: 3px;
+  padding: 5px;
   color: white;
   background-color: rgba(41, 87, 137, 0.6);
-  width: 23%;
+  width: 20%;
 }
 
 .drop {
@@ -332,4 +340,38 @@ form a {
     to {
         transform: scale(1)
     }
+}
+
+form{
+  font-size: 20px;;
+}
+input[type=text] {
+	width: 35%;
+	margin: 8px 0;
+	padding: 7px;
+	display: inline-block;
+	border: 2px solid #1B81BF;
+	box-sizing: border-box;
+}
+
+#user{
+  width: 35%;
+	margin: 8px 0;
+	padding: 7px;
+	display: inline-block;
+	border: 2px solid #1B81BF;
+	box-sizing: border-box;
+}
+button{
+  font-size: 18px;
+  background-color: #1B81BF;
+  border: none;
+  padding: 12px;
+  color: white;
+  border-radius: 10px;
+}
+button:hover{
+  background-color: #428BCA;
+  transform: scale(1.02);
+  transition: 0.4s;
 }
