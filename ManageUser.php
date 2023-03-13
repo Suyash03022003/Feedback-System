@@ -137,16 +137,6 @@ if (isset($_POST["submit"])) {
 
       <div class="User">
         <div class="options">
-          <!-- <div class="option" id="option">
-            <p class="head">Year:</p>
-            <p class="dropdown" id="dropdown1">Select</p>
-            <div class="drop" id="drop">
-              <p onclick="clicked1('I')">I</p>
-              <p onclick="clicked1('II')">II</p>
-              <p onclick="clicked1('III')">III</p>
-              <p onclick="clicked1('IV')">IV</p>
-            </div>
-          </div> -->
           <div class="option" id="option">
             <p class="head">Branch:</p>
             <p class="dropdown" id="dropdown2">Select</p>

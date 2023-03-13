@@ -29,7 +29,7 @@
     <div class="left">
       <h1>TEACHER</h1>
         <ul>
-          <li><a href="generatefeedback.html">Generate CES</a></li>
+          <li><a href="generatefeedback.php">Generate CES</a></li>
           <li><a href="#">View Feedback</a></li>
       </ul>
     </div>
@@ -44,7 +44,7 @@
           <div class="up-card">
             <img src="/images/ManageUser.png" alt="Manage User">
             <h3>Generate CES</h3>
-            <a href="generatefeedback.html">
+            <a href="generatefeedback.php">
               <div class="view">
                 <button>View</button>
               </div>
