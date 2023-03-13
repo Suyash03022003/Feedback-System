@@ -1,6 +1,32 @@
 <?php
     session_start();
     require 'connect.php';
+    if(isset($_POST['Update'])){
+      $fname = $_POST['fname'];
+      $FNAME = $_POST['FNAME'];
+      $LNAME = $_POST['LNAME'];
+      $CONTACT = $_POST['CONTACT'];
+      $CATEGORY = $_POST['CATEGORY'];
+      $EMAIL = $_POST['EMAIL'];
+      $DEPARTMENT = $_POST['DEPARTMENT'];
+      $USERNAME = $_POST['USERNAME'];
+      $PASSWORD = $_POST['PASSWORD'];
+
+      $query ="UPDATE faculty SET FNAME = '$FNAME', LNAME = '$LNAME', CONTACT = '$CONTACT', CATEGORY = '$CATEGORY', EMAIL = '$EMAIL', DEPARTMENT = '$DEPARTMENT', USERNAME = '$USERNAME', PASSWORD='$PASSWORD' WHERE FNAME ='$fname' ";
+      $query_run = mysqli_query($conn,$query);
+
+      if($query_run){
+        $_SESSION['message'] = "User Added Successfully";
+        header("Location: ManageUser.php");
+        exit(0);
+      }
+      else{
+        $_SESSION['message'] = "User Not Added";
+        header("Location: ManageUser.php");
+        exit(0);
+      }
+    }
+
     if(isset($_POST['submit'])){
         $FNAME = $_POST['FNAME'];
         $LNAME = $_POST['LNAME'];
