@@ -3,7 +3,7 @@ session_start();
 include('connect.php');
 $query = "select * from login";
 $query1 = "select * from faculty";
-$result = mysqli_query($conn, $query);
+$result = mysqli_query($conn, $query1);
 
 if (isset($_POST["submit"])) {
   if ($_FILES['file']['name']) {
@@ -151,36 +151,36 @@ if (isset($_POST["submit"])) {
 
       <div class="User">
 
-        <table class="tablecontent">
+      <table class="tablecontent" >
           <thead>
-            <tr>
-              <th>SR NO.</th>
-              <th>FIRST NAME</th>
-              <th>LAST NAME</th>
-              <th>USERNAME</th>
-              <th>EMAIL</th>
-              <th>EDIT</th>
-              <th>DELETE</th>
-            </tr>
+          <tr>
+          <th>SR NO.</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>USERNAME</th>
+            <th>EMAIL</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+          </tr >
           </thead>
           <tbody>
-            <tr>
-              <?php
-              while ($row = mysqli_fetch_assoc($result)) {
+          <tr>
+            <?php
+              while ($row = mysqli_fetch_assoc($result))
+              {
+                ?>
+                 <td><?php echo $row['id'];?></td>
+                 <td><?php echo $row['FNAME'];?></td>
+                 <td><?php echo $row['LNAME'];?></td>
+                 <td><?php echo $row['USERNAME'];?></td>                
+                 <td><?php echo $row['EMAIL'];?></td>                
+                 <td><a href="edit.php?fname=<?=$row['FNAME'];?>" name="edit"><img src= images/edit.png width="10" height="20"> </a></td>
+                 <td><a href="ManageUser.php?FNAME=<?=$row['FNAME'];?>" name="delete"><img src= images/delete.png width="20" height="20"></a></td>
+                </tr>
+                </tbody> 
+                <?php
+                }
               ?>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['fname']; ?></td>
-                <td><?php echo $row['lname']; ?></td>
-                <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['email']; ?></td>
-                <td><a href="edit.php?fname=<?= $row['fname']; ?>" name="edit"><img src=images/edit.png width="10" height="20"> </a></td>
-                <td><button class="delete" type="submit" name="delete" value="<?= $row['fname']; ?>">Delete</button></td>
-                <!-- <td><img src= images/delete.png width="20" height="20"></td> -->
-            </tr>
-          </tbody>
-        <?php
-              }
-        ?>
         </table>
       </div>
     </div>
