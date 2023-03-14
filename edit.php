@@ -21,24 +21,6 @@ $query1 = "select * from faculty";
 <body>
   
     <?php
-
-    if(isset($_GET['LNAME'])){
-      $LNAME = $_POST['LNAME'];
-      $query = "DELETE FROM faculty WHERE LNAME = '$LNAME' "; 
-      $query_run = mysqli_query($conn, $query);
-
-      if($query_run){
-        $_SESSION['message'] = "User deleted Successfully";
-        header("Location: ManageUser.php");
-        exit(0);
-      }
-      else{
-        $_SESSION['message'] = "User Not deleted";
-        header("Location: ManageUser.php");
-        exit(0);
-      }
-    }
-
     if(isset($_GET['fname'])){
        $fname = mysqli_real_escape_string($conn, $_GET['fname']);
        $query = "SELECT * FROM faculty WHERE fname= '$fname' ";

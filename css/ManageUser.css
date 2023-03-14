@@ -25,7 +25,6 @@ h2 {
 .tablecontent thead tr{
   background-color: #0a223d;
   color: white;
-  text-align: left;
 }
 
 .tablecontent th{
@@ -34,6 +33,7 @@ h2 {
 
 .tablecontent th,
 .tablecontent td{
+  text-align: center;
   border-bottom: 7px solid rgb(208, 221, 234);
 }
 
