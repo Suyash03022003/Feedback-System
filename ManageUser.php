@@ -174,7 +174,7 @@ if (isset($_POST["submit"])) {
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td><a href="edit.php?fname=<?= $row['fname']; ?>" name="edit"><img src=images/edit.png width="10" height="20"> </a></td>
-                <td><button type="submit" name="delete" value="<?= $row['fname']; ?>">Delete</button></td>
+                <td><button class="delete" type="submit" name="delete" value="<?= $row['fname']; ?>">Delete</button></td>
                 <!-- <td><img src= images/delete.png width="20" height="20"></td> -->
             </tr>
           </tbody>

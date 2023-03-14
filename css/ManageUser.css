@@ -207,7 +207,7 @@ input[type=text] {
   align-items: center;
   justify-content: center;
 }
-button{
+.delete{
   font-size: 18px;
   background-color: #1B81BF;
   border: none;
@@ -215,7 +215,7 @@ button{
   color: white;
   border-radius: 10px;
 }
-button:hover{
+.delete:hover{
   background-color: #428BCA;
   transform: scale(1.02);
   transition: 0.4s;
@@ -272,6 +272,12 @@ button:hover{
   color: white;
   margin: 30px 0 10px 0; 
   border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;;
+}
+
+.add_user:hover {
+  transform: scale(1.05, 1.05);
 }
 
 .select_user p:hover {
