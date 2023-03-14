@@ -2,41 +2,44 @@
   color: white;
 }
 
-.right>p {
-    margin-top: 10px;
-    font-size: 17px;
-    padding: 15px;
-    background-color: #F5F5F5;
-    color: #428BCA;
-}
-
 span {
     color: rgb(89, 89, 89);
 }
 
 .options {
-    margin-top: 25px;
-    padding-left: 12px;
+    margin: 35px 0;
     width: 100%;
-    background-color: #0a223d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
 }
 
 .option {
-    display: inline-block;
-    margin: 15px 5px;
-    border-radius: 5px;
     padding: 10px;
     color: white;
-    background-color: rgba(41, 87, 137, 0.6);
-    width: 23%;
+    background-color: #0563af;
+    width: 190px;
 }
 
+.content {
+    font-size: 16px;
+    background-color: transparent;
+    border: 0;
+    color: white;
+}
+
+#option2, #option3, #option4 {
+    opacity: 0;
+} 
+
 .drop {
+    border-top: 2px solid white;
     position: absolute;
-    background-color: #008CFF;
+    background-color: #0563af;
     display: none;
     margin: 10px -10px;
-    width: 17%;
+    width: 190px;
     z-index: 1000;
     transition: 0.5s;
 }
@@ -48,6 +51,7 @@ span {
 
 .drop p {
     padding: 10px;
+    border-top: 1px solid white;
 }
 
 .drop p:hover {
@@ -55,20 +59,16 @@ span {
     background-color: #F5F5F5;
 } 
 
-.head {
-    color: #008CFF;
-    margin-bottom: 2px;
-}
-
 .questions {
     margin: 20px 20px;
+    opacity: 0;
 }
 
 .question {
     font-size: 20px;
 }
 
-input {
+.radio {
     margin: 20px 20px 30px 30px;
 }
 
