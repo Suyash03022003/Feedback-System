@@ -14,7 +14,8 @@ $query1 = "select * from faculty";
   <link rel="stylesheet" href="css/edit.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +31,7 @@ $query1 = "select * from faculty";
             ?>
  
       <form action="Action.php" method="POST">
-        <input type="hidden" name="fname" value= "<?=$fname?>"
+        <input type="hidden" name="fname" value= "<?=$fname?>">
           <div>
             <label>FIRST NAME</label>
             <input type="text" name="FNAME" value = "<?= $user['FNAME']?>" required>

@@ -1,17 +1,7 @@
-
-p {
-  font-size: 20px;
-  padding: 12px;
-  background-color: #F5F5F5;
-  color: #428BCA;
-}
-
 .card {
   width: 27%;
-  margin-left: 100px;
   display: inline-block;
   margin-top: 5px;
-  padding-left: 70px;
 }
 
 .up-card {
@@ -24,6 +14,7 @@ p {
   border-top: 2px solid #5c618d;
   border-left: 2px solid #5c618d;
   border-radius: 15px;
+  padding: 10px;
 }
 
 .up-card:hover {
@@ -38,6 +29,7 @@ p {
 .down-card {
   background-color: #F5F5F5;
   box-sizing: border-box;
+  padding: 10px;
   width: 250px;
   height: 220px;
   margin-top: 35px;
@@ -66,13 +58,12 @@ p {
 }
 
 button {
-  margin-left: 85px;
   background-color: #428BCA;
   border: none;
   color: rgb(255, 255, 255);
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 15px;
   cursor: pointer;
   padding: 8px;
   border-radius: 10px;
@@ -91,14 +82,23 @@ button:hover {
   transition: all 1s ease;
 }
 
+button img {
+  width: 30%;
+  height: 30%;
+}
+
 h3 {
   text-align: center;
   padding-top: 12px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
-.card img {
+.cards {
+  text-align: center;
+}
+
+.cards img {
   width: 40%;
-  margin-left: 30%;
   margin-top: 5%;
 }
+

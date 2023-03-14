@@ -37,7 +37,8 @@ if (isset($_POST["submit"])) {
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -114,9 +115,9 @@ if (isset($_POST["submit"])) {
   </div>
   <div class="nav">
     <div class="img">
-      <img id="img" src="images/bitlogo.jpg" alt="BIT Logo">
+      <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">
     </div>
-    <h2 id="heading">Student Feedback System</h2>
+    <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
       <a href="index.html" class="link">Home</a>
       <a href="#" class="link">About Us</a>

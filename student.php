@@ -5,23 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student</title>
-  <link rel="stylesheet" href="css/admin.css">
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/student.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="nav">
     <div class="img">
-      <img id="img" src="images/bitlogo.jpg" alt="BIT Logo">
+      <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">
     </div>
-    <h2 id="heading">Student Feedback System</h2>
-    <div class="links" id="links">
-    <p class="para">X_Y_Z</p>
-      <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
-    </div>
+    <h2 id="heading">Bajaj Institute of Technology</h2>
   </div>
   <div class="spaces"></div>
   <div class="full">
@@ -43,7 +40,7 @@
       <div class="cards">
         <div class="card">
           <div class="up-card">
-            <img src="/images/ManageUser.png" alt="Manage User">
+            <img src="images/ManageUser.png" alt="Manage User">
             <h3>Course Exit Survey</h3>
             <a href="#">
               <div class="view">
@@ -55,7 +52,7 @@
 
         <div class="card">
           <div class="up-card">
-            <img src="/images/Subject.png" alt="Manage User">
+            <img src="images/Subject.png" alt="Manage User">
             <h3>Faculty</h3>
             <a href="#">
               <div class="view">
@@ -67,7 +64,7 @@
 
         <div class="card">
           <div class="down-card">
-            <img src="/images/gfeedback.jpg" alt="Manage User">
+            <img src="images/gfeedback.jpg" alt="Manage User">
             <h3>Workshop/Seminar</h3>
             <a href="#">
               <div class="view">
@@ -79,7 +76,7 @@
 
         <div class="card">
           <div class="down-card">
-            <img src="/images/vfeedback.jpg" alt="Manage User">
+            <img src="images/vfeedback.jpg" alt="Manage User">
             <h3>Value Added Program</h3>
             <a href="#">
               <div class="view">
