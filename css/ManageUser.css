@@ -1,5 +1,149 @@
-.para{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Jost', sans-serif;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  background-color: #E4EDF9;
+}
+
+.nav {
+  background-color: #102543;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  height: 70px;
+  box-shadow: 0px 1px 5px #102543;
+  transition: 0.5s;
+}
+
+.nav .img {
+  transition: 0.5s;
+  margin-left: 2%;
+  display: flex;
+  padding: 1%;
+  float: left;
+  width: 8%;
+  align-items: center;
+}
+
+#img {
+  transition: 0.5s;
+}
+
+.nav .img img {
+  width: 60%;
+}
+
+.nav h2 {
+  transition: 0.5s;
   color: white;
+  display: flex;
+  height: 70px;
+  float: left;
+  width: 30%;
+  align-items: center;
+  padding: 1%;
+}
+
+.nav .links {
+  margin-right: 5%;
+  transition: 0.5s;
+  display: flex;
+  height: 70px;
+  float: left;
+  width: 55%;
+  align-items: center;
+  justify-content: right;
+  gap: 4%;
+}
+
+.links a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  transition: 0.2s;
+}
+
+.links .active {
+  font-size: 23px;
+}
+
+.links .active,
+.links a:hover {
+  font-weight: bold;
+}
+
+.spaces {
+  height: 70px;
+}
+
+.full {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  margin: 0px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.left {
+  height: 1000px;
+  background-color: #102543;
+  color: white;
+  border-top: 2px solid #E4EDF9;
+  box-shadow: 1px 0px 5px #102543;
+}
+
+.left h1 {
+  margin: 10% 5%;
+  text-decoration: underline;
+}
+
+.left ul {
+  list-style-type: none;
+  margin: 10% 7%;
+}
+
+.left li {
+  cursor: pointer;
+  font-size: 21px;
+  margin-top: 7%;
+  transition: 0.5s;
+}
+
+.left li:hover {
+  transform: scale(1.02, 1.02);
+}
+
+.left li a {
+  text-decoration: none;
+  color: white;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 21px;
+}
+
+a:hover .active link {
+  font-size: 21px;
+  padding: 3px;
+  padding-bottom: 8px;
+  border-bottom-style: solid;
+  border-bottom-width: 3.1px;
+  transform: scale(1);
+  transition: all 1s ease;
+}
+
+.right {
+  padding: 30px;
+  width: 100%;
 }
 
 .right>p {
@@ -107,7 +251,7 @@ h2 {
   margin-bottom: 2px;
 }
 
-.login {
+.csv {
     position: fixed;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
@@ -199,24 +343,17 @@ form a {
 }
 
 form{
-  font-size: 20px;;
+  font-size: 20px;
 }
 input[type=text] {
-	width: 35%;
-	margin: 8px 0;
+	width: 30%;
 	padding: 7px;
-	display: inline-block;
 	border: 2px solid #1B81BF;
-	box-sizing: border-box;
 }
-
-#user{
-  width: 35%;
-	margin: 8px 0;
-	padding: 7px;
-	display: inline-block;
-	border: 2px solid #1B81BF;
-	box-sizing: border-box;
+.add_faculty .form .frm div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 button{
   font-size: 18px;
@@ -230,4 +367,93 @@ button:hover{
   background-color: #428BCA;
   transform: scale(1.02);
   transition: 0.4s;
+}
+
+.select {
+  width: 100%;
+}
+
+.select_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: 0.4s;
+}
+
+.display_faculty {
+  border-right: 1px solid #000;
+  border-bottom: 2px solid black;
+  padding: 5px 30px 5px 30px;
+  text-align: right;
+  font-size: 20px;
+  width: 40%;
+  cursor: pointer;
+}
+
+.display_parent {
+  border-left: 1px solid #000;
+  border-bottom: 2px solid black;
+  padding: 5px 30px 5px 30px;
+  text-align: left;
+  font-size: 20px;
+  width: 40%;
+  cursor: pointer;
+}
+
+.display_student {
+  padding: 5px 30px 5px 30px;
+  width: 20%;
+  font-size: 20px;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+.add_user {
+  font-size: 18px;
+  background-color: #1B81BF;
+  border: none;
+  padding: 10px;
+  color: white;
+  margin: 30px 0 10px 0; 
+  border-radius: 10px;
+}
+
+.select_user p:hover {
+  font-weight: bold;
+}
+
+.add_faculty {
+  position: fixed;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: none;
+}
+
+.add_faculty .form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_faculty .frm {
+  width: 70%;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px #555;
+  position: relative;
+}
+
+.active {
+  font-weight: bold;
 }
