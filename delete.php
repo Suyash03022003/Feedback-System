@@ -2,10 +2,10 @@
 session_start();
 include('connect.php');
 
-if(isset($_GET['FNAME'])){
-$FNAME = $_GET['FNAME'];
+if(isset($_GET['EMAIL'])){
+$EMAIL = $_GET['EMAIL'];
 
-$query = "DELETE FROM faculty WHERE FNAME = '$FNAME'";
+$query = "DELETE FROM faculty WHERE EMAIL = '$EMAIL'";
 $query_run = mysqli_query($conn, $query); 
 
 if($query_run){
