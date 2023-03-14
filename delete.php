@@ -5,7 +5,7 @@ include('connect.php');
 if(isset($_GET['FNAME'])){
 $FNAME = $_GET['FNAME'];
 
-$query = "DELETE FROM faculty WHERE FNAME = $FNAME";
+$query = "DELETE FROM faculty WHERE FNAME = '$FNAME'";
 $query_run = mysqli_query($conn, $query); 
 
 if($query_run){
