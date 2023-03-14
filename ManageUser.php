@@ -34,6 +34,7 @@ if (isset($_POST["submit"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manage User</title>
   <link rel="stylesheet" href="css/ManageUser.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/common.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
@@ -59,9 +60,8 @@ if (isset($_POST["submit"])) {
     </div>
     <h2 id="heading">Student Feedback System</h2>
     <div class="links" id="links">
-      <a href="index.html" class="link">Home</a>
-      <a href="#" class="link">About Us</a>
-      <a href="#" class="link">Contact Us</a>
+      <p class="para">X_Y_Z</p>
+      
       <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
     </div>
   </div>
@@ -70,10 +70,10 @@ if (isset($_POST["submit"])) {
     <div class="left">
       <h1>ADMIN</h1>
       <ul>
-        <li><a href="ManageUser.html">Manage User</a></li>
-        <li><a href="Subject.html">Subject</a></li>
-        <li><a href="GFeedback.html">Generate Feedback</a></li>
-        <li><a href="VFeedback.html">View Feedback</a></li>
+        <li><a href="ManageUser.php">Manage User</a></li>
+        <li><a href="Subject.php">Subject</a></li>
+        <li><a href="GFeedback.php">Generate Feedback</a></li>
+        <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>
     </div>
     <div class="right">

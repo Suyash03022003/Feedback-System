@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student</title>
   <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/common.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
@@ -18,9 +19,7 @@
     </div>
     <h2 id="heading">Student Feedback System</h2>
     <div class="links" id="links">
-      <a href="index.html" class="link">Home</a>
-      <a href="#" class="link">About Us</a>
-      <a href="#" class="link">Contact Us</a>
+    <p class="para">X_Y_Z</p>
       <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
     </div>
   </div>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/parent.css" />
+    <link rel="stylesheet" href="css/common.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,9 +22,7 @@
       </div>
       <h2 id="heading">Student Feedback System</h2>
       <div class="links" id="links">
-        <a href="index.html" class="link">Home</a>
-        <a href="#" class="link">About Us</a>
-        <a href="#" class="link">Contact Us</a>
+      <p class="para">X_Y_Z</p>
         <img
           src="images/user.png"
           alt="User"
@@ -36,7 +35,7 @@
       <div class="left">
         <h1>Parent</h1>
         <ul>
-          <li><a href="giveFeedback.html">Give Feedback</a></li>
+          <li><a href="giveFeedback.php">Give Feedback</a></li>
         </ul>
       </div>
 
@@ -52,7 +51,7 @@
             <div class="up-card">
               <img src="images/parent.png" alt="Manage User" />
               <h3>Give Feedback</h3>
-              <a href="giveFeedback.html">
+              <a href="giveFeedback.php">
                 <div class="view">
                   <button>View</button>
                 </div>
@@ -60,6 +59,7 @@
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </body>

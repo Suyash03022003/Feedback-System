@@ -1,4 +1,4 @@
-* {
+/* * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -122,6 +122,15 @@ transform: scale(1.02, 1.02);
 text-decoration: none;
 color: white;
 }
+
+.right {
+  background-color: #e4edf9;
+  position: initial;
+  padding: 30px;
+  color: rgb(5, 5, 5);
+} */
+
+
 a {
 color: rgb(255, 255, 255);
 text-decoration: none;
@@ -138,12 +147,7 @@ transform: scale(1);
 transition: all 1s ease;
 }
 
-.right {
-    background-color: #e4edf9;
-	  position: initial;
-	  padding: 30px;
-    color: rgb(5, 5, 5);
-}
+
 p{
     font-size: 20px;
     padding: 12px;

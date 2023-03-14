@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="first-dropdown" onchange="populateSecondDropdown()">
+        <option value="">--Select an option--</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+      </select>
+      
+      <select id="second-dropdown">
+        <option value="">--Please select an option above--</option>
+      </select>
+      
+</body>
+<script>
+    function populateSecondDropdown() {
+  // Get the selected value from the first dropdown
+  var selectedValue = document.getElementById("first-dropdown").value;
+  
+  // Get the second dropdown element
+  var secondDropdown = document.getElementById("second-dropdown");
+  
+  // Clear the second dropdown of any existing options
+  secondDropdown.innerHTML = "";
+  
+  // Populate the second dropdown based on the selected value
+  if (selectedValue === "option1") {
+    secondDropdown.innerHTML += "<option value='option1A'>Option 1A</option>";
+    secondDropdown.innerHTML += "<option value='option1B'>Option 1B</option>";
+  } else if (selectedValue === "option2") {
+    secondDropdown.innerHTML += "<option value='option2A'>Option 2A</option>";
+    secondDropdown.innerHTML += "<option value='option2B'>Option 2B</option>";
+  }
+}
+
+</script>
+</html>
