@@ -15,12 +15,7 @@ a:hover .active link {
   transform: scale(1);
   transition: all 1s ease;
 }
-p{
-    font-size: 20px;
-    padding: 12px;
-    background-color: #F5F5F5;
-    color: #428BCA;
-}
+
 form{
   font-size: 20px;;
 }
