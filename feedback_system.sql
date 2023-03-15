@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2023 at 05:09 PM
+-- Generation Time: Mar 15, 2023 at 09:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -129,18 +129,28 @@ CREATE TABLE `parents` (
 --
 
 CREATE TABLE `questions` (
-  `question id` int(100) NOT NULL,
-  `option 1` int(100) NOT NULL,
-  `mark 1` int(100) NOT NULL,
-  `option 2` int(100) NOT NULL,
-  `mark 2` int(100) NOT NULL,
-  `option 3` int(100) NOT NULL,
-  `mark 3` int(100) NOT NULL,
-  `option 4` int(100) NOT NULL,
-  `mark 4` int(100) NOT NULL,
-  `option 5` int(100) NOT NULL,
-  `mark 5` int(100) NOT NULL
+  `questionid` int(100) NOT NULL,
+  `question` text NOT NULL,
+  `questiontype` text NOT NULL,
+  `option1` text NOT NULL,
+  `mark1` int(10) DEFAULT 10,
+  `option2` text NOT NULL,
+  `mark2` int(10) NOT NULL DEFAULT 8,
+  `option3` text NOT NULL,
+  `mark3` int(10) NOT NULL DEFAULT 5,
+  `option4` text NOT NULL,
+  `mark4` int(10) NOT NULL DEFAULT 3,
+  `option5` text NOT NULL,
+  `mark5` int(10) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `option1`, `mark1`, `option2`, `mark2`, `option3`, `mark3`, `option4`, `mark4`, `option5`, `mark5`) VALUES
+(1, 'Does the teacher explain the principle/theory of experiment?', 'Radio', 'Excellent', 10, 'Very Good', 8, 'Good', 5, 'Good', 3, 'Good', 1),
+(2, 'dsjfhgsghfd', 'Text', 'a', 10, 'b', 8, 'c', 5, 'd', 3, 'e', 1);
 
 -- --------------------------------------------------------
 
@@ -212,7 +222,7 @@ ALTER TABLE `parents`
 -- Indexes for table `questions`
 --
 ALTER TABLE `questions`
-  ADD PRIMARY KEY (`question id`);
+  ADD PRIMARY KEY (`questionid`);
 
 --
 -- Indexes for table `responses`
@@ -241,12 +251,6 @@ ALTER TABLE `faculty`
 --
 ALTER TABLE `login`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
-
---
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `question id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `responses`
