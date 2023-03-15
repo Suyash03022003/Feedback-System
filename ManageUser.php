@@ -35,6 +35,7 @@ if (isset($_POST["submit"])) {
   <title>Manage User</title>
   <link rel="stylesheet" href="css/ManageUser.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/edit1.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -62,35 +63,35 @@ if (isset($_POST["submit"])) {
         <h2>Add User: </h2>
         <form action="Action.php" method="POST">
           <div>
-            <label>FIRST NAME</label>
+          <label>FIRST NAME&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="FNAME" required>
           </div>
           <div>
-            <label>LAST NAME</label>
+          <label>LAST NAME&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="LNAME" required>
           </div>
           <div>
-            <label>CONTACT</label>
+          <label>CONTACT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="CONTACT" required>
           </div>
-          <div>
-            <label>CATEGORY</label>
-            <div>
+          <div class="category">
+          <label>CATEGORY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            
               <select name="CATEGORY">
                 <option value="Not Selected">SELECT</option>
                 <option value="TEACHER">TEACHER</option>
                 <option value="HOD">HOD</option>
                 <option value="PRINCIPAL">PRINCIPAL</option>
               </select>
-            </div>
+            
           </div>
           <div>
-            <label>EMAIL</label>
+          <label >EMAIL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="EMAIL" required>
           </div>
-          <div>
-            <label>DEPARTMENT</label>
-            <div>
+          <div class="category">
+          <label>&nbsp;&nbsp;&nbsp;DEPARTMENT&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            
               <select name="DEPARTMENT">
                 <option value="Not Selected">SELECT</option>
                 <option value="COMPUTER">COMPUTER</option>
@@ -98,14 +99,14 @@ if (isset($_POST["submit"])) {
                 <option value="CIVIL">CIVIL</option>
                 <option value="MECHANICAL">MECHANICAL</option>
               </select>
-            </div>
+            
           </div>
           <div>
-            <label>USERNAME</label>
+          <label >USERNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="USERNAME" required>
           </div>
           <div>
-            <label>PASSWORD</label>
+          <label>PASSWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp</label>
             <input type="text" name="PASSWORD" required>
           </div>
           <input type="submit" name="submit">
