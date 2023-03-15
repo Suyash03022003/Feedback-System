@@ -79,6 +79,7 @@
                         </div>
                     </div>
                 </div>
+                <a href="AddQuestion.php"><div class="add">+</div></a>
                 <div class="subject_div">
                     <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ"></p>
                     <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS"></p>
@@ -153,7 +154,6 @@
                         <input type="radio" class="radio"name="question8"><span>Satisfactory</span>
                     </div>
                 </div>
-                <div class="add">+</div>
                 <input type="submit" value="Submit" name="submit1">
             </form>
         </div>
