@@ -32,36 +32,38 @@ $query1 = "select * from faculty";
  
       <form action="Action.php" method="POST">
         <input type="hidden" name="fname" value= "<?=$fname?>">
+        
           <div>
-            <label>FIRST NAME</label>
+            <label>FIRST NAME&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="FNAME" value = "<?= $user['FNAME']?>" required>
           </div>
           <div>
-            <label>LAST NAME</label>
+            <label>LAST NAME&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="LNAME" value = "<?= $user['LNAME']?>" required>
           </div>
           <div>
-            <label>CONTACT</label>
+            <label>CONTACT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="CONTACT" value = "<?= $user['CONTACT']?>"required>
           </div>
           <div>
-            <label>CATEGORY</label>
-            <div>
+            <label>CATEGORY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            
               <select name="CATEGORY">
-                <option value="Not Selected">SELECT</option>
-                <option value="TEACHER">TEACHER</option>
+                <option value="Not Selected">Select</option>
+                <option value="TEACHER">Teacher</option>
                 <option value="HOD">HOD</option>
-                <option value="PRINCIPAL">PRINCIPAL</option>
+                <option value="PRINCIPAL">Principal</option>
               </select>
-            </div>
-          </div>
-          <div>
-            <label >EMAIL</label>
+              
+            
+          </div >
+          <div class="email">
+            <label >EMAIL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="EMAIL" value = "<?= $user['EMAIL']?>"required>
           </div>
           <div>
-            <label>DEPARTMENT</label>
-            <div>
+            <label>DEPARTMENT&nbsp; :&nbsp;&nbsp;&nbsp;</label>
+           
               <select name="DEPARTMENT">
                 <option value="Not Selected">SELECT</option>
                 <option value="COMPUTER">COMPUTER</option>
@@ -69,17 +71,17 @@ $query1 = "select * from faculty";
                 <option value="CIVIL">CIVIL</option>
                 <option value="MECHANICAL">MECHANICAL</option>
               </select>
-            </div>
+            
           </div>
           <div>
-            <label >USERNAME</label>
+            <label >USERNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="USERNAME" value = "<?= $user['USERNAME']?>"required>
           </div>
           <div>
-            <label>PASSWORD</label>
+            <label>PASSWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp</label>
             <input type="text" name="PASSWORD" value = "<?= $user['PASSWORD']?>" required>
           </div>  
-           <button type="submit" name="Update">Update</button>
+           <button classtype="submit" name="Update">Update</button>
           </form> 
           
           <?php

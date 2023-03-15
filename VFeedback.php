@@ -36,13 +36,19 @@
       </ul>
     </div>
     <div class="right">
-      <h1>View Feedback</h1>
+      <h1>Types Of Feedback</h1>
       <br>
-      <p class="s1">Dashboard/ <span>View Feedback</span></p>
+      <p class="s1">Dashboard/ <span>Types of Feedback</span></p>
       <br>
       <br>
+      <a href=""><button>Analysis</button></a><br>
+      <a href="">Course Exit Survey  </a><br>
+      <a href="">PTM</a><br>
+      <a href="">Add On/ Vap</a><br>
+      <a href="">Seminar/Workshop</a>
     </div>
   </div>
+
 </body>
 
 </html>
