@@ -1,3 +1,9 @@
+<?php
+session_start();
+include('connect.php');
+$query = "select * from questions";
+$result = mysqli_query($conn, $query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -154,10 +160,29 @@
                         <input type="radio" class="radio"name="question8"><span>Satisfactory</span>
                     </div>
                 </div>
+
+                <?php
+              while ($row = mysqli_fetch_assoc($result))
+              {
+                ?>
+                <?php echo $row['questionid'];?> <?php echo $row['question'];?><br>
+                <?php echo $row['option1'];?><br>
+                <?php echo $row['option2'];?><br>
+                <?php echo $row['option3'];?><br>
+                <?php echo $row['option4'];?><br>
+                <?php echo $row['option5'];?> <br>               
+                 <br>
+                <?php
+                }
+              ?>
+
                 <input type="submit" value="Submit" name="submit1">
             </form>
         </div>
     </div>
+
+
+
     <script>
         var dropdown1 = document.getElementById("dropdown1");
         var dropdown2 = document.getElementById("dropdown2");
