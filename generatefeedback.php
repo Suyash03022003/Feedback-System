@@ -56,7 +56,7 @@ $result = mysqli_query($conn, $query);
                         </div>
                     </div>
                     <div class="option" id="option2">
-                    <input type="text" class="content" id="dropdown2" name="year" value="Select Year">
+                        <input type="text" class="content" id="dropdown2" name="year" value="Select Year">
                         <div class="drop" id="drop">
                             <p onclick="clicked2('I')">I</p>
                             <p onclick="clicked2('II')">II</p>
@@ -65,7 +65,7 @@ $result = mysqli_query($conn, $query);
                         </div>
                     </div>
                     <div class="option" id="option3">
-                    <input type="text" class="content" id="dropdown3" name="sem" value="Select Semester">
+                        <input type="text" class="content" id="dropdown3" name="sem" value="Select Semester">
                         <div class="drop" id="drop">
                             <p onclick="clicked3('I')">I</p>
                             <p onclick="clicked3('II')">II</p>
@@ -78,104 +78,34 @@ $result = mysqli_query($conn, $query);
                         </div>
                     </div>
                     <div class="option" id="option4">
-                    <input type="text" class="content" id="dropdown4" name="section" value="Select Section">
+                        <input type="text" class="content" id="dropdown4" name="section" value="Select Section">
                         <div class="drop" id="drop">
                             <p onclick="clicked4('A')">A</p>
                             <p onclick="clicked4('B')">B</p>
                         </div>
                     </div>
                 </div>
-                <a href="AddQuestion.php"><div class="add">+</div></a>
+                <a class="add_que" href="AddQuestion.php">
+                    <div class="add">+</div>
+                </a>
                 <div class="subject_div">
                     <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ"></p>
                     <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS"></p>
                 </div>
-                <div class="questions" id="questions">
-                    <div class="question">
-                        <img onclick="img(1)" src="images/editques.png" width="25px" height="auto"><span class="span">Does the teacher explain the principle/theory of experiment?</span><br>
-                        <input type="radio" class="radio"name="question1"><span>Excellent</span>
-                        <input type="radio" class="radio"name="question1"><span>Very Good</span>
-                        <input type="radio" class="radio"name="question1"><span>Good</span>
-                        <input type="radio" class="radio"name="question1"><span>Average</span>
-                        <input type="radio" class="radio"name="question1"><span>Poor</span>
-                    </div>
-                    <div class="question">
-                        <img onclick="img(2)" src="images/editques.png" width="25px" height="auto"><span class="span">Does the teacher demonstrate the experiment to be performed ?</span><br>
-                        <input type="radio" class="radio"name="question2"><span>Excellent</span>
-                        <input type="radio" class="radio"name="question2"><span>Very Good</span>
-                        <input type="radio" class="radio"name="question2"><span>Good</span>
-                        <input type="radio" class="radio"name="question2"><span>Average</span>
-                        <input type="radio" class="radio"name="question2"><span>Poor</span>
-
-                    </div>
-                    <div class="question">
-                        <img onclick="img()" src="images/editques.png" width="25px" height="auto"><span class="span">Is the teacher available in the lab all the time during practical ?</span><br>
-                        <input type="radio" class="radio"name="question3"><span>Excellent</span>
-                        <input type="radio" class="radio"name="question3"><span>Very Good</span>
-                        <input type="radio" class="radio"name="question3"><span>Good</span>
-                        <input type="radio" class="radio"name="question3"><span>Average</span>
-                        <input type="radio" class="radio"name="question3"><span>Poor</span>
-                    </div>
-                    <div class="question">
-                        <img onclick="img(4)" src="images/editques.png" width="25px" height="auto"><span class="span">Does the teacher observe continuously how all the groups are performing and suggest corrections ?</span><br>
-                        <input type="radio" class="radio"name="question4"><span>Excellent</span>
-                        <input type="radio" class="radio"name="question4"><span>Very Good</span>
-                        <input type="radio" class="radio"name="question4"><span>Good</span>
-                        <input type="radio" class="radio"name="question4"><span>Average</span>
-                        <input type="radio" class="radio"name="question4"><span>Poor</span>
-
-                    </div>
-                    <div class="question">
-                        <img onclick="img(5)" src="images/editques.png" width="25px" height="auto"><span class="span">Does the teacher Scrupoutously check your results and ananlysis ?</span><br>
-                        <input type="radio" class="radio"name="question5"><span>Excellent</span>
-                        <input type="radio" class="radio"name="question5"><span>Very Good</span>
-                        <input type="radio" class="radio"name="question5"><span>Good</span>
-                        <input type="radio" class="radio"name="question5"><span>Average</span>
-                        <input type="radio" class="radio"name="question5"><span>Poor</span>
-
-                    </div>
-                    <div class="question">
-                        <img onclick="img(6)" src="images/editques.png" width="25px" height="auto"><span class="span">Does the teacher evaluate your lab work and award grade/marks ?</span><br>
-                        <input type="radio" class="radio"name="question6"><span>Excellent</span>
-                        <input type="radio" class="radio"name="question6"><span>Very Good</span>
-                        <input type="radio" class="radio"name="question6"><span>Good</span>
-                        <input type="radio" class="radio"name="question6"><span>Average</span>
-                        <input type="radio" class="radio"name="question6"><span>Poor</span>
-
-                    </div>
-                    <div class="question">
-                        <img onclick="img(7)" src="images/editques.png" width="25px" height="auto"><span class="span">Does the teacher tells the applicability of practicals in Industires ?</span><br>
-                        <input type="radio" class="radio"name="question7"><span>Excellent</span>
-                        <input type="radio" class="radio"name="question7"><span>Very Good</span>
-                        <input type="radio" class="radio"name="question7"><span>Good</span>
-                        <input type="radio" class="radio"name="question7"><span>Average</span>
-                        <input type="radio" class="radio"name="question7"><span>Poor</span>
-                    </div>
-                    <div class="question">
-                        <img onclick="img(8)" src="images/editques.png" width="25px" height="auto"><span class="span">Overall rating of teacher</span><br>
-                        <input type="radio" class="radio"name="question8"><span>Outstanding</span>
-                        <input type="radio" class="radio"name="question8"><span>Very Good</span>
-                        <input type="radio" class="radio"name="question8"><span>Good</span>
-                        <input type="radio" class="radio"name="question8"><span>Average</span>
-                        <input type="radio" class="radio"name="question8"><span>Satisfactory</span>
-                    </div>
-                </div>
 
                 <?php
-              while ($row = mysqli_fetch_assoc($result))
-              {
+                while ($row = mysqli_fetch_assoc($result)) {
                 ?>
-                <?php echo $row['questionid'];?> <?php echo $row['question'];?><br>
-                <?php echo $row['option1'];?><br>
-                <?php echo $row['option2'];?><br>
-                <?php echo $row['option3'];?><br>
-                <?php echo $row['option4'];?><br>
-                <?php echo $row['option5'];?> <br>               
-                 <br>
+                    <?php echo $row['questionid']; ?> <?php echo $row['question']; ?><br>
+                    <?php echo $row['option1']; ?><br>
+                    <?php echo $row['option2']; ?><br>
+                    <?php echo $row['option3']; ?><br>
+                    <?php echo $row['option4']; ?><br>
+                    <?php echo $row['option5']; ?> <br>
+                    <br>
                 <?php
                 }
-              ?>
-
+                ?>
                 <input type="submit" value="Submit" name="submit1">
             </form>
         </div>

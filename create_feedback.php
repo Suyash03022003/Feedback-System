@@ -36,7 +36,7 @@
       $query_run = mysqli_query($conn, $query);
       
       if($query_run){
-           header("Location: Teacher.php");
+           header("Location: generatefeedback.php");
            exit(0);
          }
          else{
