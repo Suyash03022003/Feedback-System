@@ -41,11 +41,7 @@
       <p class="s1">Dashboard/ <span>Types of Feedback</span></p>
       <br>
       <br>
-      <a href=""><button>Analysis</button></a><br>
-      <a href="">Course Exit Survey  </a><br>
-      <a href="">PTM</a><br>
-      <a href="">Add On/ Vap</a><br>
-      <a href="">Seminar/Workshop</a>
+      
     </div>
   </div>
 
