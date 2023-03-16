@@ -2,6 +2,12 @@
     session_start();
     require 'connect.php';
 
+    if(isset($_POST['submit1'])){
+      $option = $_POST['option'];
+      $query = "INSERT INTO responses (answer) values('$option')";
+      $result = mysqli_query($conn, $query);
+    }
+
     if(isset($_POST['delete'])){
         $FNAME = $_POST['FNAME '];
         $query = "DELETE FROM faculty WHERE FNAME = '$FNAME' "; 
