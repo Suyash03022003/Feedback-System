@@ -21,7 +21,14 @@
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
       <p class="para">X_Y_Z</p>
-      <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
+      <div class="account_div">
+        <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
+        <div id="account" class="account">
+          <a >Profile</a><br>
+          <a >Help</a><br>
+          <a href="index.php">Log out</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="spaces"></div>
@@ -31,7 +38,7 @@
       <ul>
         <li><a href="ManageUser.php">Manage User</a></li>
         <li><a href="Subject.php">Subject</a></li>
-        <li><a href="gfeedback.php">Generate Feedback</a></li>
+        <li><a href="GFeedback.php">Generate Feedback</a></li>
         <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>
     </div>
@@ -98,6 +105,8 @@
   </div>
   </div>
   </div>
+  <script>
+  </script>
 </body>
 
 </html>

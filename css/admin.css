@@ -102,3 +102,25 @@ h3 {
   margin-top: 5%;
 }
 
+.account {
+  position: absolute;
+  z-index: 1000;
+  right: 0;
+  color: black;
+  display: none;
+  background-color: #102543;
+  margin-right: 2%;
+  margin-top: 0;
+  border: 1px solid white;
+  padding: 15px 25px 15px 25px;
+}
+
+.account:hover {
+  display: "block";
+}
+
+.account_div {
+  text-align: center;
+}
+
+.account_div:hover .account {display: block;}
