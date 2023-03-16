@@ -40,7 +40,7 @@ span {
     display: none;
     margin: 10px -10px;
     width: 190px;
-    z-index: 1000;
+    z-index: 100;
     transition: 0.5s;
 }
 
@@ -110,4 +110,9 @@ span input {
 .active {
     font-weight: bold;
     font-size: 20px;
+}
+
+.add_que {
+    text-decoration: none;
+    color: black;
 }
