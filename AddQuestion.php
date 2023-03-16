@@ -34,27 +34,27 @@
 
           <div>
             <label>Option 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="op1" required>
+            <input type="text" name="op1" >
           </div>
 
           <div>
             <label>Option 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="op2" required>
+            <input type="text" name="op2" >
           </div>
           
           <div>
             <label>Option 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="op3" required>
+            <input type="text" name="op3" >
           </div>
           
           <div>
             <label>Option 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="op4" required>
+            <input type="text" name="op4" >
           </div>
 
           <div>
             <label>Option 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="op5" required>
+            <input type="text" name="op5" >
           </div>
 
           <input  type="submit" value="Add" name="submit">

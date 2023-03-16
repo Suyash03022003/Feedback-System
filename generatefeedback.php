@@ -92,7 +92,8 @@ $result = mysqli_query($conn, $query);
                     <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ"></p>
                     <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS"></p>
                 </div>
-
+                <br>
+                <br>
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>

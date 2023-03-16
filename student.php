@@ -25,7 +25,7 @@
     <div class="left">
       <h1>STUDENT</h1>
       <ul>
-        <li><a href="#">Course Exit Survey</a></li>
+        <li><a href="CES.php">Course Exit Survey</a></li>
         <li><a href="#">Faculty</a></li>
         <li><a href="#">Workshop/Seminar</a></li>
         <li><a href="#">Value Added Program</a></li>
@@ -42,7 +42,7 @@
           <div class="up-card">
             <img src="images/ManageUser.png" alt="Manage User">
             <h3>Course Exit Survey</h3>
-            <a href="#">
+            <a href="CES.php">
               <div class="view">
                 <button>View</button>
               </div>
