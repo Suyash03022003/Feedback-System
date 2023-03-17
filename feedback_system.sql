@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2023 at 09:30 AM
+-- Generation Time: Mar 17, 2023 at 08:08 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -44,8 +44,7 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `FNAME`, `LNAME`, `CONTACT`, `CATEGORY`, `EMAIL`, `DEPARTMENT`, `USERNAME`, `PASSWORD`) VALUES
-(74, 'AMREEN123', 'khan', 2147483647, 'Not Selected', 'amreen.khan@bitwardha.ac.in', 'Not Selected', 'amreen123', '123'),
-(78, 'Amit', 'Manakshe', 2147483647, 'TEACHER', 'amit.manakshe@gmail.com', 'Not Selected', 'dads', '123');
+(74, 'AMREEN123', 'khan', 2147483647, 'Not Selected', 'amreen.khan@bitwardha.ac.in', 'Not Selected', 'amreen123', '123');
 
 -- --------------------------------------------------------
 
@@ -149,8 +148,12 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `option1`, `mark1`, `option2`, `mark2`, `option3`, `mark3`, `option4`, `mark4`, `option5`, `mark5`) VALUES
-(1, 'Does the teacher explain the principle/theory of experiment?', 'Radio', 'Excellent', 10, 'Very Good', 8, 'Good', 5, 'Good', 3, 'Good', 1),
-(2, 'dsjfhgsghfd', 'Text', 'a', 10, 'b', 8, 'c', 5, 'd', 3, 'e', 1);
+(1, 'Does the teacher explain the principle/theory of experiment?', 'Radio', 'Excellent', 10, 'Very Good', 8, 'Good', 5, 'Average', 3, 'Poor', 1),
+(2, 'The lectures, tests and assignments complemented each other?	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
+(3, 'The instructional materials (i.e., e-books, handouts, videos, lab manuals, multimedia) helped me better to understand CAD modeling techniques.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
+(4, 'The course was organized in such a manner, that helped me understand the underlying concepts in transformations, algorithms and CAD workstations.	\r\n	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
+(5, 'The course gave me the confidence to do more advanced work in Finite Element Analysis.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
+(6, 'The concepts of CAPP are understood and can be utilized to solve real life problems.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1);
 
 -- --------------------------------------------------------
 
@@ -159,14 +162,9 @@ INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `option1`, `m
 --
 
 CREATE TABLE `responses` (
-  `response id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `feedback id` int(11) NOT NULL,
-  `question 1` int(11) NOT NULL,
-  `question 2` int(11) NOT NULL,
-  `question 3` int(11) NOT NULL,
-  `question 4` int(11) NOT NULL,
-  `question 5` int(11) NOT NULL
+  `responseid` int(11) NOT NULL,
+  `feedbackid` int(11) NOT NULL,
+  `answer` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -228,7 +226,8 @@ ALTER TABLE `questions`
 -- Indexes for table `responses`
 --
 ALTER TABLE `responses`
-  ADD PRIMARY KEY (`response id`);
+  ADD PRIMARY KEY (`responseid`),
+  ADD KEY `feedback id` (`feedbackid`);
 
 --
 -- Indexes for table `students`
@@ -256,7 +255,17 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `responses`
 --
 ALTER TABLE `responses`
-  MODIFY `response id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `responseid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `responses`
+--
+ALTER TABLE `responses`
+  ADD CONSTRAINT `responses_ibfk_1` FOREIGN KEY (`feedbackid`) REFERENCES `questions` (`questionid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
