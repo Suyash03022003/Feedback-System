@@ -1,6 +1,13 @@
 .ces{
-    border: 1px black solid;
-    margin: 5% 25% 10% 25%;
+    /* border: 1px black solid; */
+    margin: 0% 2% 5% 0%;
     padding: 2% 5% 2% 5%;
     background-color: #E4EDF9;
 }
+h1{
+    top: 0;
+    padding-bottom: 20px;
+}
+span {
+    color: rgb(89, 89, 89);
+  }
