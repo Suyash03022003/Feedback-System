@@ -90,9 +90,7 @@ $result = mysqli_query($conn, $query);
                         <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ" disabled></p>
                         <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS" disabled></p>
                     </div>
-                    <a class="add_que">
-                        <div class="add" href="AddQuestion.php">+</div>
-                    </a>
+                    <a class="add" href="AddQuestion.php">+</a>
                     <br>
                     <br>
                     <?php

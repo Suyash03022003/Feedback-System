@@ -49,7 +49,7 @@
       <div class="cards">
         <div class="card">
           <div class="up-card">
-            <img src="/images/ManageUser.png" alt="Manage User">
+            <img src="images/ManageUser.png" alt="Manage User">
             <h3>Generate CES</h3>
             <a href="generatefeedback.php">
               <div class="view">
@@ -61,7 +61,7 @@
 
         <div class="card">
           <div class="up-card">
-            <img src="/images/Subject.png" alt="Manage User">
+            <img src="images/Subject.png" alt="Manage User">
             <h3>View Feedback</h3>
             <a href="#">
               <div class="view">
