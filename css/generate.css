@@ -61,7 +61,7 @@ span {
 
 .questions {
     margin: 20px 20px;
-    display: block;
+    display: none;
 }
 
 .question {
