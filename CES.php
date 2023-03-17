@@ -53,11 +53,11 @@ $result = mysqli_query($conn, $query);
     <div class="right">
       <h1>WELCOME</h1>
       <br>
-      <p>Dashboard</p>
+      <p class="s1">Dashboard/ <span>Course Exit Survey</span></p>
       <br>
       <br>
       <form action="Action.php" method="POST" class="ces">
-                <h1>Course Exit Survey :</h1>
+                
                 <?php
                 $i = 0;
                 while ($row = mysqli_fetch_assoc($result)) {
