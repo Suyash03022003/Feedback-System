@@ -21,6 +21,64 @@ $result = mysqli_query($conn, $query);
 </head>
 
 <body>
+    <div class="csv" id="log">
+        <div class="form">
+            <div class="frm animate">
+                <button onclick="document.getElementById('log').style.display='none'">&times;</button>
+                <h2>Add Question: </h2>
+                <form action="create_feedback.php" method="POST">
+                    <div>
+                        <label>Question Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
+                        <input type="int" name="quesid" required>
+                    </div>
+
+                    <div>
+                        <label>Question Type&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
+
+                        <select name="type">
+                            <option value="Not Selected">Select Question Type</option>
+                            <option value="Text">Text</option>
+                            <option value="Radio">Radio</option>
+                            <option value="Check box">Check box</option>
+                        </select>
+
+                    </div>
+
+                    <div>
+                        <label>Question :</label><br>
+                        <textarea name="ques" rows="4" cols="50"></textarea>
+                    </div>
+
+                    <div>
+                        <label>Option 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" name="op1">
+                    </div>
+
+                    <div>
+                        <label>Option 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" name="op2">
+                    </div>
+
+                    <div>
+                        <label>Option 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" name="op3">
+                    </div>
+
+                    <div>
+                        <label>Option 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" name="op4">
+                    </div>
+
+                    <div>
+                        <label>Option 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" name="op5">
+                    </div>
+
+                    <input type="submit" value="Add" name="submit">
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="nav">
         <div class="img">
             <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">
@@ -86,11 +144,11 @@ $result = mysqli_query($conn, $query);
                     </div>
                 </div>
                 <div class="questions" id="questions">
-                    <!-- <div class="subject_div">
+                    <div class="subject_div">
                         <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ" disabled></p>
                         <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS" disabled></p>
-                    </div> -->
-                    <a class="add" href="AddQuestion.php">+</a>
+                    </div>
+                    <a class="add" onclick="login()">+</a>
                     <br>
                     <br>
                     <?php
@@ -147,6 +205,11 @@ $result = mysqli_query($conn, $query);
             var ques = document.getElementsByClassName("span");
             var text = ques[number - 1].innerHTML;
             ques[number - 1].innerHTML = "<input type='text' value='" + text + "''>";
+        }
+
+        function login() {
+            var log = document.getElementById('log');
+            log.style.display = 'block';
         }
     </script>
 </body>
