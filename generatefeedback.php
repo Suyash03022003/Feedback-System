@@ -86,10 +86,10 @@ $result = mysqli_query($conn, $query);
                     </div>
                 </div>
                 <div class="questions" id="questions">
-                    <div class="subject_div">
+                    <!-- <div class="subject_div">
                         <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ" disabled></p>
                         <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS" disabled></p>
-                    </div>
+                    </div> -->
                     <a class="add" href="AddQuestion.php">+</a>
                     <br>
                     <br>
@@ -111,8 +111,6 @@ $result = mysqli_query($conn, $query);
             </form>
         </div>
     </div>
-
-
 
     <script>
         var dropdown1 = document.getElementById("dropdown1");
