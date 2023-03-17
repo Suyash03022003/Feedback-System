@@ -17,15 +17,17 @@ $result = mysqli_query($conn, $query);
 <body>
     <form action="Action.php" method="POST">
     <?php
+    $i = 0;
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                     <?php echo $row['questionid']; ?> 
                     <?php echo $row['question']; ?><br>                   
-                    <input type="radio" name="option" value="option1"><?php echo $row['option1']; ?><br>
-                    <input type="radio" name="option" value="option1"><?php echo $row['option2']; ?><br>
-                    <input type="radio" name="option" value="option1"><?php echo $row['option3']; ?><br>                    
+                    <input type="radio" name="<?php echo 'option', $i?>" value="option1"><?php echo $row['option1']; ?><br>
+                    <input type="radio" name="<?php echo 'option', $i?>" value="option1"><?php echo $row['option2']; ?><br>
+                    <input type="radio" name="<?php echo 'option', $i?>" value="option1"><?php echo $row['option3']; ?><br>                    
                     <br>
                 <?php
+                $i++;
                 }
                 ?>
                 <button type="submit" name="submit1">Submit</button>

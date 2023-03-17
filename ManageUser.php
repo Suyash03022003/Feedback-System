@@ -216,6 +216,7 @@ if (isset($_POST["submit"])) {
         user2.classList.remove("active");
         user3.classList.add("active");
         div = "log";
+       
       }
 
       function display_faculty() {
@@ -223,6 +224,7 @@ if (isset($_POST["submit"])) {
         user2.classList.remove("active");
         user1.classList.add("active");
         div = "fac";
+       
       }
 
       function display_parent() {
@@ -230,6 +232,7 @@ if (isset($_POST["submit"])) {
         user1.classList.remove("active");
         user2.classList.add("active");
         div = "log";
+        
       }
 
       function display() {
