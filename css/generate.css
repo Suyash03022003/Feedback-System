@@ -61,7 +61,7 @@ span {
 
 .questions {
     margin: 20px 20px;
-    opacity: 0;
+    display: none;
 }
 
 .question {
@@ -80,8 +80,9 @@ span {
     font-size: 20px;
     height: 30px;
     font-weight: lighter;
-    margin: 10px;
+    margin: 10px 0;
     transition: 0.3s;
+    margin-top: 30px;
     cursor: pointer;
     width: 30px;
 }
@@ -115,4 +116,21 @@ span input {
 .add_que {
     text-decoration: none;
     color: black;
+}
+
+.author, .subject {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.author input, .subject input {
+    padding: 5px;
+}
+
+.submit {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
 }

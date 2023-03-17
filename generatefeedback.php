@@ -85,29 +85,31 @@ $result = mysqli_query($conn, $query);
                         </div>
                     </div>
                 </div>
-                <a class="add_que" href="AddQuestion.php">
-                    <div class="add">+</div>
-                </a>
-                <div class="subject_div">
-                    <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ"></p>
-                    <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS"></p>
-                </div>
-                <br>
-                <br>
-                <?php
-                while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-                    <?php echo $row['questionid']; ?> <?php echo $row['question']; ?><br>
-                    <?php echo $row['option1']; ?><br>
-                    <?php echo $row['option2']; ?><br>
-                    <?php echo $row['option3']; ?><br>
-                    <?php echo $row['option4']; ?><br>
-                    <?php echo $row['option5']; ?> <br>
+                <div class="questions" id="questions">
+                    <div class="subject_div">
+                        <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ" disabled></p>
+                        <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS" disabled></p>
+                    </div>
+                    <a class="add_que">
+                        <div class="add" href="AddQuestion.php">+</div>
+                    </a>
                     <br>
-                <?php
-                }
-                ?>
-                <input type="submit" value="Submit" name="submit1">
+                    <br>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                        <?php echo $row['questionid']; ?> <?php echo $row['question']; ?><br>
+                        <?php echo $row['option1']; ?><br>
+                        <?php echo $row['option2']; ?><br>
+                        <?php echo $row['option3']; ?><br>
+                        <?php echo $row['option4']; ?><br>
+                        <?php echo $row['option5']; ?> <br>
+                        <br>
+                    <?php
+                    }
+                    ?>
+                    <input type="submit" value="Submit" name="submit1" class="submit">
+                </div>
             </form>
         </div>
     </div>
@@ -142,7 +144,7 @@ $result = mysqli_query($conn, $query);
 
         function clicked4(char) {
             dropdown4.value = char;
-            questions.style.opacity = 1;
+            questions.style.display = "block";
         }
 
         function img(number) {
