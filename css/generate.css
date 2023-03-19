@@ -1,220 +1,222 @@
+  span {
+      color: rgb(89, 89, 89);
+  }
+
+  .options {
+      margin: 35px 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+  }
+
+  .option {
+      padding: 10px;
+      color: white;
+      background-color: #0563af;
+      width: 190px;
+  }
+
+  .content {
+      font-size: 16px;
+      background-color: transparent;
+      border: 0;
+      color: white;
+  }
+
+  #option2,
+  #option3,
+  #option4 {
+      opacity: 0;
+  }
+
+  .drop {
+      border-top: 2px solid white;
+      position: absolute;
+      background-color: #0563af;
+      display: none;
+      margin: 10px -10px;
+      width: 190px;
+      z-index: 100;
+      transition: 0.5s;
+  }
+
+  .option:hover .drop {
+      display: block;
+      transition: 0.5s;
+  }
+
+  .drop p {
+      padding: 10px;
+      border-top: 1px solid white;
+  }
+
+  .drop p:hover {
+      color: black;
+      background-color: #F5F5F5;
+  }
+
+  .questions {
+      margin: 20px 20px;
+  }
+
+  .question {
+      font-size: 20px;
+  }
+
+  .radio {
+      margin: 20px 20px 30px 30px;
+  }
+
+  .add {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 20px;
+      height: 30px;
+      font-weight: lighter;
+      margin: 10px 0;
+      transition: 0.3s;
+      margin-top: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+      width: 30px;
+      padding: 0 5px;
+  }
+
+  .question img {
+      vertical-align: middle;
+      margin-right: 20px;
+      margin-top: -5px;
+      cursor: pointer;
+      transition: 0.3s;
+  }
+
+  .question img:hover {
+      transform: scale(1.05, 1.05);
+  }
+
+  .add:hover {
+      transform: scale(1.03, 1.03);
+  }
+
+  span input {
+      padding: 10px;
+      width: 70%;
+      margin: 0;
+  }
+
+  .active {
+      font-weight: bold;
+      font-size: 20px;
+  }
+
+  .author,
+  .subject {
+      font-size: 15px;
+      margin-bottom: 10px;
+  }
+
+  .author input,
+  .subject input {
+      padding: 5px;
+  }
+
+  .submit {
+      padding: 10px;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+  }
+
+  .csv {
+      position: fixed;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+      width: 100vw;
+      height: 100vh;
+      z-index: 1000;
+      display: none;
+  }
 
 
-span {
-    color: rgb(89, 89, 89);
-}
+  .form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
 
-.options {
-    margin: 35px 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-}
+  .frm {
+      width: 70%;
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0px 1px 5px #555;
+      position: relative;
+  }
 
-.option {
-    padding: 10px;
-    color: white;
-    background-color: #0563af;
-    width: 190px;
-}
+  .frm h2 {
+      font-size: 30px;
+      letter-spacing: 1px;
+      margin: 20px;
+      margin-bottom: 30px;
+      color: black;
+  }
 
-.content {
-    font-size: 16px;
-    background-color: transparent;
-    border: 0;
-    color: white;
-}
+  .frm input {
+      width: 70%;
+      margin: 10px;
+      padding: 5px;
+  }
 
-#option2, #option3, #option4 {
-    opacity: 0;
-} 
+  #btn {
+      margin: 30px;
+  }
 
-.drop {
-    border-top: 2px solid white;
-    position: absolute;
-    background-color: #0563af;
-    display: none;
-    margin: 10px -10px;
-    width: 190px;
-    z-index: 100;
-    transition: 0.5s;
-}
+  .frm button {
+      color: black;
+      position: absolute;
+      top: 5px !important;
+      right: 15px !important;
+      border: 0;
+      background-color: transparent;
+      font-size: 35px;
+  }
 
-.option:hover .drop {
-    display: block;
-    transition: 0.5s;
-}
+  .frm button:hover {
+      font-weight: bold;
+      color: red;
+      cursor: pointer;
+  }
 
-.drop p {
-    padding: 10px;
-    border-top: 1px solid white;
-}
+  .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+  }
 
-.drop p:hover {
-    color: black;
-    background-color: #F5F5F5;
-} 
+  @-webkit-keyframes animatezoom {
+      from {
+          -webkit-transform: scale(0)
+      }
 
-.questions {
-    margin: 20px 20px;
-    display: none;
-}
+      to {
+          -webkit-transform: scale(1)
+      }
+  }
 
-.question {
-    font-size: 20px;
-}
+  @keyframes animatezoom {
+      from {
+          transform: scale(0)
+      }
 
-.radio {
-    margin: 20px 20px 30px 30px;
-}
-
-.add {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    text-align: center;
-    font-size: 20px;
-    height: 30px;
-    font-weight: lighter;
-    margin: 10px 0;
-    transition: 0.3s;
-    margin-top: 30px;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-    width: 30px;
-    padding: 0 5px;
-}
-
-.question img {
-    vertical-align: middle;
-    margin-right: 20px;
-    margin-top: -5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.question img:hover {
-    transform: scale(1.05, 1.05);
-}
-
-.add:hover {
-    transform: scale(1.03, 1.03);
-}
-
-span input {
-    padding: 10px;
-    width: 70%;
-    margin: 0;
-}
-.active {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.author, .subject {
-    font-size: 15px;
-    margin-bottom: 10px;
-}
-
-.author input, .subject input {
-    padding: 5px;
-}
-
-.submit {
-    padding: 10px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.csv {
-    position: fixed;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100vw;
-    height: 100vh;
-    z-index: 1000;
-    display: none;
-}
-
-
-.form {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.frm {
-    width: 70%;
-    background-color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0px 1px 5px #555;
-    position: relative;
-}
-
-.frm h2 {
-    font-size: 30px;
-    letter-spacing: 1px;
-    margin: 20px;
-    margin-bottom: 30px;
-    color: black;
-}
-
-.frm input {
-    width: 70%;
-    margin: 10px;
-    padding: 5px;
-}
-
-#btn {
-    margin: 30px;
-}
-
-.frm button {
-  color: black;
-    position: absolute;
-    top: 5px !important;
-    right: 15px !important;
-    border: 0;
-    background-color: transparent;
-    font-size: 35px;
-}
-
-.frm button:hover {
-    font-weight: bold;
-    color: red;
-    cursor: pointer;
-}
-
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {
-        -webkit-transform: scale(0)
-    }
-
-    to {
-        -webkit-transform: scale(1)
-    }
-}
-
-@keyframes animatezoom {
-    from {
-        transform: scale(0)
-    }
-
-    to {
-        transform: scale(1)
-    }
-}
+      to {
+          transform: scale(1)
+      }
+  }

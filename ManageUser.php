@@ -17,7 +17,26 @@ if (isset($_POST["submit"])) {
         $item4 = mysqli_real_escape_string($conn, $data[3]);
         $item5 = mysqli_real_escape_string($conn, $data[4]);
         $item6 = mysqli_real_escape_string($conn, $data[5]);
-        $query = "INSERT into login (fname, lname, username, category, email, password) values('$item1','$item2','$item3','$item4','$item5','$item6')";
+        $query = "INSERT into students (prn, fname, lname, semester, email, password) values('$item1','$item2','$item3','$item4','$item5','$item6')";
+        mysqli_query($conn, $query);
+      }
+      fclose($handle);
+    }
+  }
+}
+
+if (isset($_POST["submit1"])) {
+  if ($_FILES['file']['name']) {
+    $filename = explode(".", $_FILES['file']['name']);
+    if ($filename[1] == 'csv') {
+      $handle = fopen($_FILES['file']['tmp_name'], "r");
+      while ($data = fgetcsv($handle)) {
+        $item1 = mysqli_real_escape_string($conn, $data[0]);
+        $item2 = mysqli_real_escape_string($conn, $data[1]);
+        $item3 = mysqli_real_escape_string($conn, $data[2]);
+        $item4 = mysqli_real_escape_string($conn, $data[3]);
+        $item5 = mysqli_real_escape_string($conn, $data[4]);
+        $query = "INSERT into parents (fname, lname, email, contact, password) values('$item1','$item2','$item3','$item4','$item5')";
         mysqli_query($conn, $query);
       }
       fclose($handle);
@@ -34,11 +53,12 @@ if (isset($_POST["submit"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manage User</title>
   <link rel="stylesheet" href="css/ManageUser.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>"> 
+  <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -55,6 +75,19 @@ if (isset($_POST["submit"])) {
       </div>
     </div>
   </div>
+  <div class="csv" id="p">
+    <div class="form">
+      <div class="frm animate">
+        <button onclick="document.getElementById('p').style.display='none'">&times;</button>
+        <h2>Select CSV File: </h2>
+        <form method="post" enctype="multipart/form-data">
+          <input type="file" name="file">
+          <br>
+          <input type="submit" name="submit1" value="Import">
+        </form>
+      </div>
+    </div>
+  </div>
   <div class="add_faculty" id="fac">
     <div class="form">
       <div class="frm animate">
@@ -62,50 +95,50 @@ if (isset($_POST["submit"])) {
         <h2>Add User: </h2>
         <form action="Action.php" method="POST">
           <div>
-          <label>FIRST NAME</label>
+            <label>FIRST NAME</label>
             <input type="text" name="FNAME" required>
           </div>
           <div>
-          <label>LAST NAME</label>
+            <label>LAST NAME</label>
             <input type="text" name="LNAME" required>
           </div>
           <div>
-          <label>CONTACT </label>
+            <label>CONTACT </label>
             <input type="text" name="CONTACT" required>
           </div>
           <div class="category">
-          <label>CATEGORY</label>
-            
-              <select name="CATEGORY">
-                <option value="Not Selected">SELECT</option>
-                <option value="TEACHER">TEACHER</option>
-                <option value="HOD">HOD</option>
-                <option value="PRINCIPAL">PRINCIPAL</option>
-              </select>
-            
+            <label>CATEGORY</label>
+
+            <select name="CATEGORY">
+              <option value="Not Selected">SELECT</option>
+              <option value="TEACHER">TEACHER</option>
+              <option value="HOD">HOD</option>
+              <option value="PRINCIPAL">PRINCIPAL</option>
+            </select>
+
           </div>
           <div>
-          <label >EMAIL</label>
+            <label>EMAIL</label>
             <input type="text" name="EMAIL" required>
           </div>
           <div class="category">
-          <label>DEPARTMENT</label>
-            
-              <select name="DEPARTMENT">
-                <option value="Not Selected">SELECT</option>
-                <option value="COMPUTER">COMPUTER</option>
-                <option value="ELECTRICAL">ELECTRICAL</option>
-                <option value="CIVIL">CIVIL</option>
-                <option value="MECHANICAL">MECHANICAL</option>
-              </select>
-            
+            <label>DEPARTMENT</label>
+
+            <select name="DEPARTMENT">
+              <option value="Not Selected">SELECT</option>
+              <option value="COMPUTER">COMPUTER</option>
+              <option value="ELECTRICAL">ELECTRICAL</option>
+              <option value="CIVIL">CIVIL</option>
+              <option value="MECHANICAL">MECHANICAL</option>
+            </select>
+
           </div>
           <div>
-          <label >USERNAME</label>
+            <label>USERNAME</label>
             <input type="text" name="USERNAME" required>
           </div>
           <div>
-          <label>PASSWORD</label>
+            <label>PASSWORD</label>
             <input type="text" name="PASSWORD" required>
           </div>
           <input type="submit" name="submit">
@@ -157,7 +190,7 @@ if (isset($_POST["submit"])) {
 
       <div class="User">
 
-      <table class="tablecontent" >
+        <table class="tablecontent" >
           <thead>
           <tr>
           <th>SR NO.</th>
@@ -187,7 +220,7 @@ if (isset($_POST["submit"])) {
                 <?php
                 }
               ?>
-        </table>  
+        </table>
       </div>
     </div>
     <script>
@@ -217,12 +250,18 @@ if (isset($_POST["submit"])) {
       var user1 = document.getElementById("faculty");
       var user2 = document.getElementById("parent");
       var user3 = document.getElementById("student");
+      
+      var table = document.getElementById("table");
+      
+      function display() {
+        document.getElementById(div).style.display = "block";
+      }
+
       function display_student() {
         user1.classList.remove("active");
         user2.classList.remove("active");
         user3.classList.add("active");
         div = "log";
-       
       }
 
       function display_faculty() {
@@ -230,20 +269,15 @@ if (isset($_POST["submit"])) {
         user2.classList.remove("active");
         user1.classList.add("active");
         div = "fac";
-       
       }
 
       function display_parent() {
         user3.classList.remove("active");
         user1.classList.remove("active");
         user2.classList.add("active");
-        div = "log";
-        
+        div = "p";
       }
-
-      function display() {
-        document.getElementById(div).style.display = "block";
-      }
+      
     </script>
 </body>
 

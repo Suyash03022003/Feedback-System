@@ -85,7 +85,7 @@ $result = mysqli_query($conn, $query);
         </div>
         <h2 id="heading">Bajaj Institute of Technology</h2>
         <div class="links" id="links">
-            <!-- <p class="para">X_Y_Z</p> -->
+            <p class="para">X_Y_Z</p>
 
             <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         </div>
@@ -102,93 +102,31 @@ $result = mysqli_query($conn, $query);
         <div class="right">
             <h1>Generate Course Exit Survey</h1>
             <p>Dashboard/<span> Generate Course Exit Survey</span></p>
-            <form action="create_feedback.php" method="POST">
-                <div class="options">
-                    <div class="option" id="option1">
-                        <input type="text" class="content" id="dropdown1" name="dept" value="Select Department">
-                        <div class="drop" id="drop">
-                            <p onclick="clicked1('Computer')">Computer</p>
-                            <p onclick="clicked1('Electrical')">Electrical</p>
-                            <p onclick="clicked1('Mechanical')">Mechanical</p>
-                            <p onclick="clicked1('Civil')">Civil</p>
-                        </div>
-                    </div>
-                    <div class="option" id="option2">
-                        <input type="text" class="content" id="dropdown2" name="year" value="Select Year">
-                        <div class="drop" id="drop">
-                            <p onclick="clicked2('I')">I</p>
-                            <p onclick="clicked2('II')">II</p>
-                            <p onclick="clicked2('III')">III</p>
-                            <p onclick="clicked2('IV')">IV</p>
-                        </div>
-                    </div>
-                    <div class="option" id="option3">
-                        <input type="text" class="content" id="dropdown3" name="sem" value="Select Semester">
-                        <div class="drop" id="drop">
-                            <p onclick="clicked3('I')">I</p>
-                            <p onclick="clicked3('II')">II</p>
-                            <p onclick="clicked3('III')">III</p>
-                            <p onclick="clicked3('IV')">IV</p>
-                            <p onclick="clicked3('V')">V</p>
-                            <p onclick="clicked3('VI')">VI</p>
-                            <p onclick="clicked3('VII')">VII</p>
-                            <p onclick="clicked3('VIII')">VIII</p>
-                        </div>
-                    </div>
-                    <div class="option" id="option4">
-                        <input type="text" class="content" id="dropdown4" name="section" value="Select Section">
-                        <div class="drop" id="drop">
-                            <p onclick="clicked4('A')">A</p>
-                            <p onclick="clicked4('B')">B</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="subject_div">
-                    <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ"></p>
-                    <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS"></p>
-                </div>
-                <input type="submit" value="Submit" name="submit_next">
-            </form>
+            <div class="questions" id="questions">
+                <form action="create_feedback.php" method="POST">
+                    <input type="text" value="<?php echo $_GET['id'];?>" name="feed">
+                    <a class="add" onclick="login()">+</a>
+                    <br>
+                    <br>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                        <?php echo $row['questionid'], "."; ?> <?php echo $row['question']; ?><br>
+                        <?php echo $row['option1']; ?><br>
+                        <?php echo $row['option2']; ?><br>
+                        <?php echo $row['option3']; ?><br>
+                        <?php echo $row['option4']; ?><br>
+                        <?php echo $row['option5']; ?> <br>
+                        <br>
+                    <?php
+                    }
+                    ?>
+                    <input type="submit" value="Submit" name="submit1" class="submit">
+                </form>
+            </div>
         </div>
     </div>
-
     <script>
-        var dropdown1 = document.getElementById("dropdown1");
-        var dropdown2 = document.getElementById("dropdown2");
-        var dropdown3 = document.getElementById("dropdown3");
-        var dropdown4 = document.getElementById("dropdown4");
-        var option1 = document.getElementById("option1");
-        var option2 = document.getElementById("option2");
-        var option3 = document.getElementById("option3");
-        var option4 = document.getElementById("option4");
-        var questions = document.getElementById("questions");
-
-        function clicked1(char) {
-            dropdown1.value = char;
-            option2.style.opacity = 1;
-        }
-
-        function clicked2(char) {
-            dropdown2.value = char;
-            option3.style.opacity = 1;
-        }
-
-        function clicked3(char) {
-            dropdown3.value = char;
-            option4.style.opacity = 1;
-        }
-
-        function clicked4(char) {
-            dropdown4.value = char;
-            questions.style.display = "block";
-        }
-
-        function img(number) {
-            var ques = document.getElementsByClassName("span");
-            var text = ques[number - 1].innerHTML;
-            ques[number - 1].innerHTML = "<input type='text' value='" + text + "''>";
-        }
-
         function login() {
             var log = document.getElementById('log');
             log.style.display = 'block';
