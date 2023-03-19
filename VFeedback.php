@@ -20,8 +20,15 @@
     </div>
     <h2>Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-    <p class="para">X_Y_Z</p>
-      <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
+    <!-- <p class="para">X_Y_Z</p> -->
+    <div class="account_div">
+        <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
+        <div id="account" class="account">
+          <a >Profile</a><br>
+          <a >Help</a><br>
+          <a href="index.php">Log out</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="spaces"></div>
@@ -38,7 +45,7 @@
     <div class="right">
       <h1>Types Of Feedback</h1>
       <br>
-      <p class="s1">Dashboard/ <span>Types of Feedback</span></p>
+      <p class="s1">Dashboard/<span>Types of Feedback</span></p>
       <br>
       <br>
       
