@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2023 at 08:08 AM
+-- Generation Time: Mar 20, 2023 at 06:50 AM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `FNAME`, `LNAME`, `CONTACT`, `CATEGORY`, `EMAIL`, `DEPARTMENT`, `USERNAME`, `PASSWORD`) VALUES
-(74, 'AMREEN123', 'khan', 2147483647, 'Not Selected', 'amreen.khan@bitwardha.ac.in', 'Not Selected', 'amreen123', '123');
+(79, 'Amreen', 'Khan', 2147483647, 'TEACHER', 'amreen.khan@bitwardha.ac.in', 'COMPUTER', 'AmreenKhan123', '123');
 
 -- --------------------------------------------------------
 
@@ -53,10 +53,28 @@ INSERT INTO `faculty` (`id`, `FNAME`, `LNAME`, `CONTACT`, `CATEGORY`, `EMAIL`, `
 --
 
 CREATE TABLE `feedback` (
-  `id` int(11) NOT NULL,
-  `feedback id` int(11) NOT NULL,
-  `question id` int(11) NOT NULL
+  `id` int(10) NOT NULL,
+  `feedback_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
+(44, 101, 101),
+(45, 101, 102),
+(46, 101, 103),
+(47, 101, 104),
+(48, 101, 105),
+(49, 101, 106),
+(50, 102, 101),
+(51, 102, 102),
+(52, 102, 103),
+(53, 102, 104),
+(54, 102, 105),
+(55, 102, 106);
 
 -- --------------------------------------------------------
 
@@ -65,12 +83,24 @@ CREATE TABLE `feedback` (
 --
 
 CREATE TABLE `feedbacks` (
-  `feedback id` int(100) NOT NULL,
-  `feedback type` text NOT NULL,
+  `feedback_id` int(100) NOT NULL,
+  `feedback_type` text NOT NULL,
   `author` text NOT NULL,
   `subject` text NOT NULL,
-  `status` text NOT NULL
+  `status` text NOT NULL,
+  `dept` varchar(10) NOT NULL,
+  `year` varchar(3) NOT NULL,
+  `sem` varchar(4) NOT NULL,
+  `section` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `feedbacks`
+--
+
+INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `status`, `dept`, `year`, `sem`, `section`) VALUES
+(101, 'CES', 'XYZ', 'DBMS', 'Active', 'Computer', 'II', 'IV', 'B'),
+(102, 'CES', 'XYZ', 'DBMS', 'Active', 'Electrical', 'II', 'IV', 'B');
 
 -- --------------------------------------------------------
 
@@ -103,9 +133,7 @@ INSERT INTO `login` (`id`, `fname`, `lname`, `username`, `category`, `email`, `p
 (9, 'Abhishek', 'Kinhekar', 'Admin@123', 'Admin', 'admin@bitwardha.ac.in', '123'),
 (69, 'amreen', 'khan', 'amreen123', 'TEACHER', 'amreen.khan@bitwardha.ac.in', '123'),
 (70, 'SHreya', 'RAut', 'shreya2409', 'TEACHER', 'co.2020.mbraut@bitwardha.ac.in', '123'),
-(71, 'Amit', 'Manakshe', 'akshay123', 'TEACHER', 'amit.manakshe@gmail.com', '123'),
-(72, 'Amit', 'Manakshe', 'dads', 'Not Select', 'manakshe.amit@bitwardha.ac.in', '123'),
-(73, 'Amit', 'Manakshe', 'dads', 'TEACHER', 'amit.manakshe@gmail.com', '123');
+(71, 'Amit', 'Manakshe', 'akshay123', 'TEACHER', 'amit.manakshe@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -116,10 +144,17 @@ INSERT INTO `login` (`id`, `fname`, `lname`, `username`, `category`, `email`, `p
 CREATE TABLE `parents` (
   `fname` text NOT NULL,
   `lname` text NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `contact` int(10) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `contact` int(15) NOT NULL,
   `password` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `parents`
+--
+
+INSERT INTO `parents` (`fname`, `lname`, `email`, `contact`, `password`) VALUES
+('﻿Sunil', ' Patalbansi', ' suyashshivani@gmail.com', 2147483647, ' 123');
 
 -- --------------------------------------------------------
 
@@ -148,12 +183,12 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `option1`, `mark1`, `option2`, `mark2`, `option3`, `mark3`, `option4`, `mark4`, `option5`, `mark5`) VALUES
-(1, 'Does the teacher explain the principle/theory of experiment?', 'Radio', 'Excellent', 10, 'Very Good', 8, 'Good', 5, 'Average', 3, 'Poor', 1),
-(2, 'The lectures, tests and assignments complemented each other?	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
-(3, 'The instructional materials (i.e., e-books, handouts, videos, lab manuals, multimedia) helped me better to understand CAD modeling techniques.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
-(4, 'The course was organized in such a manner, that helped me understand the underlying concepts in transformations, algorithms and CAD workstations.	\r\n	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
-(5, 'The course gave me the confidence to do more advanced work in Finite Element Analysis.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
-(6, 'The concepts of CAPP are understood and can be utilized to solve real life problems.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1);
+(101, 'Does the teacher explain the principle/theory of experiment?', 'Radio', 'Excellent', 10, 'Very Good', 8, 'Good', 5, 'Average', 3, 'Poor', 1),
+(102, 'The lectures, tests and assignments complemented each other?	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
+(103, 'The instructional materials (i.e., e-books, handouts, videos, lab manuals, multimedia) helped me better to understand CAD modeling techniques.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
+(104, 'The course was organized in such a manner, that helped me understand the underlying concepts in transformations, algorithms and CAD workstations.	\r\n	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
+(105, 'The course gave me the confidence to do more advanced work in Finite Element Analysis.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
+(106, 'The concepts of CAPP are understood and can be utilized to solve real life problems.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1);
 
 -- --------------------------------------------------------
 
@@ -183,6 +218,17 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`prn`, `fname`, `lname`, `semester`, `email`, `password`) VALUES
+('2046491245003', 'Amit', 'Jibhkate', 6, 'ar@bitwardha.ac.in', '123'),
+('2046491245047', 'Shreya', 'Raut', 6, 'sl@bitwardha.ac.in', '123'),
+('2046491245052', 'Suyash ', 'Patalbansi', 6, 'vt@bitwardha.ac.in', '123'),
+('2146491245052', 'Smit', 'Katole', 6, 'sr@bitwardha.ac.in', '123'),
+('﻿2046491245038', 'Rohit', 'Gajewar', 6, 'rg@bitwardha.ac.in', '123');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -202,19 +248,13 @@ ALTER TABLE `feedback`
 -- Indexes for table `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  ADD PRIMARY KEY (`feedback id`);
+  ADD PRIMARY KEY (`feedback_id`);
 
 --
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `parents`
---
-ALTER TABLE `parents`
-  ADD PRIMARY KEY (`email`);
 
 --
 -- Indexes for table `questions`
@@ -243,13 +283,19 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `responses`
