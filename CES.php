@@ -1,10 +1,8 @@
 <?php
 session_start();
 include('connect.php');
-$query = "select * from questions";
-$result = mysqli_query($conn, $query);
-$query2 = "select * from questions";
-$result = mysqli_query($conn, $query);
+$sql="SELECT * FROM feedbacks";
+$result=mysqli_query($conn, $sql);
 ?>
 <html lang="en">
 
@@ -53,28 +51,21 @@ $result = mysqli_query($conn, $query);
     <div class="right">
       <h1>WELCOME</h1>
       <br>
-      <p class="s1">Dashboard/ <span>Course Exit Survey</span></p>
+      <p class="s1">Dashboard/ <span class="head">Course Exit Survey</span></p>
       <br>
       <br>
-      <form action="Action.php" method="POST" class="ces">
-                
-                <?php
-                $i = 0;
-                while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-                    <?php echo $row['questionid']; ?>
-                    <?php echo $row['question']; ?><br>
-                    <input type="radio" name="<?php echo 'option', $i ?>" value="option1"><?php echo $row['option1']; ?><br>
-                    <input type="radio" name="<?php echo 'option', $i ?>" value="option1"><?php echo $row['option2']; ?><br>
-                    <input type="radio" name="<?php echo 'option', $i ?>" value="option1"><?php echo $row['option3']; ?><br>
-                    <br>
-                <?php
-                    $i++;
-                }
-                ?>
-                <button type="submit" name="submit1">Submit</button>
-
-            </form>
+        <h3>Feedbacks Available</h3>
+        <?php
+          $i = 0;
+          while ($row = mysqli_fetch_assoc($result)) {
+            $feed = $row['feedback_id'];
+        ?>
+        <a href="feedback.php?id=<?php echo $feed;?>"><?php echo $row['feedback_id']; ?> <span>Feedback: </span><?php echo $row['feedback_type']; ?>
+        <span>(<?php echo $row['subject'];?>)</span><br /></a>
+        <?php
+          $i++;
+          }
+        ?>
     </div>
   </div>
   </div>

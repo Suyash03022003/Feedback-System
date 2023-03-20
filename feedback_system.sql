@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 06:50 AM
+-- Generation Time: Mar 20, 2023 at 08:38 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -58,24 +58,6 @@ CREATE TABLE `feedback` (
   `question_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `feedback`
---
-
-INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
-(44, 101, 101),
-(45, 101, 102),
-(46, 101, 103),
-(47, 101, 104),
-(48, 101, 105),
-(49, 101, 106),
-(50, 102, 101),
-(51, 102, 102),
-(52, 102, 103),
-(53, 102, 104),
-(54, 102, 105),
-(55, 102, 106);
-
 -- --------------------------------------------------------
 
 --
@@ -93,14 +75,6 @@ CREATE TABLE `feedbacks` (
   `sem` varchar(4) NOT NULL,
   `section` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `feedbacks`
---
-
-INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `status`, `dept`, `year`, `sem`, `section`) VALUES
-(101, 'CES', 'XYZ', 'DBMS', 'Active', 'Computer', 'II', 'IV', 'B'),
-(102, 'CES', 'XYZ', 'DBMS', 'Active', 'Electrical', 'II', 'IV', 'B');
 
 -- --------------------------------------------------------
 
@@ -184,11 +158,11 @@ CREATE TABLE `questions` (
 
 INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `option1`, `mark1`, `option2`, `mark2`, `option3`, `mark3`, `option4`, `mark4`, `option5`, `mark5`) VALUES
 (101, 'Does the teacher explain the principle/theory of experiment?', 'Radio', 'Excellent', 10, 'Very Good', 8, 'Good', 5, 'Average', 3, 'Poor', 1),
-(102, 'The lectures, tests and assignments complemented each other?	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
-(103, 'The instructional materials (i.e., e-books, handouts, videos, lab manuals, multimedia) helped me better to understand CAD modeling techniques.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
-(104, 'The course was organized in such a manner, that helped me understand the underlying concepts in transformations, algorithms and CAD workstations.	\r\n	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
-(105, 'The course gave me the confidence to do more advanced work in Finite Element Analysis.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1),
-(106, 'The concepts of CAPP are understood and can be utilized to solve real life problems.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, '', 3, '', 1);
+(102, 'The lectures, tests and assignments complemented each other?	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(103, 'The instructional materials (i.e., e-books, handouts, videos, lab manuals, multimedia) helped me better to understand CAD modeling techniques.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(104, 'The course was organized in such a manner, that helped me understand the underlying concepts in transformations, algorithms and CAD workstations.	\r\n	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(105, 'The course gave me the confidence to do more advanced work in Finite Element Analysis.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(106, 'The concepts of CAPP are understood and can be utilized to solve real life problems.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1);
 
 -- --------------------------------------------------------
 
@@ -197,9 +171,10 @@ INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `option1`, `m
 --
 
 CREATE TABLE `responses` (
-  `responseid` int(11) NOT NULL,
+  `responseid` int(5) NOT NULL,
   `feedbackid` int(11) NOT NULL,
-  `answer` text NOT NULL
+  `questionid` int(3) NOT NULL,
+  `answer` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -263,13 +238,6 @@ ALTER TABLE `questions`
   ADD PRIMARY KEY (`questionid`);
 
 --
--- Indexes for table `responses`
---
-ALTER TABLE `responses`
-  ADD PRIMARY KEY (`responseid`),
-  ADD KEY `feedback id` (`feedbackid`);
-
---
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -296,12 +264,6 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `login`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
-
---
--- AUTO_INCREMENT for table `responses`
---
-ALTER TABLE `responses`
-  MODIFY `responseid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
