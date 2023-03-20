@@ -106,7 +106,7 @@ $result = mysqli_query($conn, $query);
                 <div class="options">
                     <div class="option" id="option1">
                         <input type="text" class="content" id="dropdown1" name="dept" value="Select Department">
-                        <div class="drop" id="drop">
+                        <div class="drop">
                             <p onclick="clicked1('Computer')">Computer</p>
                             <p onclick="clicked1('Electrical')">Electrical</p>
                             <p onclick="clicked1('Mechanical')">Mechanical</p>
@@ -115,7 +115,7 @@ $result = mysqli_query($conn, $query);
                     </div>
                     <div class="option" id="option2">
                         <input type="text" class="content" id="dropdown2" name="year" value="Select Year">
-                        <div class="drop" id="drop">
+                        <div class="drop">
                             <p onclick="clicked2('I')">I</p>
                             <p onclick="clicked2('II')">II</p>
                             <p onclick="clicked2('III')">III</p>
@@ -124,20 +124,28 @@ $result = mysqli_query($conn, $query);
                     </div>
                     <div class="option" id="option3">
                         <input type="text" class="content" id="dropdown3" name="sem" value="Select Semester">
-                        <div class="drop" id="drop">
-                            <p onclick="clicked3('I')">I</p>
-                            <p onclick="clicked3('II')">II</p>
-                            <p onclick="clicked3('III')">III</p>
-                            <p onclick="clicked3('IV')">IV</p>
-                            <p onclick="clicked3('V')">V</p>
-                            <p onclick="clicked3('VI')">VI</p>
-                            <p onclick="clicked3('VII')">VII</p>
-                            <p onclick="clicked3('VIII')">VIII</p>
+                        <div class="drop">
+                            <div class="I" id="I">
+                                <p onclick="clicked3('I')">I</p>
+                                <p onclick="clicked3('II')">II</p>
+                            </div>
+                            <div class="II" id="II">
+                                <p onclick="clicked3('III')">III</p>
+                                <p onclick="clicked3('IV')">IV</p>
+                            </div>
+                            <div class="III" id="III">
+                                <p onclick="clicked3('V')">V</p>
+                                <p onclick="clicked3('VI')">VI</p>
+                            </div>
+                            <div class="IV" id="IV">
+                                <p onclick="clicked3('VII')">VII</p>
+                                <p onclick="clicked3('VIII')">VIII</p>
+                            </div>
                         </div>
                     </div>
                     <div class="option" id="option4">
                         <input type="text" class="content" id="dropdown4" name="section" value="Select Section">
-                        <div class="drop" id="drop">
+                        <div class="drop">
                             <p onclick="clicked4('A')">A</p>
                             <p onclick="clicked4('B')">B</p>
                         </div>
@@ -162,7 +170,10 @@ $result = mysqli_query($conn, $query);
         var option3 = document.getElementById("option3");
         var option4 = document.getElementById("option4");
         var questions = document.getElementById("questions");
-
+        var firstyr = document.getElementById("I");
+        var secondyr = document.getElementById("II");
+        var thirdyr = document.getElementById("III");
+        var fourthyr = document.getElementById("IV");
         function clicked1(char) {
             dropdown1.value = char;
             option2.style.opacity = 1;
@@ -170,6 +181,30 @@ $result = mysqli_query($conn, $query);
 
         function clicked2(char) {
             dropdown2.value = char;
+            if(char == 'I') {
+                firstyr.style.display = "block";
+                secondyr.style.display = "none";
+                thirdyr.style.display = "none";
+                fourthyr.style.display = "none";
+            }
+            if(char == 'II') {
+                firstyr.style.display = "none";
+                secondyr.style.display = "block";
+                thirdyr.style.display = "none";
+                fourthyr.style.display = "none";
+            }
+            if(char == 'III') {
+                firstyr.style.display = "none";
+                secondyr.style.display = "none";
+                thirdyr.style.display = "block";
+                fourthyr.style.display = "none";
+            }
+            if(char == 'IV') {
+                firstyr.style.display = "none";
+                secondyr.style.display = "none";
+                thirdyr.style.display = "none";
+                fourthyr.style.display = "block";
+            }
             option3.style.opacity = 1;
         }
 

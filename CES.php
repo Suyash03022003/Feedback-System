@@ -54,7 +54,7 @@ $result=mysqli_query($conn, $sql);
       <p class="s1">Dashboard/ <span class="head">Course Exit Survey</span></p>
       <br>
       <br>
-        <h3>Feedbacks Available</h3>
+        <h3>Feedbacks Available</h3><br>
         <?php
           $i = 0;
           while ($row = mysqli_fetch_assoc($result)) {
