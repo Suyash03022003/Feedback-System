@@ -17,7 +17,11 @@ if (isset($_POST["submit"])) {
         $item4 = mysqli_real_escape_string($conn, $data[3]);
         $item5 = mysqli_real_escape_string($conn, $data[4]);
         $item6 = mysqli_real_escape_string($conn, $data[5]);
-        $query = "INSERT into students (prn, fname, lname, semester, email, password) values('$item1','$item2','$item3','$item4','$item5','$item6')";
+        $item7 = mysqli_real_escape_string($conn, $data[6]);
+        $item8 = mysqli_real_escape_string($conn, $data[7]);
+        $query = "INSERT into students (prn, fname, lname, department, semester, email, password) values('$item1','$item2','$item3','$item4','$item5','$item6','$item7')";
+        $query1 = "INSERT into login (fname, lname, category, email, password) values('$item2','$item3','$item8','$item6','$item7')";
+
         mysqli_query($conn, $query);
       }
       fclose($handle);
@@ -54,7 +58,7 @@ if (isset($_POST["submit1"])) {
   <title>Manage User</title>
   <link rel="stylesheet" href="css/ManageUser.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
-
+  <link rel="stylesheet" href="css/form.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -88,6 +92,7 @@ if (isset($_POST["submit1"])) {
       </div>
     </div>
   </div>
+
   <div class="add_faculty" id="fac">
     <div class="form">
       <div class="frm animate">
@@ -146,6 +151,7 @@ if (isset($_POST["submit1"])) {
       </div>
     </div>
   </div>
+  
   <div class="nav">
     <div class="img">
       <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">

@@ -3,6 +3,10 @@ session_start();
 include('connect.php');
 $sql="SELECT * FROM feedbacks";
 $result=mysqli_query($conn, $sql);
+
+$sem = "select sem from feedbacks";
+$stu_sem = "select semester from students";
+
 ?>
 <html lang="en">
 
@@ -56,8 +60,10 @@ $result=mysqli_query($conn, $sql);
       <br>
         <h3>Feedbacks Available</h3><br>
         <?php
+        if( $sem == $stu_sem ){
           $i = 0;
           while ($row = mysqli_fetch_assoc($result)) {
+
             $feed = $row['feedback_id'];
         ?>
         <a href="feedback.php?id=<?php echo $feed;?>"><?php echo $row['feedback_id']; ?> <span>Feedback: </span><?php echo $row['feedback_type']; ?>
@@ -65,6 +71,7 @@ $result=mysqli_query($conn, $sql);
         <?php
           $i++;
           }
+        }
         ?>
     </div>
   </div>

@@ -1,0 +1,61 @@
+
+form{
+    font-size: 20px;
+        
+  }
+  
+input[type=text] {
+      width: 30%;
+      padding: 7px;
+      border: 2px solid #1B81BF;
+  }
+
+label{
+    text-align: left;
+}
+
+.frm {
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px #555;
+}
+
+.frm h2 {
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin: 20px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.frm input {
+    width: 30%;
+    margin: 10px;
+    padding: 5px;
+}
+
+form a {
+    color: blue;
+}
+
+#btn {
+    margin: 30px;
+}
+
+.frm button {
+    color: black;
+    position: absolute;
+    top: 5px !important;
+    right: 15px !important;
+    border: 0;
+    background-color: transparent;
+    font-size: 35px;
+}
+
+.frm button:hover {
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+}
