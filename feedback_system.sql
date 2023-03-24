@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 08:38 AM
+-- Generation Time: Mar 24, 2023 at 10:25 AM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,9 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `FNAME`, `LNAME`, `CONTACT`, `CATEGORY`, `EMAIL`, `DEPARTMENT`, `USERNAME`, `PASSWORD`) VALUES
-(79, 'Amreen', 'Khan', 2147483647, 'TEACHER', 'amreen.khan@bitwardha.ac.in', 'COMPUTER', 'AmreenKhan123', '123');
+(79, 'Amreen', 'Khan', 2147483647, 'TEACHER', 'amreen.khan@bitwardha.ac.in', 'COMPUTER', 'AmreenKhan123', '123'),
+(80, 'akshay', 'saraf', 2147483647, 'TEACHER', 'ads@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123'),
+(81, 'Kinjal', 'Patel', 2147483647, 'TEACHER', 'kp@bitwardha.ac.in', 'COMPUTER', 'kp123', '123');
 
 -- --------------------------------------------------------
 
@@ -57,6 +59,24 @@ CREATE TABLE `feedback` (
   `feedback_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
+(68, 101, 101),
+(69, 101, 102),
+(70, 101, 103),
+(71, 101, 104),
+(72, 101, 105),
+(73, 101, 106),
+(74, 103, 101),
+(75, 103, 102),
+(76, 103, 103),
+(77, 103, 104),
+(78, 103, 105),
+(79, 103, 106);
 
 -- --------------------------------------------------------
 
@@ -76,6 +96,15 @@ CREATE TABLE `feedbacks` (
   `section` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `feedbacks`
+--
+
+INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `status`, `dept`, `year`, `sem`, `section`) VALUES
+(101, 'CES', 'ads', 'cd', 'Active', 'Computer', 'III', 'VI', 'A'),
+(102, 'CES', 'amk', 'DAA', 'Active', 'Computer', 'I', 'II', 'A'),
+(103, 'CES', 'XYZ', 'DBMS', 'Active', 'Computer', 'I', 'I', 'A');
+
 -- --------------------------------------------------------
 
 --
@@ -86,7 +115,6 @@ CREATE TABLE `login` (
   `id` int(10) NOT NULL,
   `fname` varchar(10) NOT NULL,
   `lname` varchar(10) NOT NULL,
-  `username` varchar(20) NOT NULL,
   `category` varchar(10) NOT NULL,
   `email` varchar(40) DEFAULT NULL,
   `password` varchar(10) DEFAULT NULL
@@ -96,18 +124,18 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `fname`, `lname`, `username`, `category`, `email`, `password`) VALUES
-(1, 'Suyash', 'Patalbansi', 'Suyash007', 'Student', 'co.2020.sspatalbansi@bitwardha.ac.in', '123'),
-(3, 'Shreya', 'Raut', 'Shreya123', 'Student', 'co.2020.smraut@bitwardha.ac.in', '123'),
-(4, 'Amit', 'Jibhkate', 'Amit123', 'Student', 'co.2020.anjibhkate@bitwardha.ac.in', '123'),
-(5, 'Abhishek', 'Kinekar', 'Abhishek@123', 'Teacher', 'abhishek.kinhekar@bitwardha.ac.in', '123'),
-(6, 'Sheetal', 'Kale', 'Sheetal@123', 'HOD', 'hod.comp@bitwardha.ac.in', '123'),
-(7, 'Narendra', 'Kanhe', 'Principal@123', 'Principal', 'principal@bitwardha.ac.in', '123'),
-(8, 'Sunil', 'Patalbansi', 'Sunil@123', 'Parent', 'suyashshivani@gmail.com', '123'),
-(9, 'Abhishek', 'Kinhekar', 'Admin@123', 'Admin', 'admin@bitwardha.ac.in', '123'),
-(69, 'amreen', 'khan', 'amreen123', 'TEACHER', 'amreen.khan@bitwardha.ac.in', '123'),
-(70, 'SHreya', 'RAut', 'shreya2409', 'TEACHER', 'co.2020.mbraut@bitwardha.ac.in', '123'),
-(71, 'Amit', 'Manakshe', 'akshay123', 'TEACHER', 'amit.manakshe@gmail.com', '123');
+INSERT INTO `login` (`id`, `fname`, `lname`, `category`, `email`, `password`) VALUES
+(1, 'Suyash', 'Patalbansi', 'Student', 'co.2020.sspatalbansi@bitwardha.ac.in', '123'),
+(3, 'Shreya', 'Raut', 'Student', 'co.2020.smraut@bitwardha.ac.in', '123'),
+(4, 'Amit', 'Jibhkate', 'Student', 'co.2020.anjibhkate@bitwardha.ac.in', '123'),
+(5, 'Abhishek', 'Kinekar', 'Teacher', 'abhishek.kinhekar@bitwardha.ac.in', '123'),
+(6, 'Sheetal', 'Kale', 'HOD', 'hod.comp@bitwardha.ac.in', '123'),
+(7, 'Narendra', 'Kanhe', 'Principal', 'principal@bitwardha.ac.in', '123'),
+(9, 'Abhishek', 'Kinhekar', 'Admin', 'admin@bitwardha.ac.in', '123'),
+(69, 'amreen', 'khan', 'TEACHER', 'amreen.khan@bitwardha.ac.in', '123'),
+(70, 'SHreya', 'RAut', 'TEACHER', 'co.2020.mbraut@bitwardha.ac.in', '123'),
+(99, 'Nikhil', 'Dhopte', 'Student', 'nd@bitwardha.ac.in', '123'),
+(100, 'Ankit', 'Gupta', 'Student', 'ag@bitwardha.ac.in', '123');
 
 -- --------------------------------------------------------
 
@@ -177,6 +205,18 @@ CREATE TABLE `responses` (
   `answer` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `responses`
+--
+
+INSERT INTO `responses` (`responseid`, `feedbackid`, `questionid`, `answer`) VALUES
+(1, 101, 101, 'Excellent'),
+(1, 101, 102, 'Agree'),
+(1, 101, 103, 'Agree'),
+(1, 101, 104, 'Agree'),
+(1, 101, 105, 'Neutral'),
+(1, 101, 106, 'Agree');
+
 -- --------------------------------------------------------
 
 --
@@ -187,7 +227,8 @@ CREATE TABLE `students` (
   `prn` varchar(15) NOT NULL,
   `fname` text NOT NULL,
   `lname` text NOT NULL,
-  `semester` int(10) NOT NULL,
+  `department` text NOT NULL,
+  `semester` int(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -196,12 +237,9 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`prn`, `fname`, `lname`, `semester`, `email`, `password`) VALUES
-('2046491245003', 'Amit', 'Jibhkate', 6, 'ar@bitwardha.ac.in', '123'),
-('2046491245047', 'Shreya', 'Raut', 6, 'sl@bitwardha.ac.in', '123'),
-('2046491245052', 'Suyash ', 'Patalbansi', 6, 'vt@bitwardha.ac.in', '123'),
-('2146491245052', 'Smit', 'Katole', 6, 'sr@bitwardha.ac.in', '123'),
-('﻿2046491245038', 'Rohit', 'Gajewar', 6, 'rg@bitwardha.ac.in', '123');
+INSERT INTO `students` (`prn`, `fname`, `lname`, `department`, `semester`, `email`, `password`) VALUES
+('2.05E+12', 'Nikhil', 'Dhopte', 'Civil', 4, 'nd@bitwardha.ac.in', '123'),
+('2.06E+12', 'Ankit', 'Gupta', 'Electrical', 1, 'ag@bitwardha.ac.in', '123');
 
 --
 -- Indexes for dumped tables
@@ -238,6 +276,12 @@ ALTER TABLE `questions`
   ADD PRIMARY KEY (`questionid`);
 
 --
+-- Indexes for table `responses`
+--
+ALTER TABLE `responses`
+  ADD KEY `responses_ibfk_1` (`feedbackid`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -251,19 +295,19 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- Constraints for dumped tables

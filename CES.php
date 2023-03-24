@@ -58,12 +58,10 @@ $stu_sem = "select semester from students";
       <p class="s1">Dashboard/ <span class="head">Course Exit Survey</span></p>
       <br>
       <br>
-        <h3>Feedbacks Available</h3><br>
+      <h3>Feedbacks Available</h3>
         <?php
-        if( $sem == $stu_sem ){
           $i = 0;
           while ($row = mysqli_fetch_assoc($result)) {
-
             $feed = $row['feedback_id'];
         ?>
         <a href="feedback.php?id=<?php echo $feed;?>"><?php echo $row['feedback_id']; ?> <span>Feedback: </span><?php echo $row['feedback_type']; ?>
@@ -71,7 +69,6 @@ $stu_sem = "select semester from students";
         <?php
           $i++;
           }
-        }
         ?>
     </div>
   </div>
