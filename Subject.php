@@ -26,7 +26,7 @@
         <div id="account" class="account">
           <a >Profile</a><br>
           <a >Help</a><br>
-          <a href="index.php">Log out</a>
+          <a href="logout.php">Log out</a>
         </div>
       </div>
     </div>

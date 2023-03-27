@@ -14,7 +14,7 @@
 
         if($count == 1){  
             header("Location: $active.php?user=$user&lname=$lname");
-        }  
+        }
         else{  
             echo "<h1> Login failed. Invalid username or password.</h1>";  
         }     
