@@ -9,9 +9,11 @@
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);  
         $active = $row['category'];
+        $user = $row['fname'];
+        $lname = $row['lname'];
 
         if($count == 1){  
-            header("location: $active.php");
+            header("Location: $active.php?user=$user&lname=$lname");
         }  
         else{  
             echo "<h1> Login failed. Invalid username or password.</h1>";  

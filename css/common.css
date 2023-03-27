@@ -178,3 +178,10 @@ body {
 }
 
 .account_div:hover .account {display: block;}
+
+.links .input {
+  background-color: transparent;
+  border: 0;
+  color: white;
+  font-size: 18px;
+}
