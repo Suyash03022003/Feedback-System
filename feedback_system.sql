@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2023 at 10:25 AM
+-- Generation Time: Mar 27, 2023 at 12:08 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -45,8 +45,8 @@ CREATE TABLE `faculty` (
 
 INSERT INTO `faculty` (`id`, `FNAME`, `LNAME`, `CONTACT`, `CATEGORY`, `EMAIL`, `DEPARTMENT`, `USERNAME`, `PASSWORD`) VALUES
 (79, 'Amreen', 'Khan', 2147483647, 'TEACHER', 'amreen.khan@bitwardha.ac.in', 'COMPUTER', 'AmreenKhan123', '123'),
-(80, 'akshay', 'saraf', 2147483647, 'TEACHER', 'ads@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123'),
-(81, 'Kinjal', 'Patel', 2147483647, 'TEACHER', 'kp@bitwardha.ac.in', 'COMPUTER', 'kp123', '123');
+(85, 'Kinjal', 'Patel', 2147483647, 'TEACHER', 'kp@bitwardha.ac.in', 'COMPUTER', 'kp123', '123'),
+(88, 'Akshay', 'Saraf', 2147483647, 'TEACHER', 'asd@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123');
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,34 @@ INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
 (76, 103, 103),
 (77, 103, 104),
 (78, 103, 105),
-(79, 103, 106);
+(79, 103, 106),
+(80, 104, 101),
+(81, 104, 102),
+(82, 104, 103),
+(83, 104, 104),
+(84, 104, 105),
+(85, 104, 106),
+(86, 105, 101),
+(87, 105, 102),
+(88, 105, 103),
+(89, 105, 104),
+(90, 105, 105),
+(91, 105, 106),
+(92, 105, 109),
+(93, 106, 101),
+(94, 106, 102),
+(95, 106, 103),
+(96, 106, 104),
+(97, 106, 105),
+(98, 106, 106),
+(99, 106, 109),
+(100, 106, 101),
+(101, 106, 102),
+(102, 106, 103),
+(103, 106, 104),
+(104, 106, 105),
+(105, 106, 106),
+(106, 106, 109);
 
 -- --------------------------------------------------------
 
@@ -101,9 +128,8 @@ CREATE TABLE `feedbacks` (
 --
 
 INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `status`, `dept`, `year`, `sem`, `section`) VALUES
-(101, 'CES', 'ads', 'cd', 'Active', 'Computer', 'III', 'VI', 'A'),
-(102, 'CES', 'amk', 'DAA', 'Active', 'Computer', 'I', 'II', 'A'),
-(103, 'CES', 'XYZ', 'DBMS', 'Active', 'Computer', 'I', 'I', 'A');
+(105, 'CES', 'Kinjal', 'DBMS', 'Active', 'Computer', 'III', 'V', 'A'),
+(106, 'CES', 'shreya', 'DBMS', 'Active', 'Computer', 'II', 'IV', 'A');
 
 -- --------------------------------------------------------
 
@@ -132,10 +158,15 @@ INSERT INTO `login` (`id`, `fname`, `lname`, `category`, `email`, `password`) VA
 (6, 'Sheetal', 'Kale', 'HOD', 'hod.comp@bitwardha.ac.in', '123'),
 (7, 'Narendra', 'Kanhe', 'Principal', 'principal@bitwardha.ac.in', '123'),
 (9, 'Abhishek', 'Kinhekar', 'Admin', 'admin@bitwardha.ac.in', '123'),
-(69, 'amreen', 'khan', 'TEACHER', 'amreen.khan@bitwardha.ac.in', '123'),
-(70, 'SHreya', 'RAut', 'TEACHER', 'co.2020.mbraut@bitwardha.ac.in', '123'),
-(99, 'Nikhil', 'Dhopte', 'Student', 'nd@bitwardha.ac.in', '123'),
-(100, 'Ankit', 'Gupta', 'Student', 'ag@bitwardha.ac.in', '123');
+(126, '﻿Sunil', ' Patalbans', 'Parent', ' suyashshivani@gmail.com', ' 123'),
+(127, 'Nikhil', 'Dhopte', 'Student', 'nd@bitwardha.ac.in', '123'),
+(128, 'Nikhil', 'Dhopte', 'Student', 'nd@bitwardha.ac.in', '123'),
+(129, 'Saksham', 'Thakre', 'Student', 'st@bitwardha.ac.in', '123'),
+(130, 'Ankita', 'Lokhande', 'Student', 'al@bitwardha.ac.in', '123'),
+(131, 'Ankit', 'Gupta', 'Student', 'ag@bitwardha.ac.in', '123'),
+(132, 'Karan', 'Patel', 'Student', 'kp@bitwardha.ac.in', '123'),
+(133, 'Kartik', 'Rokade', 'Student', 'kr@bitwardha.ac.in', '123'),
+(134, 'Aditi', 'Zade', 'Student', 'az@bitwardha.ac.in', '123');
 
 -- --------------------------------------------------------
 
@@ -190,7 +221,8 @@ INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `option1`, `m
 (103, 'The instructional materials (i.e., e-books, handouts, videos, lab manuals, multimedia) helped me better to understand CAD modeling techniques.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
 (104, 'The course was organized in such a manner, that helped me understand the underlying concepts in transformations, algorithms and CAD workstations.	\r\n	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
 (105, 'The course gave me the confidence to do more advanced work in Finite Element Analysis.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
-(106, 'The concepts of CAPP are understood and can be utilized to solve real life problems.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1);
+(106, 'The concepts of CAPP are understood and can be utilized to solve real life problems.	', 'Radio', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(109, 'Teaching Skill', 'Text', 'Excellent', 10, 'Very Good', 8, 'Good', 5, 'Average', 3, 'Poor', 1);
 
 -- --------------------------------------------------------
 
@@ -215,7 +247,14 @@ INSERT INTO `responses` (`responseid`, `feedbackid`, `questionid`, `answer`) VAL
 (1, 101, 103, 'Agree'),
 (1, 101, 104, 'Agree'),
 (1, 101, 105, 'Neutral'),
-(1, 101, 106, 'Agree');
+(1, 101, 106, 'Agree'),
+(2, 105, 101, 'Very Good'),
+(2, 105, 102, 'Agree'),
+(2, 105, 103, 'Agree'),
+(2, 105, 104, 'Agree'),
+(2, 105, 105, 'Agree'),
+(2, 105, 106, 'Agree'),
+(2, 105, 109, 'Very Good');
 
 -- --------------------------------------------------------
 
@@ -228,7 +267,7 @@ CREATE TABLE `students` (
   `fname` text NOT NULL,
   `lname` text NOT NULL,
   `department` text NOT NULL,
-  `semester` int(100) NOT NULL,
+  `semester` text NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -238,8 +277,13 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`prn`, `fname`, `lname`, `department`, `semester`, `email`, `password`) VALUES
-('2.05E+12', 'Nikhil', 'Dhopte', 'Civil', 4, 'nd@bitwardha.ac.in', '123'),
-('2.06E+12', 'Ankit', 'Gupta', 'Electrical', 1, 'ag@bitwardha.ac.in', '123');
+('2046491245047', 'Nikhil', 'Dhopte', 'Civil', 'IV', 'nd@bitwardha.ac.in', '123'),
+('2046491245048', 'Saksham', 'Thakre', 'Civil', 'I', 'st@bitwardha.ac.in', '123'),
+('2046491245049', 'Ankita', 'Lokhande', 'Computer', 'I', 'al@bitwardha.ac.in', '123'),
+('2046491245050', 'Ankit', 'Gupta', 'Electrical', 'V', 'ag@bitwardha.ac.in', '123'),
+('2046491245051', 'Karan', 'Patel', 'Mechanical', 'IV', 'kp@bitwardha.ac.in', '123'),
+('2046491245052', 'Kartik', 'Rokade', 'Civil', 'IV', 'kr@bitwardha.ac.in', '123'),
+('2046491245053', 'Aditi', 'Zade', 'Computer', 'V', 'az@bitwardha.ac.in', '123');
 
 --
 -- Indexes for dumped tables
@@ -270,6 +314,12 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `parents`
+--
+ALTER TABLE `parents`
+  ADD PRIMARY KEY (`contact`);
+
+--
 -- Indexes for table `questions`
 --
 ALTER TABLE `questions`
@@ -295,19 +345,19 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- Constraints for dumped tables
