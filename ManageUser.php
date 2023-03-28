@@ -48,6 +48,9 @@ if (isset($_POST["submit1"])) {
   }
 }
 
+
+  $email = $_GET['email'];
+
 ?>
 <html lang="en">
 
@@ -162,7 +165,7 @@ if (isset($_POST["submit1"])) {
       <div class="account_div">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a >Profile</a><br>
+          <a href="profile.php?email=<?php echo $email?>">Profile</a><br>
           <a >Help</a><br>
           <a href="logout.php">Log out</a>
         </div>
@@ -174,10 +177,10 @@ if (isset($_POST["submit1"])) {
     <div class="left">
       <h1>ADMIN</h1>
       <ul>
-        <li><a href="ManageUser.php">Manage User</a></li>
-        <li><a href="Subject.php">Subject</a></li>
-        <li><a href="GFeedback.php">Generate Feedback</a></li>
-        <li><a href="VFeedback.php">View Feedback</a></li>
+        <li><a href="ManageUser.php?email=<?php echo $email?>">Manage User</a></li>
+        <li><a href="Subject.php?email=<?php echo $email?>">Subject</a></li>
+        <li><a href="GFeedback.php?email=<?php echo $email?>">Generate Feedback</a></li>
+        <li><a href="VFeedback.php?email=<?php echo $email?>">View Feedback</a></li>
       </ul>
     </div>
     <div class="right">

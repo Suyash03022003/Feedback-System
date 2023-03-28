@@ -1,5 +1,7 @@
 <html lang="en">
-
+<?php 
+  $email = $_GET['email'];
+?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +27,7 @@
       <div class="account_div">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a>Profile</a><br>
+          <a href="profile.php?email=<?php echo $email?>">Profile</a><br>
           <a>Help</a><br>
           <a href="logout.php">Log out</a>
         </div>
@@ -37,7 +39,7 @@
     <div class="left">
       <h1>TEACHER</h1>
       <ul>
-        <li><a href="generatefeedback.php">Generate CES</a></li>
+        <li><a href="generatefeedback.php?email=<?php echo $email?>">Generate CES</a></li>
         <li><a href="#">View Feedback</a></li>
       </ul>
     </div>

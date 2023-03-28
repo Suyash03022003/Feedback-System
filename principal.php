@@ -1,5 +1,7 @@
 <html lang="en">
-
+<?php 
+  $email = $_GET['email'];
+?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +26,7 @@
       <div class="account_div">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a >Profile</a><br>
+          <a href="profile.php?email=<?php echo $email?>" >Profile</a><br>
           <a >Help</a><br>
           <a href="logout.php">Log out</a>
         </div>
@@ -36,8 +38,8 @@
     <div class="left">
       <h1>PRINCIPAL</h1>
       <ul>
-        <li><a href="faculty.php">Manage Faculty</a></li>
-        <li><a href="viewfeedback.php">View Feedback</a></li>
+        <li><a href="faculty.php?email=<?php echo $email?>">Manage Faculty</a></li>
+        <li><a href="viewfeedback.php?email=<?php echo $email?>">View Feedback</a></li>
       </ul>
     </div>
     <div class="right">
@@ -51,7 +53,7 @@
           <div class="up-card">
             <img src="images/ManageUser.png" alt="Manage User">
             <h3>Manage Faculty</h3>
-            <a href="faculty.php">
+            <a href="faculty.php?email=<?php echo $email?>">
               <div class="view">
                 <button>View</button>
               </div>
@@ -62,7 +64,7 @@
           <div class="up-card">
             <img src="images/Subject.png" alt="Manage User">
             <h3>View Feedback</h3>
-            <a href="viewfeedback.php">
+            <a href="viewfeedback.php?email=<?php echo $email?>">
               <div class="view">
                 <button>View</button>
               </div>

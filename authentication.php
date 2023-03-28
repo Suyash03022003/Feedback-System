@@ -11,9 +11,10 @@
         $active = $row['category'];
         $user = $row['fname'];
         $lname = $row['lname'];
+        $mail = $row['email'];
 
         if($count == 1){  
-            header("Location: $active.php?user=$user&lname=$lname");
+            header("Location: $active.php?user=$user&lname=$lname&email=$mail");
         }
         else{  
             echo "<h1> Login failed. Invalid username or password.</h1>";  

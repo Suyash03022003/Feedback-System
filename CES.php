@@ -6,6 +6,7 @@ $result=mysqli_query($conn, $sql);
 
 $sem = "select sem from feedbacks";
 $stu_sem = "select semester from students";
+$email = $_GET['email'];
 
 ?>
 <html lang="en">
@@ -34,7 +35,7 @@ $stu_sem = "select semester from students";
       <div class="account_div">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a >Profile</a><br>
+          <a href="profile.php?email=<?php echo $email?>" >Profile</a><br>
           <a >Help</a><br>
           <a href="logout.php">Log out</a>
         </div>
