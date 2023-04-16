@@ -49,7 +49,7 @@ if (isset($_POST["submit1"])) {
 }
 
 
-  $email = $_GET['email'];
+$email = $_GET['email'];
 
 ?>
 <html lang="en">
@@ -154,7 +154,7 @@ if (isset($_POST["submit1"])) {
       </div>
     </div>
   </div>
-  
+
   <div class="nav">
     <div class="img">
       <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">
@@ -165,8 +165,8 @@ if (isset($_POST["submit1"])) {
       <div class="account_div">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a href="profile.php?email=<?php echo $email?>">Profile</a><br>
-          <a >Help</a><br>
+          <a href="profile.php?email=<?php echo $email ?>">Profile</a><br>
+          <a>Help</a><br>
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -177,10 +177,10 @@ if (isset($_POST["submit1"])) {
     <div class="left">
       <h1>ADMIN</h1>
       <ul>
-        <li><a href="ManageUser.php?email=<?php echo $email?>">Manage User</a></li>
-        <li><a href="Subject.php?email=<?php echo $email?>">Subject</a></li>
-        <li><a href="GFeedback.php?email=<?php echo $email?>">Generate Feedback</a></li>
-        <li><a href="VFeedback.php?email=<?php echo $email?>">View Feedback</a></li>
+        <li><a href="ManageUser.php?email=<?php echo $email ?>">Manage User</a></li>
+        <li><a href="Subject.php?email=<?php echo $email ?>">Subject</a></li>
+        <li><a href="GFeedback.php?email=<?php echo $email ?>">Generate Feedback</a></li>
+        <li><a href="VFeedback.php?email=<?php echo $email ?>">View Feedback</a></li>
       </ul>
     </div>
     <div class="right">
@@ -199,36 +199,33 @@ if (isset($_POST["submit1"])) {
 
       <div class="User">
 
-        <table class="tablecontent" >
+        <table class="tablecontent">
           <thead>
-          <tr>
-          <th>SR NO.</th>
-            <th>FIRST NAME</th>
-            <th>LAST NAME</th>
-            <th>USERNAME</th>
-            <th>EMAIL</th>
-            <th>EDIT</th>
-            <th>DELETE</th>
-          </tr >
+            <tr>
+              <th>SR NO.</th>
+              <th>FIRST NAME</th>
+              <th>LAST NAME</th>
+              <th>EMAIL</th>
+              <th>EDIT</th>
+              <th>DELETE</th>
+            </tr>
           </thead>
-          <tbody>
-          <tr>
+          <tbody id="tbody">
             <?php
-              while ($row = mysqli_fetch_assoc($result))
-              {
-                ?>
-                 <td><?php echo $row['id'];?></td>
-                 <td><?php echo $row['FNAME'];?></td>
-                 <td><?php echo $row['LNAME'];?></td>
-                 <td><?php echo $row['USERNAME'];?></td>                
-                 <td><?php echo $row['EMAIL'];?></td>                
-                 <td><a href="edit.php?fname=<?=$row['FNAME'];?>" name="edit"><img src= images/edit.png width="10" height="20"> </a></td>
-                 <td><a href="delete.php?EMAIL=<?=$row['EMAIL'];?>" name="delete"><img src= images/delete.png width="20" height="20"> </a></td>
-                </tr>
-                </tbody> 
-                <?php
-                }
-              ?>
+            $query1 = "select * from login WHERE category='Teacher'";
+            $result = mysqli_query($conn, $query1);
+            foreach ($result as $cols) {
+              echo "<tr>";
+              echo "<td>" . $cols['id'] . "</td>";
+              echo "<td>" . $cols['fname'] . "</td>";
+              echo "<td>" . $cols['lname'] . "</td>";
+              echo "<td>" . $cols['email'] . "</td>";
+              echo "<td><a href='edit.php?fname=$cols[fname]' name='edit'><img src= images/edit.png width='10' height='20'> </a></td>";
+              echo "<td><a href='delete.php?EMAIL=$cols[email]' name='delete'><img src= images/delete.png width='20' height='20'> </a></td>";
+              echo "</tr>";
+            }
+            ?>
+          </tbody>
         </table>
       </div>
     </div>
@@ -236,7 +233,6 @@ if (isset($_POST["submit1"])) {
       var dropdown = document.getElementById("dropdown1");
       var dropdown = document.getElementById("dropdown2");
       var dropdown = document.getElementById("dropdown3");
-
 
       function clicked1(char) {
         dropdown1.innerHTML = char;
@@ -259,18 +255,33 @@ if (isset($_POST["submit1"])) {
       var user1 = document.getElementById("faculty");
       var user2 = document.getElementById("parent");
       var user3 = document.getElementById("student");
-      
+
       var table = document.getElementById("table");
-      
+
       function display() {
         document.getElementById(div).style.display = "block";
       }
+
+      var tbody = document.getElementById("tbody");
 
       function display_student() {
         user1.classList.remove("active");
         user2.classList.remove("active");
         user3.classList.add("active");
         div = "log";
+        tbody.innerHTML = "<?php
+                            $query1 = "select * from login WHERE category='Student'";
+                            $result = mysqli_query($conn, $query1);
+                            foreach ($result as $cols) {
+                              echo "<tr>";
+                              echo "<td>$cols[id]</td>";
+                              echo "<td>$cols[fname]</td>";
+                              echo "<td>$cols[lname]</td>";
+                              echo "<td>$cols[email]</td>";
+                              echo "<td><a href=edit.php?fname=$cols[fname] name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href=delete.php?EMAIL=$cols[email] name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo '</tr>';
+                            } ?>";
       }
 
       function display_faculty() {
@@ -278,6 +289,19 @@ if (isset($_POST["submit1"])) {
         user2.classList.remove("active");
         user1.classList.add("active");
         div = "fac";
+        tbody.innerHTML = "<?php
+                            $query1 = "select * from login WHERE category='Teacher'";
+                            $result = mysqli_query($conn, $query1);
+                            foreach ($result as $cols) {
+                              echo "<tr>";
+                              echo "<td>$cols[id]</td>";
+                              echo "<td>$cols[fname]</td>";
+                              echo "<td>$cols[lname]</td>";
+                              echo "<td>$cols[email]</td>";
+                              echo "<td><a href=edit.php?fname=$cols[fname] name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href=delete.php?EMAIL=$cols[email] name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo '</tr>';
+                            } ?>";
       }
 
       function display_parent() {
@@ -285,8 +309,20 @@ if (isset($_POST["submit1"])) {
         user1.classList.remove("active");
         user2.classList.add("active");
         div = "p";
+        tbody.innerHTML = "<?php
+                            $query1 = "select * from login WHERE category='Parent'";
+                            $result = mysqli_query($conn, $query1);
+                            foreach ($result as $cols) {
+                              echo "<tr>";
+                              echo "<td>$cols[id]</td>";
+                              echo "<td>$cols[fname]</td>";
+                              echo "<td>$cols[lname]</td>";
+                              echo "<td>$cols[email]</td>";
+                              echo "<td><a href=edit.php?fname=$cols[fname] name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href=delete.php?EMAIL=$cols[email] name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo '</tr>';
+                            } ?>";
       }
-      
     </script>
 </body>
 

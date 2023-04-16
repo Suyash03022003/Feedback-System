@@ -66,11 +66,11 @@
         $result = mysqli_query($conn, $query);
      
         if($result){
-         $ans1 = "INSERT INTO login (fname, lname, username,category, email, password) values('$FNAME','$LNAME', '$USERNAME','$CATEGORY','$EMAIL','$PASSWORD')";
+         $ans1 = "INSERT INTO login (fname, lname,category, email, password) values('$FNAME','$LNAME', '$CATEGORY','$EMAIL','$PASSWORD')";
          $data1 = mysqli_query($conn, $ans1);
 
           $_SESSION['message'] = "User Added Successfully";
-          header("Location: ManageUser.php");
+          header("Location: ManageUser.php?email=$EMAIL");
           exit(0);
         }
         else{
