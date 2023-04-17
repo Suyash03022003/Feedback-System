@@ -1,9 +1,16 @@
 <?php
 session_start();
 include('connect.php');
+$userid  = $_SESSION['email'];
+if($userid == true){
+
+}
+else{
+  header('location:index.php');
+}
+
 $sql="SELECT * FROM feedbacks";
 $result=mysqli_query($conn, $sql);
-
 $sem = "select sem from feedbacks";
 $stu_sem = "select semester from students";
 $email = $_GET['email'];

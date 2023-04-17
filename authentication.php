@@ -14,6 +14,7 @@
         $mail = $row['email'];
 
         if($count == 1){  
+            $_SESSION['email'] = $email;
             header("Location: $active.php?user=$user&lname=$lname&email=$mail");
         }
         else{  
