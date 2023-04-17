@@ -164,20 +164,36 @@ body {
   display: none;
   background-color: #102543;
   margin-right: 2%;
-  margin-top: 0;
+  top:75px;
+  margin-top:0;
   border: 1px solid white;
   padding: 15px 25px 15px 25px;
+  border-radius: 12px;
+  display: "block";
+  visibility: hidden;
+  opacity: 0;
 }
 
-.account:hover {
-  display: "block";
+.account::before{
+  content: '';
+  position:absolute;
+  top: -5;
+  right: 46%;
+  width: 20px;
+  height: 20px;
+  background:#102543 ;
+  transform: rotate(45deg);
+}
+.account.active{
+  visibility: visible;
+  opacity: 1;
 }
 
 .account_div {
   text-align: center;
 }
 
-.account_div:hover .account {display: block;}
+.account_div .account {display: block;}
 
 .links .input {
   background-color: transparent;
