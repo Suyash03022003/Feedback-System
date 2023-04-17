@@ -16,32 +16,63 @@ include('connect.php');
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/profile.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profile</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/profile.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <title>Profile</title>
 </head>
 
 <body>
+  <div class="nav">
+    <div class="img">
+      <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">
+    </div>
+    <h2 id="heading">Bajaj Institute of Technology</h2>
+  </div>
+  <div class="spaces"></div>
+  <div class="main">
+    <div class="left">
+      <h1>ADMIN</h1>
+      <ul>
+        <li><a href="ManageUser.php">Manage User</a></li>
+        <li><a href="Subject.php">Subject</a></li>
+        <li><a href="GFeedback.php">Generate Feedback</a></li>
+        <li><a href="VFeedback.php">View Feedback</a></li>
+      </ul>
+    </div>
+    <div class="right">
+      <h1>Profile</h1>
+      <p>Dashboard/<span>My Profile</span></p>
+    </div>
+
     <form action="">
-        <div>
-            <img src="images/img_avatar.png" alt="user" class="pro_img">
-            
-            <div class="profile">
+      <div class="common">
+        <div class="linfo">
+            <img src="images/img_avatar.png" alt="user" class="pro_img"> 
+           <div>
+             <p class="pa"><?php echo $f_name?>  <?php echo $l_name?></p> 
+             <p class="pa" id="p1"><?php echo $e_mail?></p>
+             <button class="btn">Edit</button>
+          </div>
+        </div>
+              <div class="rinfo">
                 <div class="text">
-                    <label class="llabel" >First Name : <input type="text" value="<?php echo $f_name?>"> </label>
-                    </label>
-                    <label class="rlabel">Last Name: <input type="text" value="<?php echo $l_name?>"> </label><br>
-                    <label class="llabel">Department: <input type="text"> </label>
-                    <label class="rlabel">Email: <input type="text" value="<?php echo $e_mail?>"> </label><br>
+                    <label class="llabel" >First Name : <br> <p><?php echo $f_name?> </p> </label><br>
+                    <label class="rlabel">Last Name : <br><p><?php echo $l_name?> </p> </label><br>
+                    <!-- <label class="llabel">Department: <input type="text"> </label> -->
+                    <label class="rlabel">Email : <br> <?php echo $e_mail?> </label><br>
                 </div>
             </div>
-        </div>
-        <p></p><br>
-        <p></p><br>
+      </div>
     </form>
+  </div>
+
 </body>
 
 </html>

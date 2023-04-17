@@ -1,33 +1,52 @@
 form {
-    border: 2px solid black;
-    margin: 5% 25% 5% 25%;
+    margin: 0% 2% 5% 22.5%;
     background-color: #E4EDF9;
+}
 
+.linfo{
+    float: left;
+    border-radius: 20px;
+    background: white;
+    width: 35%;
+    /* padding: 2% 10% 2% 10%; */
+}
+.rinfo{
+    float: right;
+    margin-left: 5px;
+    border-radius: 20px;
+    background: white;
+    top: 0;
+    width: 64%;
+    padding: 40px 80px 170px 80px; 
+    
 }
 
 .pro_img {
-    height: 15%;
-    width: 15%;
-    top: 0;
+    height: 50%;
+    width: 50%;
+    padding-top:50px;
+    padding-bottom: 50px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 50% ;
 }
 
 .text {
-    padding: 5px 50px 20px 50px; 
+    padding: 30px; 
 }
 
-input {
-    margin-bottom: 60px;
-    padding: 5px;
+.pa{
+    text-align: center;
 }
-
-img {
-    border-radius: 50% ;
-   margin-bottom: 60px;
-   margin-top: 20px;
+#p1{
+    padding-bottom: 40px;
 }
-.rlabel{
-    float: right;
+.btn{
+    color:red;
+    height: 30px;
+    width:60px;
+    padding: 8px;
+    margin-left:40px;
+    margin-bottom:40px;
 }
