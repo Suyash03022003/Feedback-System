@@ -70,6 +70,7 @@ include('connect.php');
                 </div>
             </div>
       </div>
+  
     </form>
   </div>
 

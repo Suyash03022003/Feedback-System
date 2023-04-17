@@ -8,12 +8,15 @@ if($userid == true){
 else{
   header('location:index.php');
 }
+$email = $_SESSION['email'];
+$fname = $_SESSION['fname'];
+$lname = $_SESSION['lname'];
 
 $sql="SELECT * FROM feedbacks";
 $result=mysqli_query($conn, $sql);
 $sem = "select sem from feedbacks";
 $stu_sem = "select semester from students";
-$email = $_GET['email'];
+
 
 ?>
 <html lang="en">
@@ -38,12 +41,11 @@ $email = $_GET['email'];
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-      <!-- <p class="para">X_Y_Z</p> -->
-      <div class="account_div">
+    <p class="input"><?php echo $fname, " ", $lname; ?></p>
+      <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a href="profile.php?email=<?php echo $email?>" >Profile</a><br>
-          <a >Help</a><br>
+          <a href="profile.php" >Profile</a><br>
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -82,6 +84,12 @@ $email = $_GET['email'];
   </div>
   </div>
   </div>
+  <script>
+     function profileAccount(){
+      const list = document.querySelector('.account');
+      list.classList.toggle('active')
+    }
+  </script>
 </body>
 
 </html>

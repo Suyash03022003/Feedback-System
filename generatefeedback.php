@@ -3,6 +3,9 @@ session_start();
 include('connect.php');
 $query = "select * from questions";
 $result = mysqli_query($conn, $query);
+$email = $_SESSION['email'];
+$fname = $_SESSION['fname'];
+$lname = $_SESSION['lname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +88,7 @@ $result = mysqli_query($conn, $query);
         </div>
         <h2 id="heading">Bajaj Institute of Technology</h2>
         <div class="links" id="links">
-            <!-- <p class="para">X_Y_Z</p> -->
+        <p class="input"><?php echo $fname, " ", $lname; ?></p>
 
             <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         </div>
@@ -228,6 +231,7 @@ $result = mysqli_query($conn, $query);
             var log = document.getElementById('log');
             log.style.display = 'block';
         }
+        
     </script>
 </body>
 

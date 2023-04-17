@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+  session_start();
+ 
+  $email = $_SESSION['email'];
+  $fname = $_SESSION['fname'];
+  $lname = $_SESSION['lname'];
+?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +27,7 @@
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-    <!-- <p class="para">X_Y_Z</p> -->
+    <p class="input"><?php echo $fname, " ", $lname; ?></p>
     <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
     </div>
   </div>
@@ -125,6 +131,12 @@
       var text = ques[number - 1].innerHTML;
       ques[number - 1].innerHTML = "<input type='text' value='" + text + "''>";
     }
+    
+  function profileAccount(){
+      const list = document.querySelector('.account');
+      list.classList.toggle('active')
+    }
+
   </script>
 </body>
 
