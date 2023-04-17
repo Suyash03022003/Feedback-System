@@ -56,7 +56,7 @@ if (isset($_POST["submit1"])) {
 }
 
 
-$email = $_GET['email'];
+$email = $_SESSION['email'];
 
 ?>
 <html lang="en">
@@ -168,7 +168,7 @@ $email = $_GET['email'];
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-      <!-- <p class="para">X_Y_Z</p> -->
+      <input type="text" value=<?php echo $_SESSION['email']?> disabled>
       <div class="account_div">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
