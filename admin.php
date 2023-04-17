@@ -1,6 +1,6 @@
 <html lang="en">
 <?php 
-  SESSION_START();
+  session_start();
   $userid  = $_SESSION['email'];
 if($userid == true){
 
@@ -8,7 +8,9 @@ if($userid == true){
 else{
   header('location:index.php');
 }
-  $email = $_GET['email'];
+  $email = $_SESSION['email'];
+  $fname = $_SESSION['fname'];
+  $lname = $_SESSION['lname'];
 ?>
 <head>
   <meta charset="UTF-8">
@@ -30,11 +32,11 @@ else{
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-    <p class="input"><?php echo $_GET['user'], " ", $_GET['lname']; ?></p>
+    <p class="input"><?php echo $fname, " ", $lname; ?></p>
       <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a href="profile.php?email=<?php echo $email?>">Profile</a><br>
+          <a href="profile.php">Profile</a><br>
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -45,10 +47,10 @@ else{
     <div class="left">
       <h1>ADMIN</h1>
       <ul>
-        <li><a href="ManageUser.php?email=<?php echo $email?>">Manage User</a></li>
-        <li><a href="Subject.php?email=<?php echo $email?>">Subject</a></li>
-        <li><a href="GFeedback.php?email=<?php echo $email?>">Generate Feedback</a></li>
-        <li><a href="VFeedback.php?email=<?php echo $email?>">View Feedback</a></li>
+        <li><a href="ManageUser.php">Manage User</a></li>
+        <li><a href="Subject.php">Subject</a></li>
+        <li><a href="GFeedback.php">Generate Feedback</a></li>
+        <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>
     </div>
 
@@ -64,7 +66,7 @@ else{
             <div class="up-card">
               <img src="images/ManageUser.png" alt="Manage User">
               <h3>Manage Users</h3>
-              <a href="ManageUser.php?email=<?php echo $email?>">
+              <a href="ManageUser.php">
                 <div class="view">
                   <button>View</button>
                 </div>
@@ -76,7 +78,7 @@ else{
             <div class="up-card">
               <img src="images/Subject.png" alt="Manage User">
               <h3>Add Subject</h3>
-              <a href="Subject.php?email=<?php echo $email?>">
+              <a href="Subject.php">
                 <div class="view">
                   <button>View</button>
                 </div>
@@ -89,7 +91,7 @@ else{
             <div class="down-card">
               <img src="images/gfeedback.jpg" alt="Manage User">
               <h3>Generate Feedback</h3>
-              <a href="gfeedback.php?email=<?php echo $email?>">
+              <a href="gfeedback.php">
                 <div class="view">
                   <button>View</button>
                 </div>
@@ -101,7 +103,7 @@ else{
             <div class="down-card">
               <img src="images/vfeedback.jpg" alt="Manage User">
               <h3>View Feedback</h3>
-              <a href="VFeedback.php?email=<?php echo $email?>">
+              <a href="VFeedback.php">
                 <div class="view">
                   <button>View</button>
                 </div>

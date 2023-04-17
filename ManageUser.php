@@ -2,10 +2,8 @@
 session_start();
 include('connect.php');
 $userid  = $_SESSION['email'];
-if($userid == true){
-
-}
-else{
+if ($userid == true) {
+} else {
   header('location:index.php');
 }
 $query = "select * from login";
@@ -57,7 +55,8 @@ if (isset($_POST["submit1"])) {
 
 
 $email = $_SESSION['email'];
-
+$fname = $_SESSION['fname'];
+$lname = $_SESSION['lname'];
 ?>
 <html lang="en">
 
@@ -168,11 +167,11 @@ $email = $_SESSION['email'];
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-      <input type="text" value=<?php echo $_SESSION['email']?> disabled>
+      <p class="input"><?php echo $fname, " ", $lname; ?></p>
       <div class="account_div">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a href="profile.php?email=<?php echo $email ?>">Profile</a><br>
+          <a href="profile.php">Profile</a><br>
           <a>Help</a><br>
           <a href="logout.php">Log out</a>
         </div>
@@ -184,10 +183,10 @@ $email = $_SESSION['email'];
     <div class="left">
       <h1>ADMIN</h1>
       <ul>
-        <li><a href="ManageUser.php?email=<?php echo $email ?>">Manage User</a></li>
-        <li><a href="Subject.php?email=<?php echo $email ?>">Subject</a></li>
-        <li><a href="GFeedback.php?email=<?php echo $email ?>">Generate Feedback</a></li>
-        <li><a href="VFeedback.php?email=<?php echo $email ?>">View Feedback</a></li>
+        <li><a href="ManageUser.php">Manage User</a></li>
+        <li><a href="Subject.php">Subject</a></li>
+        <li><a href="GFeedback.php">Generate Feedback</a></li>
+        <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>
     </div>
     <div class="right">
@@ -227,8 +226,8 @@ $email = $_SESSION['email'];
               echo "<td>" . $cols['fname'] . "</td>";
               echo "<td>" . $cols['lname'] . "</td>";
               echo "<td>" . $cols['email'] . "</td>";
-              echo "<td><a href='edit.php?fname=$cols[fname]' name='edit'><img src= images/edit.png width='10' height='20'> </a></td>";
-              echo "<td><a href='delete.php?EMAIL=$cols[email]' name='delete'><img src= images/delete.png width='20' height='20'> </a></td>";
+              echo "<td><a href='edit.php' name='edit'><img src= images/edit.png width='10' height='20'> </a></td>";
+              echo "<td><a href='delete.php' name='delete'><img src= images/delete.png width='20' height='20'> </a></td>";
               echo "</tr>";
             }
             ?>
@@ -285,8 +284,8 @@ $email = $_SESSION['email'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href=edit.php?fname=$cols[fname] name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href=delete.php?EMAIL=$cols[email] name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "<td><a href=edit.php name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href=delete.php name=delete><img src= images/delete.png width=20 height=20> </a></td>";
                               echo '</tr>';
                             } ?>";
       }
@@ -305,8 +304,8 @@ $email = $_SESSION['email'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href=edit.php?fname=$cols[fname] name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href=delete.php?EMAIL=$cols[email] name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "<td><a href=edit.php name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href=delete.php name=delete><img src= images/delete.png width=20 height=20> </a></td>";
                               echo '</tr>';
                             } ?>";
       }
@@ -325,8 +324,8 @@ $email = $_SESSION['email'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href=edit.php?fname=$cols[fname] name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href=delete.php?EMAIL=$cols[email] name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "<td><a href=edit.php name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href=delete.php name=delete><img src= images/delete.png width=20 height=20> </a></td>";
                               echo '</tr>';
                             } ?>";
       }

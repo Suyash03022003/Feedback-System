@@ -15,7 +15,9 @@
 
         if($count == 1){  
             $_SESSION['email'] = $email;
-            header("Location: $active.php?user=$user&lname=$lname&email=$mail");
+            $_SESSION['fname'] = $user;
+            $_SESSION['lname'] = $lname;
+            header("Location: $active.php");
         }
         else{  
             echo "<h1> Login failed. Invalid username or password.</h1>";  

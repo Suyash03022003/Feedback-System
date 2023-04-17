@@ -10,7 +10,9 @@
   else{
     header('location:index.php');
   }
-  $email = $_GET['email'];
+  $email = $_SESSION['email'];
+  $fname = $_SESSION['fname'];
+  $lname = $_SESSION['lname'];
 ?>
 <head>
   <meta charset="UTF-8">
@@ -32,7 +34,7 @@
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-    <p class="input"><?php echo $_GET['user'], " ", $_GET['lname']; ?></p>
+    <p class="input"><?php echo $fname, " ", $lname; ?></p>
       
       <div class="account_div">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
