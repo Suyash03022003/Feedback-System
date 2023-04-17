@@ -1,5 +1,15 @@
 <html lang="en">
 <?php 
+  include('connect.php');
+  session_start();
+  $_SESSION['email'];
+  $userid  = $_SESSION['email'];
+  if($userid == true){
+  
+  }
+  else{
+    header('location:index.php');
+  }
   $email = $_GET['email'];
 ?>
 <head>

@@ -1,7 +1,21 @@
-<html lang="en">
 <?php 
+  session_start();
+  $_SESSION['email'];
+  include('connect.php');
+  $userid  = $_SESSION['email'];
+  if($userid == true){
+
+  }
+  else{
+  header('location:index.php');
+  }
   $email = $_GET['email'];
+  $query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from faculty WHERE EMAIL = '$email') ";
+  $result = mysqli_query($conn, $query);
+
+ 
 ?>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,7 +63,24 @@
       <p>Dashboard</p>
       <br>
       <br>
-      <div class="cards">
+
+    <h2>Active Feedback</h2>
+      <?php
+      
+      while ($row = mysqli_fetch_assoc($result))
+      {
+        ?>
+                <?php echo $row['feedback_id'];?>
+                 <?php echo $row['feedback_type'];?>
+                 <?php echo $row['subject'];?>
+                 
+      <?php
+      }
+    
+      ?>
+
+
+      <!-- <div class="cards">
         <div class="card">
           <div class="up-card">
             <img src="images/ManageUser.png" alt="Manage User">
@@ -76,9 +107,8 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
   </div>
   </div>
 </body>
-
 </html>

@@ -1,5 +1,12 @@
 <html lang="en">
 <?php 
+  $userid  = $_SESSION['email'];
+  if($userid == true){
+  
+  }
+  else{
+    header('location:index.php');
+  }
   $email = $_GET['email'];
 ?>
 <head>
