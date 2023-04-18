@@ -23,7 +23,6 @@ session_start();
             <div class="frm ">
                 <img src="images/aside.jpg" alt="BITW">
                 <div class="content">
-                    <h2>Log IN</h2>
                     <img src="images/bitlogo.jpg" alt="BIT Logo">
                     <form name="f1" action="authentication.php" onsubmit="return validation()" method="POST">
                         <div class="user-input-wrp" style="margin-bottom: 5px;">

@@ -52,18 +52,9 @@ img {
     width: 20%;
 }
 
-.frm h2 {
-    font-size: 25px;
-    letter-spacing: 1px;
-    margin: 15px;
-    margin-top: 20px;
-    color: #2b87ff;
-    margin-bottom: 20px;
-}
-
 .frm input {
-    width: 70%;
-    padding: 8px;
+    width: 70%;    
+    padding: 10px;
 }
 
 form a {
@@ -74,17 +65,19 @@ form a {
 #btn {
     margin: 10px;
     margin-top: 20px;
-    background-color: #aed1ff;
+    background-color: #102543;
     font-size: medium;
     border: 0;
     cursor: pointer;
+    color: white;
     border-radius: 8px;
+    padding: 10px;
     transition: 0.3s;
 }
 
 #btn:hover {
     border-radius: 0;
-    background-color: #98c4fe;
+    transform: scale(1.01);
 }
 
 .user-input-wrp {
@@ -106,13 +99,13 @@ span {
 
 .user-input-wrp .inputText:focus {
     border-radius: 5px;
-    border: 2px solid #6faeff;
+    border: 2px solid #102543;
 }
 
 .user-input-wrp .floating-label {
     position: absolute;
     pointer-events: none;
-    top: 37px;
+    top: 40px;
     left: 20px;
     transition: 0.2s ease all;
 }
