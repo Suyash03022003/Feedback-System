@@ -1,7 +1,16 @@
 <?php
 include('connect.php');  
-    $email = $_GET['email'];
+session_start();
+$userid  = $_SESSION['email'];
+if($userid == true){
 
+}
+else{
+header('location:index.php');
+}
+$email = $_SESSION['email'];
+$fname = $_SESSION['fname'];
+$lname = $_SESSION['lname'];
     $loginfo = "SELECT * FROM login WHERE email = '$email';";
     $loginresult = mysqli_query($conn, $loginfo);
     $var=mysqli_fetch_array($loginresult);

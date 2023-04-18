@@ -1,6 +1,16 @@
 <html lang="en">
 <?php 
-  $email = $_GET['email'];
+   session_start();
+   $userid  = $_SESSION['email'];
+  if($userid == true){
+  
+  }
+  else{
+   header('location:index.php');
+  }
+   $email = $_SESSION['email'];
+   $fname = $_SESSION['fname'];
+   $lname = $_SESSION['lname'];
 ?>
 <head>
   <meta charset="UTF-8">
@@ -22,12 +32,12 @@
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-    <!-- <p class="para">X_Y_Z</p> -->
-    <div class="account_div">
+    <p class="input"><?php echo $fname, " ", $lname; ?></p>
+    <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a href="profile.php?email=<?php echo $email?>" >Profile</a><br>
-          <a >Help</a><br>
+          <a href="profile.php" >Profile</a><br>
+        
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -38,8 +48,8 @@
     <div class="left">
       <h1>PRINCIPAL</h1>
       <ul>
-        <li class="active"><a href="faculty.php?email=<?php echo $email?>">Manage Faculty</a></li>
-        <li><a href="viewfeedback.php?email=<?php echo $email?>">View Feedback</a></li>
+        <li class="active"><a href="faculty.php">Manage Faculty</a></li>
+        <li><a href="viewfeedback.php">View Feedback</a></li>
       </ul>
     </div>
     <div class="right">
@@ -135,6 +145,11 @@
       function clicked2(char) {
         dropdown2.innerHTML = char;
       }
+
+      function profileAccount(){
+      const list = document.querySelector('.account');
+      list.classList.toggle('active')
+    }
     </script>
 </body>
 
