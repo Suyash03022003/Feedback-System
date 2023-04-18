@@ -1,5 +1,6 @@
 <html lang="en">
 <?php 
+session_start();
   $userid  = $_SESSION['email'];
   if($userid == true){
   
