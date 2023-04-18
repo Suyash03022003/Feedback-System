@@ -32,7 +32,7 @@ session_start();
                         </div>
                         <div class="user-input-wrp">
                             <br />
-                            <input type="text" class="inputText" name="pass" required />
+                            <input type="password" class="inputText" name="pass" required />
                             <span class="floating-label">Enter Password</span>
                         </div>
                         <br>
