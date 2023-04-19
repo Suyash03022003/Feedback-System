@@ -16,6 +16,7 @@ $lname = $_SESSION['lname'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/bitlogo.jpg" />
     <link rel="stylesheet" href="css/generate.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,7 +91,7 @@ $lname = $_SESSION['lname'];
         </div>
         <h2 id="heading">Bajaj Institute of Technology</h2>
         <div class="links" id="links">
-        <p class="input"><?php echo $fname, " ", $lname; ?></p>
+            <p class="input"><?php echo $fname, " ", $lname; ?></p>
 
             <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         </div>
@@ -179,6 +180,7 @@ $lname = $_SESSION['lname'];
         var secondyr = document.getElementById("II");
         var thirdyr = document.getElementById("III");
         var fourthyr = document.getElementById("IV");
+
         function clicked1(char) {
             dropdown1.value = char;
             option2.style.opacity = 1;
@@ -186,25 +188,25 @@ $lname = $_SESSION['lname'];
 
         function clicked2(char) {
             dropdown2.value = char;
-            if(char == 'I') {
+            if (char == 'I') {
                 firstyr.style.display = "block";
                 secondyr.style.display = "none";
                 thirdyr.style.display = "none";
                 fourthyr.style.display = "none";
             }
-            if(char == 'II') {
+            if (char == 'II') {
                 firstyr.style.display = "none";
                 secondyr.style.display = "block";
                 thirdyr.style.display = "none";
                 fourthyr.style.display = "none";
             }
-            if(char == 'III') {
+            if (char == 'III') {
                 firstyr.style.display = "none";
                 secondyr.style.display = "none";
                 thirdyr.style.display = "block";
                 fourthyr.style.display = "none";
             }
-            if(char == 'IV') {
+            if (char == 'IV') {
                 firstyr.style.display = "none";
                 secondyr.style.display = "none";
                 thirdyr.style.display = "none";
@@ -233,7 +235,6 @@ $lname = $_SESSION['lname'];
             var log = document.getElementById('log');
             log.style.display = 'block';
         }
-        
     </script>
 </body>
 

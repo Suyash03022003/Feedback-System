@@ -19,6 +19,7 @@ $result1 = mysqli_query($conn, $query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student</title>
+    <link rel="icon" href="images/bitlogo.jpg">
     <link rel="stylesheet" href="css/ces.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,8 +39,7 @@ $result1 = mysqli_query($conn, $query);
             <div class="account_div">
                 <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
                 <div id="account" class="account">
-                    <a>Profile</a><br>
-                    <a>Help</a><br>
+                    <a href="studentProfile.php">Profile</a><br>
                     <a href="index.php">Log out</a>
                 </div>
             </div>

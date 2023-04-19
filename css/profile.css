@@ -1,24 +1,32 @@
 form {
-    margin: 0% 2% 5% 22.5%;
     background-color: #E4EDF9;
 }
 
+.common {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2%;
+}
+
+.linfo_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .linfo{
-    float: left;
     border-radius: 20px;
     background: white;
-    width: 35%;
+    width: 45%;
     /* padding: 2% 10% 2% 10%; */
 }
+
 .rinfo{
-    float: right;
-    margin-left: 5px;
     border-radius: 20px;
     background: white;
     top: 0;
-    width: 64%;
-    padding: 40px 80px 170px 80px; 
-    
+    width: 55%;
 }
 
 .pro_img {
@@ -39,14 +47,18 @@ form {
 .pa{
     text-align: center;
 }
+
 #p1{
     padding-bottom: 40px;
 }
+
 .btn{
-    color:red;
-    height: 30px;
-    width:60px;
-    padding: 8px;
-    margin-left:40px;
+    padding: 7px;
+    width: 20%;
     margin-bottom:40px;
+}
+
+.text h1 {
+    font-size: 25px;
+    margin-bottom: 30px;
 }

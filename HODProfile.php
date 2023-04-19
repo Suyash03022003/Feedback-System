@@ -1,8 +1,16 @@
 <html lang="en">
 <?php
 session_start();
-$stake = 'Parent';
+include('connect.php');
+$stake = 'HOD';
 include('check.php');
+$loginfo = "SELECT * FROM login WHERE email = '$email';";
+$loginresult = mysqli_query($conn, $loginfo);
+$var = mysqli_fetch_array($loginresult);
+$f_name = $var['fname'];
+$l_name = $var['lname'];
+$cate = $var['category'];
+$e_mail = $var['email'];
 ?>
 
 <head>
@@ -11,7 +19,7 @@ include('check.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin</title>
   <link rel="icon" href="images/bitlogo.jpg" />
-  <link rel="stylesheet" href="css/parent.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="css/profile.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +38,7 @@ include('check.php');
       <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a href="Parentprofile.php">Profile</a><br>
+          <a href="HODprofile.php">Profile</a><br>
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -39,9 +47,10 @@ include('check.php');
   <div class="spaces"></div>
   <div class="full">
     <div class="left">
-      <h1>PARENTS</h1>
+      <h1>HOD</h1>
       <ul>
-        <li><a href="giveFeedback.php">Give Feedback</a></li>
+        <li><a href="generatefeedback.php">PTM Feedback</a></li>
+        <li><a href="#">View Feedback</a></li>
       </ul>
     </div>
 
@@ -51,19 +60,32 @@ include('check.php');
       <p>Dashboard/ <span>My Profile</span></p>
       <br>
       <br>
-      <div class="cards">
-        <div class="card">
-          <div class="up-card">
-            <img src="images/parent.png" alt="Manage User" />
-            <h3>Give Feedback</h3>
-            <a href="giveFeedback.php">
-              <div class="view">
-                <button>View</button>
-              </div>
-            </a>
+      <form action="">
+        <div class="common">
+          <div class="linfo">
+            <img src="images/img_avatar.png" alt="user" class="pro_img">
+            <div class="linfo_content">
+              <p class="pa"><?php echo $f_name ?> <?php echo $l_name ?></p>
+              <p class="pa" id="p1"><?php echo $e_mail ?></p>
+              <button class="btn">Edit</button>
+            </div>
+          </div>
+          <div class="rinfo">
+            <div class="text">
+              <h1>Personal Details</h1>
+              <label class="llabel">First Name : <br>
+                <p><?php echo $f_name ?> </p>
+              </label><br>
+              <label class="rlabel">Last Name : <br>
+                <p><?php echo $l_name ?> </p>
+              </label><br>
+              <!-- <label class="llabel">Department: <input type="text"> </label> -->
+              <label class="rlabel">Email : <br> <?php echo $e_mail ?></label><br>
+            </div>
           </div>
         </div>
-      </div>
+
+      </form>
     </div>
   </div>
   </div>

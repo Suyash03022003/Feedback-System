@@ -42,6 +42,7 @@ body {
 .links img {
   width: auto;
   height: 70%;
+  cursor: pointer;
 }
 
 .nav h2 {
@@ -153,9 +154,14 @@ body {
   color: #428BCA;
 }
 
+.right>p span {
+    color: rgb(89, 89, 89);
+}
+
 .para {
   color: white;
 }
+
 .account {
   position: absolute;
   z-index: 1000;
@@ -184,6 +190,7 @@ body {
   background:#102543 ;
   transform: rotate(45deg);
 }
+
 .account.active{
   visibility: visible;
   opacity: 1;

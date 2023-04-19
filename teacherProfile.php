@@ -1,20 +1,25 @@
+<html lang="en">
 <?php
 session_start();
 include('connect.php');
 $stake = 'Teacher';
 include('check.php');
-$query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from faculty WHERE EMAIL = '$email') ";
-$result = mysqli_query($conn, $query);
+$loginfo = "SELECT * FROM login WHERE email = '$email';";
+$loginresult = mysqli_query($conn, $loginfo);
+$var = mysqli_fetch_array($loginresult);
+$f_name = $var['fname'];
+$l_name = $var['lname'];
+$cate = $var['category'];
+$e_mail = $var['email'];
 ?>
-<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TEACHER</title>
+  <title>Admin</title>
   <link rel="icon" href="images/bitlogo.jpg" />
-  <link rel="stylesheet" href="css/teacher.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/profile.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,12 +35,10 @@ $result = mysqli_query($conn, $query);
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
       <p class="input"><?php echo $fname, " ", $lname; ?></p>
-      <!-- <p class="input"><?php echo $_GET['user'], " ", $_GET['lname']; ?></p> -->
       <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
           <a href="Teacherprofile.php">Profile</a><br>
-
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -50,64 +53,43 @@ $result = mysqli_query($conn, $query);
         <li><a href="#">View Feedback</a></li>
       </ul>
     </div>
+
     <div class="right">
       <h1>WELCOME</h1>
       <br>
-      <p>Dashboard</p>
+      <p>Dashboard/ <span>My Profile</span></p>
       <br>
       <br>
-
-      <h2>Active Feedback</h2>
-      <?php
-
-      while ($row = mysqli_fetch_assoc($result)) {
-      ?>
-        <?php echo $row['feedback_id']; ?>
-        <?php echo $row['feedback_type']; ?>
-        <?php echo $row['subject']; ?>
-
-      <?php
-      }
-
-      ?>
-
-
-      <!-- <div class="cards">
-        <div class="card">
-          <div class="up-card">
-            <img src="images/ManageUser.png" alt="Manage User">
-            <h3>Generate CES</h3>
-            <a href="generatefeedback.php">
-              <div class="view">
-                <button>View</button>
-              </div>
-            </a>
+      <form action="">
+        <div class="common">
+          <div class="linfo">
+            <img src="images/img_avatar.png" alt="user" class="pro_img">
+            <div class="linfo_content">
+              <p class="pa"><?php echo $f_name ?> <?php echo $l_name ?></p>
+              <p class="pa" id="p1"><?php echo $e_mail ?></p>
+              <button class="btn">Edit</button>
+            </div>
+          </div>
+          <div class="rinfo">
+            <div class="text">
+              <h1>Personal Details</h1>
+              <label class="llabel">First Name : <br>
+                <p><?php echo $f_name ?> </p>
+              </label><br>
+              <label class="rlabel">Last Name : <br>
+                <p><?php echo $l_name ?> </p>
+              </label><br>
+              <!-- <label class="llabel">Department: <input type="text"> </label> -->
+              <label class="rlabel">Email : <br> <?php echo $e_mail ?></label><br>
+            </div>
           </div>
         </div>
 
-        <div class="card">
-          <div class="up-card">
-            <img src="images/Subject.png" alt="Manage User">
-            <h3>View Feedback</h3>
-            <a href="#">
-              <div class="view">
-                <button>View</button>
-              </div>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> -->
+      </form>
     </div>
   </div>
-  <script>
-    function profileAccount() {
-      const list = document.querySelector('.account');
-      list.classList.toggle('active')
-    }
-  </script>
+  </div>
+  </div>
 </body>
 
 </html>
