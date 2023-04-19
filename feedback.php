@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('connect.php');
+$stake = 'Student';
+include('check.php');
 $id = $_GET['id'];
 $sql = "SELECT * FROM feedbacks WHERE feedback_id = '$id'";
 $result = mysqli_query($conn, $sql);

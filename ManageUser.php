@@ -1,11 +1,8 @@
 <?php
 session_start();
 include('connect.php');
-$userid  = $_SESSION['email'];
-if ($userid == true) {
-} else {
-  header('location:index.php');
-}
+$stake = 'Admin';
+include('check.php');
 $query = "select * from login";
 $query1 = "select * from faculty";
 $result = mysqli_query($conn, $query1);

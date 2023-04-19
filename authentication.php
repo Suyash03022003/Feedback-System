@@ -17,6 +17,7 @@
             $_SESSION['email'] = $email;
             $_SESSION['fname'] = $user;
             $_SESSION['lname'] = $lname;
+            $_SESSION['category'] = $active;
             header("Location: $active.php");
         }
         else{  
