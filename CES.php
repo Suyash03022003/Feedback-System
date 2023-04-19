@@ -1,15 +1,14 @@
 <?php
 session_start();
 include('connect.php');
-session_start();
 $stake = 'Student';
 include('check.php');
-$sql = "SELECT * FROM feedbacks";
+$sql = "SELECT * 
+        FROM feedbacks 
+        JOIN students ON feedbacks.sem = students.sem
+        WHERE students.email = '$userid' ";
+
 $result = mysqli_query($conn, $sql);
-$sem = "select sem from feedbacks";
-$stu_sem = "select semester from students";
-
-
 ?>
 <html lang="en">
 
