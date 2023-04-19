@@ -1,10 +1,8 @@
 <?php
 session_start();
-$_SESSION['email'];
 include('connect.php');
 $stake = 'Teacher';
 include('check.php');
-// $email = $_GET['email'];
 $query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from faculty WHERE EMAIL = '$email') ";
 $result = mysqli_query($conn, $query);
 
