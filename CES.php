@@ -12,15 +12,6 @@ $email = $_SESSION['email'];
 $fname = $_SESSION['fname'];
 $lname = $_SESSION['lname'];
 
-// $query="SELECT semester FROM students WHERE email = $email ";
-// $result1=mysqli_query($conn, $query);
-// echo $result1;
-
-// $sql="SELECT * FROM feedbacks
-//       WHERE sem = $result1 ";
-      
-// $result=mysqli_query($conn, $sql);
-
 $sql = "SELECT * 
         FROM feedbacks 
         JOIN students ON feedbacks.sem = students.sem
