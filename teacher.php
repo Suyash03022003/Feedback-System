@@ -5,11 +5,8 @@ $stake = 'Teacher';
 include('check.php');
 $query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from faculty WHERE EMAIL = '$email') ";
 $result = mysqli_query($conn, $query);
-
-
 ?>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
