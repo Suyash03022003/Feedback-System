@@ -107,14 +107,14 @@ span {
     position: absolute;
     pointer-events: none;
     top: 40px;
-    left: 20px;
+    left: 10px;
     transition: 0.2s ease all;
 }
 
 .user-input-wrp input:focus~.floating-label,
 .user-input-wrp input:not(:focus):valid~.floating-label {
     top: 5px;
-    left: 20px;
+    left: 10px;
     font-size: 15px;
     opacity: 1;
 }
