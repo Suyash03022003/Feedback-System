@@ -12,11 +12,21 @@ $email = $_SESSION['email'];
 $fname = $_SESSION['fname'];
 $lname = $_SESSION['lname'];
 
-$sql="SELECT * FROM feedbacks";
-$result=mysqli_query($conn, $sql);
-$sem = "select sem from feedbacks";
-$stu_sem = "select semester from students";
+// $query="SELECT semester FROM students WHERE email = $email ";
+// $result1=mysqli_query($conn, $query);
+// echo $result1;
 
+// $sql="SELECT * FROM feedbacks
+//       WHERE sem = $result1 ";
+      
+// $result=mysqli_query($conn, $sql);
+
+$sql = "SELECT * 
+        FROM feedbacks 
+        JOIN students ON feedbacks.sem = students.sem
+        WHERE students.email = '$userid' ";
+
+$result = mysqli_query($conn, $sql);
 
 ?>
 <html lang="en">
