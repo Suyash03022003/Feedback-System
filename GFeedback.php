@@ -2,7 +2,8 @@
 <html lang="en">
 <?php 
   session_start();
- 
+  $stake = 'Admin';
+  include('check.php');
   $email = $_SESSION['email'];
   $fname = $_SESSION['fname'];
   $lname = $_SESSION['lname'];

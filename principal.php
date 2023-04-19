@@ -1,17 +1,10 @@
 <html lang="en">
-<?php 
- session_start();
- $userid  = $_SESSION['email'];
-if($userid == true){
-
-}
-else{
- header('location:index.php');
-}
- $email = $_SESSION['email'];
- $fname = $_SESSION['fname'];
- $lname = $_SESSION['lname'];
+<?php
+session_start();
+$stake = 'Principal';
+include('check.php');
 ?>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +14,8 @@ else{
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -32,12 +25,12 @@ else{
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-    <p class="input"><?php echo $fname, " ", $lname; ?></p>
+      <p class="input"><?php echo $fname, " ", $lname; ?></p>
       <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
           <a href="profile.php">Profile</a><br>
-      
+
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -87,7 +80,7 @@ else{
   </div>
   </div>
   <script>
-    function profileAccount(){
+    function profileAccount() {
       const list = document.querySelector('.account');
       list.classList.toggle('active')
     }

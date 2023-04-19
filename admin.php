@@ -1,16 +1,8 @@
 <html lang="en">
 <?php 
   session_start();
-  $userid  = $_SESSION['email'];
-if($userid == true){
-
-}
-else{
-  header('location:index.php');
-}
-  $email = $_SESSION['email'];
-  $fname = $_SESSION['fname'];
-  $lname = $_SESSION['lname'];
+  $stake = 'Admin';
+  include('check.php');
 ?>
 <head>
   <meta charset="UTF-8">

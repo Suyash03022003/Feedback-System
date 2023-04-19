@@ -1,19 +1,11 @@
 <html lang="en">
-<?php 
-  include('connect.php');
-  session_start();
-  $_SESSION['email'];
-  $userid  = $_SESSION['email'];
-  if($userid == true){
-  
-  }
-  else{
-    header('location:index.php');
-  }
-  $email = $_SESSION['email'];
-  $fname = $_SESSION['fname'];
-  $lname = $_SESSION['lname'];
+<?php
+include('connect.php');
+session_start();
+$stake = 'Student';
+include('check.php');
 ?>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,13 +26,13 @@
     </div>
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
-    <p class="input"><?php echo $fname, " ", $lname; ?></p>
-      
+      <p class="input"><?php echo $fname, " ", $lname; ?></p>
+
       <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a href="profile.php" >Profile</a><br>
-          
+          <a href="profile.php">Profile</a><br>
+
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -68,7 +60,7 @@
           <div class="up-card">
             <img src="images/ManageUser.png" alt="Manage User">
             <h3>Course Exit Survey</h3>
-            <a href="CES.php?email=<?php echo $email?>">
+            <a href="CES.php?email=<?php echo $email ?>">
               <div class="view">
                 <button>View</button>
               </div>
@@ -117,8 +109,7 @@
   </div>
   </div>
   <script>
-  
-    function profileAccount(){
+    function profileAccount() {
       const list = document.querySelector('.account');
       list.classList.toggle('active')
     }

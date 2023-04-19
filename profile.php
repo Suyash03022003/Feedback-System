@@ -1,25 +1,16 @@
 <?php
-include('connect.php');  
+include('connect.php');
 session_start();
-$userid  = $_SESSION['email'];
-if($userid == true){
-
-}
-else{
-header('location:index.php');
-}
 $email = $_SESSION['email'];
-$fname = $_SESSION['fname'];
-$lname = $_SESSION['lname'];
-    $loginfo = "SELECT * FROM login WHERE email = '$email';";
-    $loginresult = mysqli_query($conn, $loginfo);
-    $var=mysqli_fetch_array($loginresult);
+$loginfo = "SELECT * FROM login WHERE email = '$email';";
+$loginresult = mysqli_query($conn, $loginfo);
+$var = mysqli_fetch_array($loginresult);
 
 
-    $f_name =$var['fname'];
-    $l_name =$var['lname'];
-    $cate =$var['category'];
-    $e_mail =$var['email'];
+$f_name = $var['fname'];
+$l_name = $var['lname'];
+$cate = $var['category'];
+$e_mail = $var['email'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +23,8 @@ $lname = $_SESSION['lname'];
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <title>Profile</title>
 </head>
 
@@ -63,23 +54,27 @@ $lname = $_SESSION['lname'];
     <form action="">
       <div class="common">
         <div class="linfo">
-            <img src="images/img_avatar.png" alt="user" class="pro_img"> 
-           <div>
-             <p class="pa"><?php echo $f_name?>  <?php echo $l_name?></p> 
-             <p class="pa" id="p1"><?php echo $e_mail?></p>
-             <button class="btn">Edit</button>
+          <img src="images/img_avatar.png" alt="user" class="pro_img">
+          <div>
+            <p class="pa"><?php echo $f_name ?> <?php echo $l_name ?></p>
+            <p class="pa" id="p1"><?php echo $e_mail ?></p>
+            <button class="btn">Edit</button>
           </div>
         </div>
-              <div class="rinfo">
-                <div class="text">
-                    <label class="llabel" >First Name : <br> <p><?php echo $f_name?> </p> </label><br>
-                    <label class="rlabel">Last Name : <br><p><?php echo $l_name?> </p> </label><br>
-                    <!-- <label class="llabel">Department: <input type="text"> </label> -->
-                    <label class="rlabel">Email : <br> <?php echo $e_mail?> </label><br>
-                </div>
-            </div>
+        <div class="rinfo">
+          <div class="text">
+            <label class="llabel">First Name : <br>
+              <p><?php echo $f_name ?> </p>
+            </label><br>
+            <label class="rlabel">Last Name : <br>
+              <p><?php echo $l_name ?> </p>
+            </label><br>
+            <!-- <label class="llabel">Department: <input type="text"> </label> -->
+            <label class="rlabel">Email : <br> <?php echo $e_mail ?> </label><br>
+          </div>
+        </div>
       </div>
-  
+
     </form>
   </div>
 
