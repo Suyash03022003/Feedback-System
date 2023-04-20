@@ -5,6 +5,32 @@ $stake = 'Teacher';
 include('check.php');
 $query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from faculty WHERE EMAIL = '$email') ";
 $result = mysqli_query($conn, $query);
+
+$query1 = "SELECT COUNT(answer) as count
+          FROM responses
+          WHERE answer = 'Excellent' ";
+$result1 = mysqli_query($conn, $query1);
+
+$query2 = "SELECT COUNT(answer) as count
+          FROM responses
+          WHERE answer = 'Agree' ";
+$result2 = mysqli_query($conn, $query2);
+
+$query3 = "SELECT COUNT(answer) as count
+          FROM responses
+          WHERE answer = 'Neutral' ";
+$result3 = mysqli_query($conn, $query3);
+
+$query4 = "SELECT COUNT(answer) as count
+          FROM responses
+          WHERE answer = 'Very Good' ";
+$result4 = mysqli_query($conn, $query4);
+
+$query5 = "SELECT COUNT(answer) as count
+          FROM responses
+          WHERE answer = 'Good' ";
+$result5 = mysqli_query($conn, $query5);
+
 ?>
 <html lang="en">
 
@@ -54,52 +80,37 @@ $result = mysqli_query($conn, $query);
       <h1>WELCOME</h1>
       <br>
       <p>Dashboard</p>
-      <br>
-      <br>
+      <br></br>
 
       <h2>Active Feedback</h2>
       <?php
 
       while ($row = mysqli_fetch_assoc($result)) {
+       
       ?>
         <?php echo $row['feedback_id']; ?>
         <?php echo $row['feedback_type']; ?>
         <?php echo $row['subject']; ?>
-
+  
       <?php
       }
-
+        
       ?>
+      <br>
+    <?php
+      $row = mysqli_fetch_assoc($result1);
+      echo "Excellent  ".$row['count'];
+      $row = mysqli_fetch_assoc($result2);
+      echo "Agree  ".$row['count'];
+      $row = mysqli_fetch_assoc($result3);
+      echo "Neutral  ".$row['count'];
+      $row = mysqli_fetch_assoc($result4);
+      echo "Very Good  ".$row['count'];
+      $row = mysqli_fetch_assoc($result5);
+      echo "Good  ".$row['count'];
+    ?>
 
-
-      <!-- <div class="cards">
-        <div class="card">
-          <div class="up-card">
-            <img src="images/ManageUser.png" alt="Manage User">
-            <h3>Generate CES</h3>
-            <a href="generatefeedback.php">
-              <div class="view">
-                <button>View</button>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="up-card">
-            <img src="images/Subject.png" alt="Manage User">
-            <h3>View Feedback</h3>
-            <a href="#">
-              <div class="view">
-                <button>View</button>
-              </div>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> -->
+      
     </div>
   </div>
   <script>
