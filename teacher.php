@@ -3,7 +3,7 @@ session_start();
 include('connect.php');
 $stake = 'Teacher';
 include('check.php');
-$query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from faculty WHERE EMAIL = '$email') ";
+$query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from login WHERE EMAIL = '$email') ";
 $result = mysqli_query($conn, $query);
 
 $query1 = "SELECT COUNT(answer) as count
@@ -86,12 +86,13 @@ $result5 = mysqli_query($conn, $query5);
       <?php
 
       while ($row = mysqli_fetch_assoc($result)) {
-       
+        $id = $row['feedback_id'];
       ?>
         <?php echo $row['feedback_id']; ?>
         <?php echo $row['feedback_type']; ?>
         <?php echo $row['subject']; ?>
-  
+        <a href="stop.php?id=<?php echo $id;?>">Stop Responses</a>
+        <a href="view.php?id=<?php echo $id;?>">View Responses</a>
       <?php
       }
         
