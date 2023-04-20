@@ -158,8 +158,8 @@ $lname = $_SESSION['lname'];
                     </div>
                 </div>
                 <div class="subject_div">
-                    <p class="author">Author: <input type="text" class="auth" name="author" value="XYZ"></p>
-                    <p class="subject">Subject: <input type="text" class="sub" name="sub" value="DBMS"></p>
+                    <p class="author">Author: <input type="text" class="auth" name="author" value="<?php echo $_SESSION['fname']?>" disabled></p>
+                    <p class="subject">Subject: <input type="text" class="sub" name="sub"></p>
                 </div>
                 <input type="submit" value="Submit" name="submit_next">
             </form>

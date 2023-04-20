@@ -88,11 +88,13 @@ $result5 = mysqli_query($conn, $query5);
       while ($row = mysqli_fetch_assoc($result)) {
         $id = $row['feedback_id'];
       ?>
+      <a href = "feedbackform.php?id=<?php echo $id;?>">
         <?php echo $row['feedback_id']; ?>
         <?php echo $row['feedback_type']; ?>
         <?php echo $row['subject']; ?>
         <a href="stop.php?id=<?php echo $id;?>">Stop Responses</a>
         <a href="view.php?id=<?php echo $id;?>">View Responses</a>
+      </a>
       <?php
       }
         
