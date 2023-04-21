@@ -75,19 +75,6 @@ $result = mysqli_query($conn, $query);
       }
         
       ?>
-    <!-- <?php
-      $row = mysqli_fetch_assoc($result1);
-      echo "Excellent  ".$row['count'];
-      $row = mysqli_fetch_assoc($result2);
-      echo "Agree  ".$row['count'];
-      $row = mysqli_fetch_assoc($result3);
-      echo "Neutral  ".$row['count'];
-      $row = mysqli_fetch_assoc($result4);
-      echo "Very Good  ".$row['count'];
-      $row = mysqli_fetch_assoc($result5);
-      echo "Good  ".$row['count'];
-    ?> -->
-
       
     </div>
   </div>

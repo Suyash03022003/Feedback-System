@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2023 at 12:08 PM
+-- Generation Time: Apr 21, 2023 at 07:47 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -44,9 +44,11 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `FNAME`, `LNAME`, `CONTACT`, `CATEGORY`, `EMAIL`, `DEPARTMENT`, `USERNAME`, `PASSWORD`) VALUES
+(1, 'Kinjal', 'Patel', 987456321, 'Teacher', 'kinjal.patel@bitwardha.ac.in', 'Computer', 'kp123', '123'),
+(10, 'Abhishek', 'Kinhekar', 123654789, 'Teacher', 'abhishek.kinhekar@bitwardha.ac.in', 'Computer', 'Abhishek', '123'),
 (79, 'Amreen', 'Khan', 2147483647, 'TEACHER', 'amreen.khan@bitwardha.ac.in', 'COMPUTER', 'AmreenKhan123', '123'),
-(85, 'Kinjal', 'Patel', 2147483647, 'TEACHER', 'kp@bitwardha.ac.in', 'COMPUTER', 'kp123', '123'),
-(88, 'Akshay', 'Saraf', 2147483647, 'TEACHER', 'asd@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123');
+(88, 'Akshay', 'Saraf', 2147483647, 'TEACHER', 'asd@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123'),
+(91, 'Amol', 'Jumde', 2147483647, 'TEACHER', 'amol.jumde@bitwardha.ac.in', 'COMPUTER', 'amol123', '123');
 
 -- --------------------------------------------------------
 
@@ -103,7 +105,56 @@ INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
 (103, 106, 104),
 (104, 106, 105),
 (105, 106, 106),
-(106, 106, 109);
+(106, 106, 109),
+(107, 106, 101),
+(108, 106, 102),
+(109, 106, 103),
+(110, 106, 104),
+(111, 106, 105),
+(112, 106, 106),
+(113, 106, 109),
+(114, 107, 101),
+(115, 107, 102),
+(116, 107, 103),
+(117, 107, 104),
+(118, 107, 105),
+(119, 107, 106),
+(120, 107, 109),
+(121, 108, 101),
+(122, 108, 102),
+(123, 108, 103),
+(124, 108, 104),
+(125, 108, 105),
+(126, 108, 106),
+(127, 108, 109),
+(128, 108, 101),
+(129, 108, 102),
+(130, 108, 103),
+(131, 108, 104),
+(132, 108, 105),
+(133, 108, 106),
+(134, 108, 109),
+(135, 109, 101),
+(136, 109, 102),
+(137, 109, 103),
+(138, 109, 104),
+(139, 109, 105),
+(140, 109, 106),
+(141, 109, 109),
+(142, 110, 101),
+(143, 110, 102),
+(144, 110, 103),
+(145, 110, 104),
+(146, 110, 105),
+(147, 110, 106),
+(148, 110, 109),
+(149, 111, 101),
+(150, 111, 102),
+(151, 111, 103),
+(152, 111, 104),
+(153, 111, 105),
+(154, 111, 106),
+(155, 111, 109);
 
 -- --------------------------------------------------------
 
@@ -128,8 +179,10 @@ CREATE TABLE `feedbacks` (
 --
 
 INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `status`, `dept`, `year`, `sem`, `section`) VALUES
-(105, 'CES', 'Kinjal', 'DBMS', 'Active', 'Computer', 'III', 'V', 'A'),
-(106, 'CES', 'shreya', 'DBMS', 'Active', 'Computer', 'II', 'IV', 'A');
+(105, 'CES', 'Kinjal', 'DBMS', 'Unactive', 'Computer', 'III', 'V', 'A'),
+(107, 'CES', 'Amol', 'ML', 'Active', 'Computer', 'III', 'V', 'A'),
+(110, 'CES', 'Abhishek', 'CP', 'Unactive', 'Computer', 'III', 'VI', 'A'),
+(111, 'CES', 'Abhishek', 'DS', 'Unactive', 'Computer', 'II', 'III', 'A');
 
 -- --------------------------------------------------------
 
@@ -158,6 +211,7 @@ INSERT INTO `login` (`id`, `fname`, `lname`, `category`, `email`, `password`) VA
 (6, 'Sheetal', 'Kale', 'HOD', 'hod.comp@bitwardha.ac.in', '123'),
 (7, 'Narendra', 'Kanhe', 'Principal', 'principal@bitwardha.ac.in', '123'),
 (9, 'Abhishek', 'Kinhekar', 'Admin', 'admin@bitwardha.ac.in', '123'),
+(112, 'Kinjal', 'Patel', 'Teacher', 'kinjal.patel@bitwardha.ac.in', '123'),
 (126, '﻿Sunil', ' Patalbans', 'Parent', ' suyashshivani@gmail.com', ' 123'),
 (127, 'Nikhil', 'Dhopte', 'Student', 'nd@bitwardha.ac.in', '123'),
 (128, 'Nikhil', 'Dhopte', 'Student', 'nd@bitwardha.ac.in', '123'),
@@ -166,7 +220,8 @@ INSERT INTO `login` (`id`, `fname`, `lname`, `category`, `email`, `password`) VA
 (131, 'Ankit', 'Gupta', 'Student', 'ag@bitwardha.ac.in', '123'),
 (132, 'Karan', 'Patel', 'Student', 'kp@bitwardha.ac.in', '123'),
 (133, 'Kartik', 'Rokade', 'Student', 'kr@bitwardha.ac.in', '123'),
-(134, 'Aditi', 'Zade', 'Student', 'az@bitwardha.ac.in', '123');
+(134, 'Aditi', 'Zade', 'Student', 'az@bitwardha.ac.in', '123'),
+(135, 'Amol', 'Jumde', 'Teacher', 'amol.jumde@bitwardha.ac.in', '123');
 
 -- --------------------------------------------------------
 
@@ -267,7 +322,7 @@ CREATE TABLE `students` (
   `fname` text NOT NULL,
   `lname` text NOT NULL,
   `department` text NOT NULL,
-  `semester` text NOT NULL,
+  `sem` char(4) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -276,14 +331,14 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`prn`, `fname`, `lname`, `department`, `semester`, `email`, `password`) VALUES
-('2046491245047', 'Nikhil', 'Dhopte', 'Civil', 'IV', 'nd@bitwardha.ac.in', '123'),
+INSERT INTO `students` (`prn`, `fname`, `lname`, `department`, `sem`, `email`, `password`) VALUES
+('2046491245047', 'Nikhil', 'Dhopte', 'Civil', 'I', 'nd@bitwardha.ac.in', '123'),
 ('2046491245048', 'Saksham', 'Thakre', 'Civil', 'I', 'st@bitwardha.ac.in', '123'),
-('2046491245049', 'Ankita', 'Lokhande', 'Computer', 'I', 'al@bitwardha.ac.in', '123'),
+('2046491245049', 'Ankita', 'Lokhande', 'Computer', 'III', 'al@bitwardha.ac.in', '123'),
 ('2046491245050', 'Ankit', 'Gupta', 'Electrical', 'V', 'ag@bitwardha.ac.in', '123'),
-('2046491245051', 'Karan', 'Patel', 'Mechanical', 'IV', 'kp@bitwardha.ac.in', '123'),
-('2046491245052', 'Kartik', 'Rokade', 'Civil', 'IV', 'kr@bitwardha.ac.in', '123'),
-('2046491245053', 'Aditi', 'Zade', 'Computer', 'V', 'az@bitwardha.ac.in', '123');
+('2046491245051', 'Karan', 'Patel', 'Mechanical', 'I', 'kp@bitwardha.ac.in', '123'),
+('2046491245052', 'Kartik', 'Rokade', 'Civil', 'V', 'kr@bitwardha.ac.in', '123'),
+('2046491245053', 'Aditi', 'Zade', 'Computer', 'VI', 'az@bitwardha.ac.in', '123');
 
 --
 -- Indexes for dumped tables
@@ -345,19 +400,19 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- Constraints for dumped tables

@@ -45,17 +45,17 @@ $result5 = mysqli_query($conn, $query5);
     <title>Document</title>
 </head>
 <body>
-    <?php
-      $row = mysqli_fetch_assoc($result1);
-      echo "Excellent  ".$row['count'];
-      $row = mysqli_fetch_assoc($result2);
-      echo "Agree  ".$row['count'];
-      $row = mysqli_fetch_assoc($result3);
-      echo "Neutral  ".$row['count'];
-      $row = mysqli_fetch_assoc($result4);
-      echo "Very Good  ".$row['count'];
-      $row = mysqli_fetch_assoc($result5);
-      echo "Good  ".$row['count'];
-    ?> 
+    
+      <?php $row = mysqli_fetch_assoc($result1); ?>
+      <?php echo "Excellent  ".$row['count']; ?> <br>
+      <?php $row = mysqli_fetch_assoc($result2); ?>
+      <?php echo "Agree  ".$row['count']; ?> <br>
+      <?php $row = mysqli_fetch_assoc($result3); ?>
+      <?php echo "Neutral  ".$row['count']; ?> <br>
+      <?php $row = mysqli_fetch_assoc($result4); ?>
+      <?php echo "Very Good  ".$row['count']; ?> <br>
+      <?php $row = mysqli_fetch_assoc($result5); ?>
+      <?php echo "Good  ".$row['count']; ?> <br>
+
 </body>
 </html>
