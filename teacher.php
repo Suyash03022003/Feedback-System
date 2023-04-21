@@ -6,30 +6,6 @@ include('check.php');
 $query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from login WHERE EMAIL = '$email') ";
 $result = mysqli_query($conn, $query);
 
-$query1 = "SELECT COUNT(answer) as count
-          FROM responses
-          WHERE answer = 'Excellent' ";
-$result1 = mysqli_query($conn, $query1);
-
-$query2 = "SELECT COUNT(answer) as count
-          FROM responses
-          WHERE answer = 'Agree' ";
-$result2 = mysqli_query($conn, $query2);
-
-$query3 = "SELECT COUNT(answer) as count
-          FROM responses
-          WHERE answer = 'Neutral' ";
-$result3 = mysqli_query($conn, $query3);
-
-$query4 = "SELECT COUNT(answer) as count
-          FROM responses
-          WHERE answer = 'Very Good' ";
-$result4 = mysqli_query($conn, $query4);
-
-$query5 = "SELECT COUNT(answer) as count
-          FROM responses
-          WHERE answer = 'Good' ";
-$result5 = mysqli_query($conn, $query5);
 
 ?>
 <html lang="en">
@@ -91,16 +67,15 @@ $result5 = mysqli_query($conn, $query5);
       <a href = "feedbackform.php?id=<?php echo $id;?>">
         <?php echo $row['feedback_id']; ?>
         <?php echo $row['feedback_type']; ?>
-        <?php echo $row['subject']; ?>
-        <a href="stop.php?id=<?php echo $id;?>">Stop Responses</a>
-        <a href="view.php?id=<?php echo $id;?>">View Responses</a>
-      </a>
+        <?php echo $row['subject']; ?><br>
+        <a href="StopResponses.php?id=<?php echo $id;?>">Stop Responses</a>&nbsp;&nbsp;&nbsp;
+        <a href="ViewResponses.php?id=<?php echo $id;?>">View Responses</a><br>
+      </a><br>
       <?php
       }
         
       ?>
-      <br>
-    <?php
+    <!-- <?php
       $row = mysqli_fetch_assoc($result1);
       echo "Excellent  ".$row['count'];
       $row = mysqli_fetch_assoc($result2);
@@ -111,7 +86,7 @@ $result5 = mysqli_query($conn, $query5);
       echo "Very Good  ".$row['count'];
       $row = mysqli_fetch_assoc($result5);
       echo "Good  ".$row['count'];
-    ?>
+    ?> -->
 
       
     </div>

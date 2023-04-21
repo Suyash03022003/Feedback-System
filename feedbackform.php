@@ -9,7 +9,7 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $type = $row['feedback_type'];
 $subject = $row['subject'];
-$query = "SELECT question_id FROM feedback WHERE feedback_id = '$id'";
+$query = "SELECT question_id FROM feedback WHERE feedback_id = $id";
 $result1 = mysqli_query($conn, $query);
 ?>
 <html lang="en">
@@ -71,7 +71,7 @@ $result1 = mysqli_query($conn, $query);
                         $result2 = mysqli_query($conn, $query2);
                         $row2 = mysqli_fetch_assoc($result2);
                     ?>
-                        <?php echo $row2['questionid'] % 10, "."; ?>
+                        <?php echo $row2['questionid'] % 100, "."; ?>
                         <?php echo $row2['question']; ?><br><br>
                         <input type="radio" name="<?php echo 'option', $i ?>" value="<?php echo $row2['option1']; ?>"><?php echo $row2['option1']; ?>
                         <input type="radio" name="<?php echo 'option', $i ?>" value="<?php echo $row2['option2']; ?>"><?php echo $row2['option2']; ?>

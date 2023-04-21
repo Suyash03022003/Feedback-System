@@ -306,7 +306,6 @@ $lname = $_SESSION['lname'];
                               echo '</tr>';
                             } ?>";
       }
-
       function display_parent() {
         user3.classList.remove("active");
         user1.classList.remove("active");
