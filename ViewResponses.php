@@ -5,30 +5,60 @@ include('connect.php');
 if(isset($_GET['id'])){
 $Feedid = $_GET['id'];
 
-$query1 = "SELECT COUNT(answer) as count
+$query = "SELECT questionid 
           FROM responses
-          WHERE answer = 'Excellent' AND feedbackid = '$Feedid'";
-$result1 = mysqli_query($conn, $query1);
+          WHERE feedbackid = '$Feedid' ";
+$result = mysqli_query($conn, $query);
 
-$query2 = "SELECT COUNT(answer) as count
+while ($row = mysqli_fetch_assoc($result)) {
+    $id = $row['questionid'];
+
+    $query1 = "SELECT COUNT(answer) as count
+               FROM responses
+               WHERE answer = 'Excellent' AND questionid = '$id' AND feedbackid = '$Feedid'";
+    $result1 = mysqli_query($conn, $query1);
+
+    $query2 = "SELECT COUNT(answer) as count
           FROM responses
-          WHERE answer = 'Agree' AND feedbackid = '$Feedid'";
-$result2 = mysqli_query($conn, $query2);
+          WHERE answer = 'Agree' AND questionid = '$id' AND feedbackid = '$Feedid' ";
+    $result2 = mysqli_query($conn, $query2);
 
 $query3 = "SELECT COUNT(answer) as count
           FROM responses
-          WHERE answer = 'Neutral' AND feedbackid = '$Feedid'";
+          WHERE answer = 'Neutral' AND questionid = '$id' AND feedbackid = '$Feedid' ";
 $result3 = mysqli_query($conn, $query3);
 
 $query4 = "SELECT COUNT(answer) as count
           FROM responses
-          WHERE answer = 'Very Good' AND feedbackid = '$Feedid'";
+          WHERE answer = 'Very Good' AND questionid = '$id' AND feedbackid = '$Feedid' ";
 $result4 = mysqli_query($conn, $query4);
 
 $query5 = "SELECT COUNT(answer) as count
           FROM responses
-          WHERE answer = 'Good' AND feedbackid = '$Feedid' ";
+          WHERE answer = 'Good' AND questionid = '$id' AND feedbackid = '$Feedid' ";
 $result5 = mysqli_query($conn, $query5);
+}
+
+
+// $query2 = "SELECT COUNT(answer) as count
+//           FROM responses
+//           WHERE answer = 'Agree' AND feedbackid = '$Feedid' ";
+// $result2 = mysqli_query($conn, $query2);
+
+// $query3 = "SELECT COUNT(answer) as count
+//           FROM responses
+//           WHERE answer = 'Neutral' AND feedbackid = '$Feedid' ";
+// $result3 = mysqli_query($conn, $query3);
+
+// $query4 = "SELECT COUNT(answer) as count
+//           FROM responses
+//           WHERE answer = 'Very Good' AND feedbackid = '$Feedid' ";
+// $result4 = mysqli_query($conn, $query4);
+
+// $query5 = "SELECT COUNT(answer) as count
+//           FROM responses
+//           WHERE answer = 'Good' AND feedbackid = '$Feedid' ";
+// $result5 = mysqli_query($conn, $query5);
 }
 
 ?>
@@ -44,14 +74,20 @@ $result5 = mysqli_query($conn, $query5);
     
       <?php $row = mysqli_fetch_assoc($result1); ?>
       <?php echo "Excellent  ".$row['count']; ?> <br>
+
       <?php $row = mysqli_fetch_assoc($result2); ?>
       <?php echo "Agree  ".$row['count']; ?> <br>
+      
       <?php $row = mysqli_fetch_assoc($result3); ?>
       <?php echo "Neutral  ".$row['count']; ?> <br>
+      
       <?php $row = mysqli_fetch_assoc($result4); ?>
       <?php echo "Very Good  ".$row['count']; ?> <br>
+      
       <?php $row = mysqli_fetch_assoc($result5); ?>
       <?php echo "Good  ".$row['count']; ?> <br>
+
+  
 
 </body>
 </html>
