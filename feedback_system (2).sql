@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2023 at 07:47 AM
+-- Generation Time: Apr 22, 2023 at 07:11 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -47,8 +47,11 @@ INSERT INTO `faculty` (`id`, `FNAME`, `LNAME`, `CONTACT`, `CATEGORY`, `EMAIL`, `
 (1, 'Kinjal', 'Patel', 987456321, 'Teacher', 'kinjal.patel@bitwardha.ac.in', 'Computer', 'kp123', '123'),
 (10, 'Abhishek', 'Kinhekar', 123654789, 'Teacher', 'abhishek.kinhekar@bitwardha.ac.in', 'Computer', 'Abhishek', '123'),
 (79, 'Amreen', 'Khan', 2147483647, 'TEACHER', 'amreen.khan@bitwardha.ac.in', 'COMPUTER', 'AmreenKhan123', '123'),
-(88, 'Akshay', 'Saraf', 2147483647, 'TEACHER', 'asd@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123'),
-(91, 'Amol', 'Jumde', 2147483647, 'TEACHER', 'amol.jumde@bitwardha.ac.in', 'COMPUTER', 'amol123', '123');
+(88, 'Akshay', 'Saraf', 2147483647, 'Teacher', 'asd@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123'),
+(91, 'Amol', 'Jumde', 2147483647, 'TEACHER', 'amol.jumde@bitwardha.ac.in', 'COMPUTER', 'amol123', '123'),
+(92, 'Akshay', 'Saraf', 2147483647, 'TEACHER', 'as@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123'),
+(95, 'Sandesh', 'Jain', 2147483647, 'Teacher', 'sandesh.jain@bitwardha.ac.in', 'COMPUTER', 'Sandesh', '123'),
+(96, 'Urvashi', 'Pote', 1234563214, 'Teacher', 'urvashi.pote@bitwardha.ac.in', 'COMPUTER', 'UP123', '123');
 
 -- --------------------------------------------------------
 
@@ -154,7 +157,56 @@ INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
 (152, 111, 104),
 (153, 111, 105),
 (154, 111, 106),
-(155, 111, 109);
+(155, 111, 109),
+(156, 112, 101),
+(157, 112, 102),
+(158, 112, 103),
+(159, 112, 104),
+(160, 112, 105),
+(161, 112, 106),
+(162, 112, 109),
+(163, 113, 101),
+(164, 113, 102),
+(165, 113, 103),
+(166, 113, 104),
+(167, 113, 105),
+(168, 113, 106),
+(169, 113, 109),
+(170, 114, 101),
+(171, 114, 102),
+(172, 114, 103),
+(173, 114, 104),
+(174, 114, 105),
+(175, 114, 106),
+(176, 114, 109),
+(177, 115, 101),
+(178, 115, 102),
+(179, 115, 103),
+(180, 115, 104),
+(181, 115, 105),
+(182, 115, 106),
+(183, 115, 109),
+(184, 115, 101),
+(185, 115, 102),
+(186, 115, 103),
+(187, 115, 104),
+(188, 115, 105),
+(189, 115, 106),
+(190, 115, 109),
+(191, 116, 101),
+(192, 116, 102),
+(193, 116, 103),
+(194, 116, 104),
+(195, 116, 105),
+(196, 116, 106),
+(197, 116, 109),
+(198, 117, 101),
+(199, 117, 102),
+(200, 117, 103),
+(201, 117, 104),
+(202, 117, 105),
+(203, 117, 106),
+(204, 117, 109);
 
 -- --------------------------------------------------------
 
@@ -180,9 +232,12 @@ CREATE TABLE `feedbacks` (
 
 INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `status`, `dept`, `year`, `sem`, `section`) VALUES
 (105, 'CES', 'Kinjal', 'DBMS', 'Unactive', 'Computer', 'III', 'V', 'A'),
-(107, 'CES', 'Amol', 'ML', 'Active', 'Computer', 'III', 'V', 'A'),
-(110, 'CES', 'Abhishek', 'CP', 'Unactive', 'Computer', 'III', 'VI', 'A'),
-(111, 'CES', 'Abhishek', 'DS', 'Unactive', 'Computer', 'II', 'III', 'A');
+(107, 'CES', 'Amol', 'ML', 'Unactive', 'Computer', 'III', 'V', 'A'),
+(111, 'CES', 'Abhishek', 'DS', 'Unactive', 'Computer', 'II', 'III', 'A'),
+(114, 'CES', 'Abhishek', 'CP', 'Active', 'Computer', 'III', 'V', 'A'),
+(115, 'CES', 'Sandesh', 'DBMS', 'Active', 'Computer', 'III', 'V', 'A'),
+(116, 'CES', 'Urvashi', 'HCI', 'Unactive', 'Computer', 'III', 'V', 'B'),
+(117, 'CES', 'Abhishek', 'DAA', 'Unactive', 'Computer', 'III', 'V', 'A');
 
 -- --------------------------------------------------------
 
@@ -221,7 +276,10 @@ INSERT INTO `login` (`id`, `fname`, `lname`, `category`, `email`, `password`) VA
 (132, 'Karan', 'Patel', 'Student', 'kp@bitwardha.ac.in', '123'),
 (133, 'Kartik', 'Rokade', 'Student', 'kr@bitwardha.ac.in', '123'),
 (134, 'Aditi', 'Zade', 'Student', 'az@bitwardha.ac.in', '123'),
-(135, 'Amol', 'Jumde', 'Teacher', 'amol.jumde@bitwardha.ac.in', '123');
+(135, 'Amol', 'Jumde', 'Teacher', 'amol.jumde@bitwardha.ac.in', '123'),
+(136, 'Akshay', 'Saraf', 'Teacher', 'as@bitwardha.ac.in', '123'),
+(139, 'Sandesh', 'Jain', 'Teacher', 'sandesh.jain@bitwardha.ac.in', '123'),
+(140, 'Urvashi', 'Pote', 'Teacher', 'urvashi.pote@bitwardha.ac.in', '123');
 
 -- --------------------------------------------------------
 
@@ -286,30 +344,66 @@ INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `option1`, `m
 --
 
 CREATE TABLE `responses` (
-  `responseid` int(5) NOT NULL,
-  `feedbackid` int(11) NOT NULL,
-  `questionid` int(3) NOT NULL,
-  `answer` varchar(20) NOT NULL
+  `res_id` int(11) DEFAULT NULL,
+  `feedbackid` int(11) DEFAULT NULL,
+  `questionid` int(11) DEFAULT NULL,
+  `answer` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `responses`
 --
 
-INSERT INTO `responses` (`responseid`, `feedbackid`, `questionid`, `answer`) VALUES
-(1, 101, 101, 'Excellent'),
-(1, 101, 102, 'Agree'),
-(1, 101, 103, 'Agree'),
-(1, 101, 104, 'Agree'),
-(1, 101, 105, 'Neutral'),
-(1, 101, 106, 'Agree'),
-(2, 105, 101, 'Very Good'),
-(2, 105, 102, 'Agree'),
-(2, 105, 103, 'Agree'),
-(2, 105, 104, 'Agree'),
-(2, 105, 105, 'Agree'),
-(2, 105, 106, 'Agree'),
-(2, 105, 109, 'Very Good');
+INSERT INTO `responses` (`res_id`, `feedbackid`, `questionid`, `answer`) VALUES
+(1, 107, 101, 'Excellent'),
+(1, 107, 102, 'Strongly A'),
+(1, 107, 103, 'Strongly A'),
+(1, 107, 104, 'Strongly A'),
+(1, 107, 105, 'Strongly A'),
+(1, 107, 106, 'Strongly A'),
+(1, 107, 109, 'Excellent'),
+(1, 114, 101, 'Excellent'),
+(1, 114, 102, 'Strongly A'),
+(1, 114, 103, 'Strongly A'),
+(1, 114, 104, 'Strongly A'),
+(1, 114, 105, 'Strongly A'),
+(1, 114, 106, 'Strongly A'),
+(1, 114, 109, 'Excellent'),
+(1, 115, 101, 'Excellent'),
+(1, 115, 102, 'Strongly A'),
+(1, 115, 103, 'Strongly A'),
+(1, 115, 104, 'Strongly A'),
+(1, 115, 105, 'Strongly A'),
+(1, 115, 106, 'Strongly A'),
+(1, 115, 109, 'Excellent'),
+(1, 116, 101, 'Excellent'),
+(1, 116, 102, 'Agree'),
+(1, 116, 103, 'Agree'),
+(1, 116, 104, 'Agree'),
+(1, 116, 105, 'Agree'),
+(1, 116, 106, 'Agree'),
+(1, 116, 109, 'Excellent'),
+(1, 117, 101, 'Excellent'),
+(1, 117, 102, 'Agree'),
+(1, 117, 103, 'Agree'),
+(1, 117, 104, 'Agree'),
+(1, 117, 105, 'Agree'),
+(1, 117, 106, 'Agree'),
+(1, 117, 109, 'Excellent'),
+(1, 114, 101, 'Excellent'),
+(1, 114, 102, 'Agree'),
+(1, 114, 103, 'Agree'),
+(1, 114, 104, 'Agree'),
+(1, 114, 105, 'Neutral'),
+(1, 114, 106, 'Agree'),
+(1, 114, 109, 'Excellent'),
+(1, 114, 101, 'Good'),
+(1, 114, 102, 'Strongly A'),
+(1, 114, 103, 'Strongly A'),
+(1, 114, 104, 'Strongly A'),
+(1, 114, 105, 'Strongly A'),
+(1, 114, 106, 'Strongly A'),
+(1, 114, 109, 'Excellent');
 
 -- --------------------------------------------------------
 
@@ -338,7 +432,8 @@ INSERT INTO `students` (`prn`, `fname`, `lname`, `department`, `sem`, `email`, `
 ('2046491245050', 'Ankit', 'Gupta', 'Electrical', 'V', 'ag@bitwardha.ac.in', '123'),
 ('2046491245051', 'Karan', 'Patel', 'Mechanical', 'I', 'kp@bitwardha.ac.in', '123'),
 ('2046491245052', 'Kartik', 'Rokade', 'Civil', 'V', 'kr@bitwardha.ac.in', '123'),
-('2046491245053', 'Aditi', 'Zade', 'Computer', 'VI', 'az@bitwardha.ac.in', '123');
+('2046491245053', 'Aditi', 'Zade', 'Computer', 'VI', 'az@bitwardha.ac.in', '123'),
+('2046491245147', 'Shreya', 'Raut', 'Computer', 'V', 'co.2020.smraut@bitwardha.ac.in', '123');
 
 --
 -- Indexes for dumped tables
@@ -381,12 +476,6 @@ ALTER TABLE `questions`
   ADD PRIMARY KEY (`questionid`);
 
 --
--- Indexes for table `responses`
---
-ALTER TABLE `responses`
-  ADD KEY `responses_ibfk_1` (`feedbackid`);
-
---
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -400,29 +489,19 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `responses`
---
-ALTER TABLE `responses`
-  ADD CONSTRAINT `responses_ibfk_1` FOREIGN KEY (`feedbackid`) REFERENCES `questions` (`questionid`);
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
