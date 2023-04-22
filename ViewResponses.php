@@ -5,13 +5,9 @@ include('connect.php');
 if(isset($_GET['id'])){
 $Feedid = $_GET['id'];
 
-$query = "UPDATE feedbacks SET status = 'Unactive' WHERE status = 'Active' AND feedback_id = '$Feedid' ";
-$query_run = mysqli_query($conn, $query); 
-
-
 $query1 = "SELECT COUNT(answer) as count
           FROM responses
-          WHERE answer = 'Excellent' AND feedbackid = '$Feedid' ";
+          WHERE answer = 'Excellent' AND feedbackid = '$Feedid'";
 $result1 = mysqli_query($conn, $query1);
 
 $query2 = "SELECT COUNT(answer) as count

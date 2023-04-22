@@ -123,9 +123,9 @@ $lname = $_SESSION['lname'];
 
             <select name="CATEGORY">
               <option value="Not Selected">SELECT</option>
-              <option value="TEACHER">TEACHER</option>
+              <option value="Teacher">Teacher</option>
               <option value="HOD">HOD</option>
-              <option value="PRINCIPAL">PRINCIPAL</option>
+              <option value="Principal">Principal</option>
             </select>
 
           </div>
@@ -138,10 +138,10 @@ $lname = $_SESSION['lname'];
 
             <select name="DEPARTMENT">
               <option value="Not Selected">SELECT</option>
-              <option value="COMPUTER">COMPUTER</option>
-              <option value="ELECTRICAL">ELECTRICAL</option>
-              <option value="CIVIL">CIVIL</option>
-              <option value="MECHANICAL">MECHANICAL</option>
+              <option value="COMPUTER">Computer</option>
+              <option value="ELECTRICAL">Electrical</option>
+              <option value="CIVIL">Civil</option>
+              <option value="MECHANICAL">Mechanical</option>
             </select>
 
           </div>
@@ -223,8 +223,8 @@ $lname = $_SESSION['lname'];
               echo "<td>" . $cols['fname'] . "</td>";
               echo "<td>" . $cols['lname'] . "</td>";
               echo "<td>" . $cols['email'] . "</td>";
-              echo "<td><a href='edit.php' name='edit'><img src= images/edit.png width='10' height='20'> </a></td>";
-              echo "<td><a href='delete.php' name='delete'><img src= images/delete.png width='20' height='20'> </a></td>";
+              echo "<td><a href='edit.php?fname=$cols[fname]' name='edit'><img src= images/edit.png width='10' height='20'> </a></td>";
+              echo "<td><a href='delete.php?email=$cols[email]' name='delete'><img src= images/delete.png width='20' height='20'> </a></td>";
               echo "</tr>";
             }
             ?>

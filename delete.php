@@ -2,22 +2,19 @@
 session_start();
 include('connect.php');
 
-if(isset($_GET['EMAIL'])){
-$EMAIL = $_GET['EMAIL'];
+$EMAIL = $_GET['email'];
 
-$query = "DELETE FROM login WHERE EMAIL = '$EMAIL'";
+$query = "DELETE FROM login WHERE EMAIL = $EMAIL";
 $query_run = mysqli_query($conn, $query); 
 
 if($query_run){
-    $_SESSION['message'] = "User deleted Successfully";
     header("Location: ManageUser.php?email=$EMAIL");
     exit(0);
   }
   else{
-    $_SESSION['message'] = "User Not deleted";
     header("Location: ManageUser.php");
     exit(0);
   }
-}
+
 
 ?>
