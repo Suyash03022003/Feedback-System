@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2023 at 07:11 PM
+-- Generation Time: Apr 27, 2023 at 04:20 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -46,12 +46,10 @@ CREATE TABLE `faculty` (
 INSERT INTO `faculty` (`id`, `FNAME`, `LNAME`, `CONTACT`, `CATEGORY`, `EMAIL`, `DEPARTMENT`, `USERNAME`, `PASSWORD`) VALUES
 (1, 'Kinjal', 'Patel', 987456321, 'Teacher', 'kinjal.patel@bitwardha.ac.in', 'Computer', 'kp123', '123'),
 (10, 'Abhishek', 'Kinhekar', 123654789, 'Teacher', 'abhishek.kinhekar@bitwardha.ac.in', 'Computer', 'Abhishek', '123'),
-(79, 'Amreen', 'Khan', 2147483647, 'TEACHER', 'amreen.khan@bitwardha.ac.in', 'COMPUTER', 'AmreenKhan123', '123'),
 (88, 'Akshay', 'Saraf', 2147483647, 'Teacher', 'asd@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123'),
-(91, 'Amol', 'Jumde', 2147483647, 'TEACHER', 'amol.jumde@bitwardha.ac.in', 'COMPUTER', 'amol123', '123'),
-(92, 'Akshay', 'Saraf', 2147483647, 'TEACHER', 'as@bitwardha.ac.in', 'COMPUTER', 'akshay123', '123'),
 (95, 'Sandesh', 'Jain', 2147483647, 'Teacher', 'sandesh.jain@bitwardha.ac.in', 'COMPUTER', 'Sandesh', '123'),
-(96, 'Urvashi', 'Pote', 1234563214, 'Teacher', 'urvashi.pote@bitwardha.ac.in', 'COMPUTER', 'UP123', '123');
+(96, 'Urvashi', 'Pote', 1234563214, 'Teacher', 'urvashi.pote@bitwardha.ac.in', 'COMPUTER', 'UP123', '123'),
+(97, 'Shreya', 'Chinch', 2147483647, 'Teacher', 'co.2020.sggchinch@bitwardha.ac.in', 'COMPUTER', 's12', '123');
 
 -- --------------------------------------------------------
 
@@ -206,7 +204,21 @@ INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
 (201, 117, 104),
 (202, 117, 105),
 (203, 117, 106),
-(204, 117, 109);
+(204, 117, 109),
+(205, 118, 101),
+(206, 118, 102),
+(207, 118, 103),
+(208, 118, 104),
+(209, 118, 105),
+(210, 118, 106),
+(211, 118, 109),
+(212, 119, 101),
+(213, 119, 102),
+(214, 119, 103),
+(215, 119, 104),
+(216, 119, 105),
+(217, 119, 106),
+(218, 119, 109);
 
 -- --------------------------------------------------------
 
@@ -237,7 +249,9 @@ INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `s
 (114, 'CES', 'Abhishek', 'CP', 'Active', 'Computer', 'III', 'V', 'A'),
 (115, 'CES', 'Sandesh', 'DBMS', 'Active', 'Computer', 'III', 'V', 'A'),
 (116, 'CES', 'Urvashi', 'HCI', 'Unactive', 'Computer', 'III', 'V', 'B'),
-(117, 'CES', 'Abhishek', 'DAA', 'Unactive', 'Computer', 'III', 'V', 'A');
+(117, 'CES', 'Abhishek', 'DAA', 'Unactive', 'Computer', 'III', 'V', 'A'),
+(118, 'CES', 'Shreya', 'CD', 'Unactive', 'Computer', 'III', 'V', 'A'),
+(119, 'CES', 'Abhishek', 'mm,', 'Active', 'Computer', 'II', 'III', 'A');
 
 -- --------------------------------------------------------
 
@@ -279,7 +293,8 @@ INSERT INTO `login` (`id`, `fname`, `lname`, `category`, `email`, `password`) VA
 (135, 'Amol', 'Jumde', 'Teacher', 'amol.jumde@bitwardha.ac.in', '123'),
 (136, 'Akshay', 'Saraf', 'Teacher', 'as@bitwardha.ac.in', '123'),
 (139, 'Sandesh', 'Jain', 'Teacher', 'sandesh.jain@bitwardha.ac.in', '123'),
-(140, 'Urvashi', 'Pote', 'Teacher', 'urvashi.pote@bitwardha.ac.in', '123');
+(140, 'Urvashi', 'Pote', 'Teacher', 'urvashi.pote@bitwardha.ac.in', '123'),
+(141, 'Shreya', 'Chinch', 'Teacher', 'co.2020.sggchinch@bitwardha.ac.in', '123');
 
 -- --------------------------------------------------------
 
@@ -403,7 +418,14 @@ INSERT INTO `responses` (`res_id`, `feedbackid`, `questionid`, `answer`) VALUES
 (1, 114, 104, 'Strongly A'),
 (1, 114, 105, 'Strongly A'),
 (1, 114, 106, 'Strongly A'),
-(1, 114, 109, 'Excellent');
+(1, 114, 109, 'Excellent'),
+(1, 118, 101, ''),
+(1, 118, 102, 'Strongly A'),
+(1, 118, 103, ''),
+(1, 118, 104, ''),
+(1, 118, 105, ''),
+(1, 118, 106, ''),
+(1, 118, 109, '');
 
 -- --------------------------------------------------------
 
@@ -489,19 +511,19 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

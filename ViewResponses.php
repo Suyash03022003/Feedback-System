@@ -19,24 +19,24 @@ while ($row = mysqli_fetch_assoc($result)) {
     $result1 = mysqli_query($conn, $query1);
 
     $query2 = "SELECT COUNT(answer) as count
-          FROM responses
+            FROM responses
           WHERE answer = 'Agree' AND questionid = '$id' AND feedbackid = '$Feedid' ";
     $result2 = mysqli_query($conn, $query2);
 
-$query3 = "SELECT COUNT(answer) as count
+    $query3 = "SELECT COUNT(answer) as count
           FROM responses
           WHERE answer = 'Neutral' AND questionid = '$id' AND feedbackid = '$Feedid' ";
-$result3 = mysqli_query($conn, $query3);
+    $result3 = mysqli_query($conn, $query3);
 
-$query4 = "SELECT COUNT(answer) as count
+    $query4 = "SELECT COUNT(answer) as count
           FROM responses
           WHERE answer = 'Very Good' AND questionid = '$id' AND feedbackid = '$Feedid' ";
-$result4 = mysqli_query($conn, $query4);
+    $result4 = mysqli_query($conn, $query4);
 
-$query5 = "SELECT COUNT(answer) as count
+    $query5 = "SELECT COUNT(answer) as count
           FROM responses
           WHERE answer = 'Good' AND questionid = '$id' AND feedbackid = '$Feedid' ";
-$result5 = mysqli_query($conn, $query5);
+    $result5 = mysqli_query($conn, $query5);
 }
 
 
@@ -77,13 +77,13 @@ $result5 = mysqli_query($conn, $query5);
 
       <?php $row = mysqli_fetch_assoc($result2); ?>
       <?php echo "Agree  ".$row['count']; ?> <br>
-      
+
       <?php $row = mysqli_fetch_assoc($result3); ?>
       <?php echo "Neutral  ".$row['count']; ?> <br>
-      
+
       <?php $row = mysqli_fetch_assoc($result4); ?>
       <?php echo "Very Good  ".$row['count']; ?> <br>
-      
+
       <?php $row = mysqli_fetch_assoc($result5); ?>
       <?php echo "Good  ".$row['count']; ?> <br>
 

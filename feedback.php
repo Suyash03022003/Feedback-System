@@ -93,5 +93,4 @@ $result1 = mysqli_query($conn, $query);
     </div>
     </div>
 </body>
-
 </html>

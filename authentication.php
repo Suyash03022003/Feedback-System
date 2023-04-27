@@ -12,7 +12,6 @@
         $user = $row['fname'];
         $lname = $row['lname'];
         $mail = $row['email'];
-
         if($count == 1){  
             $_SESSION['email'] = $email;
             $_SESSION['fname'] = $user;

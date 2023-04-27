@@ -17,7 +17,6 @@ session_start();
     <script src="js/index.js"></script>
     <title>Welcome!</title>
 </head>
-
 <body>
     <div class="login">
         <div class="form">

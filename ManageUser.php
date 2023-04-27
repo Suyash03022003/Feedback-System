@@ -31,6 +31,7 @@ if (isset($_POST["submit"])) {
   }
 }
 
+
 if (isset($_POST["submit1"])) {
   if ($_FILES['file']['name']) {
     $filename = explode(".", $_FILES['file']['name']);

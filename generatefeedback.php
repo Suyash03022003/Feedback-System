@@ -237,6 +237,4 @@ $lname = $_SESSION['lname'];
         }
     </script>
 </body>
-
-
 </html>

@@ -27,7 +27,6 @@
               </select>
             
           </div>
-
           <div>
             <label>Question :</label><br>
             <textarea name="ques" rows="4" cols="50"></textarea>

@@ -11,5 +11,4 @@ else{
 $email = $_SESSION['email'];
 $fname = $_SESSION['fname'];
 $lname = $_SESSION['lname'];
-
 ?>

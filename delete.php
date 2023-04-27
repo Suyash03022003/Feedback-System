@@ -15,6 +15,4 @@ if($query_run){
     header("Location: ManageUser.php");
     exit(0);
   }
-
-
 ?>

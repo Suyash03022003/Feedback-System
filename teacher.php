@@ -70,8 +70,7 @@ $result = mysqli_query($conn, $query);
         <a href="ViewResponses.php?id=<?php echo $id;?>">View Responses</a><br>
       </a><br>
       <?php
-      }
-        
+      }        
       ?>
       
     </div>

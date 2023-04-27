@@ -5,12 +5,14 @@
 	font-family: 'Jost', sans-serif;
 	line-height: 1.6;
 }
+
 body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: #102543;
 }
+
 .full {
 	display: grid;
 	grid-template-columns: 4fr 4fr;
@@ -18,24 +20,29 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
 .left {
 	position: initial;
 	width: 550px;
 	height: 450px;
 }
+
 .left img {
 	object-fit: cover;
 }
+
 .right {
 	position: initial;
 	background-color: #e4edf9;
 	text-align: center;
 	height: 450px;
 }
+
 .login {
 	padding: 5% 10%;
 	width: 100%;
 }
+
 h2 {
 	text-align: center;
 	width: 100%;
@@ -51,6 +58,7 @@ input[type=password] {
 	border: 2px solid #1B81BF;
 	box-sizing: border-box;
 }
+
 button {
 	background-color: #1B81BF;
 	width: 80%;
@@ -62,14 +70,17 @@ button {
 	cursor: pointer;
 	transition: 0.4s;
 }
+
 .cbox{
 	text-align: left;
 	margin-left: 50px;
 }
+
 .cbox a{
 	padding-left: 105px;
 	color: blue;
 }
+
 .submit:hover {
 	transform: scale(1.02, 1.02);
 	background-color: #3c98d2;

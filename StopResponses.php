@@ -19,5 +19,4 @@ if($query_run){
     exit(0);
   }
 }
-
 ?>

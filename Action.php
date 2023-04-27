@@ -23,9 +23,7 @@
         header("Location: ManageUser.php");
         exit(0);
       }
-    }
-
-    
+    }   
 
     if(isset($_POST['Update'])){
       $fname = $_POST['fname'];

@@ -116,5 +116,4 @@ include('check.php');
     }
   </script>
 </body>
-
 </html>
