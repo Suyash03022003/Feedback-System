@@ -9,12 +9,12 @@
         $result = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($result);
         if ($count == 0)
-            $res_id = 001;
+            $res_id = 1;
         else {
-            $sql = "SELECT MAX(responseid) FROM responses";
+            $sql = "SELECT MAX(res_id) FROM responses";
             $run = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($run);
-            $res_id = $row['MAX(responseid)'] + 1;
+            $res_id = $row['MAX(res_id)'] + 1;
         }
         $i = 0;
         while ($row1 = mysqli_fetch_assoc($result1)) {

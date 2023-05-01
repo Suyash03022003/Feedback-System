@@ -1,14 +1,14 @@
-<?php 
+<?php
 session_start();
 include('connect.php');
 
-if(isset($_GET['id'])){
-$Feedid = $_GET['id'];
+if (isset($_GET['id'])) {
+    $Feedid = $_GET['id'];
 
-$query = "SELECT questionid 
+    $query = "SELECT questionid 
           FROM responses
           WHERE feedbackid = '$Feedid' ";
-$result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
 
 while ($row = mysqli_fetch_assoc($result)) {
       $i = 0;
@@ -17,7 +17,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $query1 = "SELECT COUNT(answer) as count
                FROM responses
                WHERE answer = 'Excellent' AND questionid = '$id' AND feedbackid = '$Feedid'";
-    $result1 = mysqli_query($conn, $query1);
+        $result1 = mysqli_query($conn, $query1);
+        $row = mysqli_fetch_assoc($result1);
+        echo "Excellent  " . $row['count'] . "<br>";
 
     $query2 = "SELECT COUNT(answer) as count
                FROM responses
@@ -47,12 +49,14 @@ while ($row = mysqli_fetch_assoc($result)) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     
       <?php $row = mysqli_fetch_assoc($result1); ?>
@@ -73,4 +77,5 @@ while ($row = mysqli_fetch_assoc($result)) {
   
 
 </body>
+
 </html>

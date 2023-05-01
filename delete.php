@@ -4,7 +4,7 @@ include('connect.php');
 
 $EMAIL = $_GET['email'];
 
-$query = "DELETE FROM login WHERE EMAIL = $EMAIL";
+$query = "DELETE FROM login WHERE EMAIL = '$EMAIL'";
 $query_run = mysqli_query($conn, $query); 
 
 if($query_run){

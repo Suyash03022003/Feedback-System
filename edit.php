@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('connect.php');
-$query1 = "select * from faculty";
+$query1 = "select * from login";
 $stake = 'Admin';
 include('check.php');
 ?>
@@ -20,12 +20,13 @@ include('check.php');
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
   <?php
   if (isset($_GET['fname'])) {
     $fname = mysqli_real_escape_string($conn, $_GET['fname']);
-    $query = "SELECT * FROM faculty WHERE fname= '$fname' ";
+    $query = "SELECT * FROM login WHERE fname= '$fname' ";
     $query_run = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($query_run) > 0) {
@@ -37,15 +38,11 @@ include('check.php');
 
         <div>
           <label>FIRST NAME&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="FNAME" value="<?= $user['FNAME'] ?>" required>
+          <input type="text" name="FNAME" value="<?= $user['fname'] ?>" required>
         </div>
         <div>
           <label>LAST NAME&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="LNAME" value="<?= $user['LNAME'] ?>" required>
-        </div>
-        <div>
-          <label>CONTACT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="CONTACT" value="<?= $user['CONTACT'] ?>" required>
+          <input type="text" name="LNAME" value="<?= $user['lname'] ?>" required>
         </div>
         <div>
           <label>CATEGORY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -61,7 +58,7 @@ include('check.php');
         </div>
         <div class="email">
           <label>EMAIL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="EMAIL" value="<?= $user['EMAIL'] ?>" required>
+          <input type="text" name="EMAIL" value="<?= $user['email'] ?>" required>
         </div>
         <div>
           <label>DEPARTMENT&nbsp; :&nbsp;&nbsp;&nbsp;</label>
@@ -76,12 +73,8 @@ include('check.php');
 
         </div>
         <div>
-          <label>USERNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="USERNAME" value="<?= $user['USERNAME'] ?>" required>
-        </div>
-        <div>
           <label>PASSWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp</label>
-          <input type="text" name="PASSWORD" value="<?= $user['PASSWORD'] ?>" required>
+          <input type="text" name="PASSWORD" value="<?= $user['password'] ?>" required>
         </div>
         <button classtype="submit" name="Update">Update</button>
       </form>
