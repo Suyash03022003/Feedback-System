@@ -47,7 +47,7 @@ $result = mysqli_query($conn, $query);
       <h1>TEACHER</h1>
       <ul>
         <li><a href="generatefeedback.php">Generate CES</a></li>
-        <li><a href="#">View Feedback</a></li>
+        <li><a href="viewfeedback.php">View Feedback</a></li>
       </ul>
     </div>
     <div class="right">
