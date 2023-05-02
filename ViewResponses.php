@@ -69,8 +69,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
       <?php $row = mysqli_fetch_assoc($result5); ?>
       <?php echo "Good  ".$row['count']; ?> <br>
-
-  
-
+      
 </body>
 </html>
