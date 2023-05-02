@@ -282,9 +282,9 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href=edit.php name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href=delete.php name=delete><img src= images/delete.png width=20 height=20> </a></td>";
-                              echo '</tr>';
+                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "</tr>";
                             } ?>";
       }
 
@@ -302,9 +302,9 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href=edit.php name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href=delete.php name=delete><img src= images/delete.png width=20 height=20> </a></td>";
-                              echo '</tr>';
+                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "</tr>";
                             } ?>";
       }
       function display_parent() {
@@ -321,9 +321,9 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href=edit.php name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href=delete.php name=delete><img src= images/delete.png width=20 height=20> </a></td>";
-                              echo '</tr>';
+                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><img src= images/edit.png width=10 height=20> </a></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "</tr>";
                             } ?>";
       }
     function profileAccount(){
