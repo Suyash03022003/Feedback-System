@@ -71,6 +71,7 @@ $lname = $_SESSION['lname'];
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9dcdbf7660.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -224,8 +225,8 @@ $lname = $_SESSION['lname'];
               echo "<td>" . $cols['fname'] . "</td>";
               echo "<td>" . $cols['lname'] . "</td>";
               echo "<td>" . $cols['email'] . "</td>";
-              echo "<td><a href='edit.php?fname=$cols[fname]' name='edit'><img src= images/edit.png width='10' height='20'> </a></td>";
-              echo "<td><a href='delete.php?email=$cols[email]' name='delete'><img src= images/delete.png width='20' height='20'> </a></td>";
+              echo "<td><a href='edit.php?fname=$cols[fname]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
+              echo "<td><a href='delete.php?email=$cols[email]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
               echo "</tr>";
             }
             ?>
@@ -282,8 +283,8 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
                             } ?>";
       }
@@ -302,8 +303,8 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
                             } ?>";
       }
@@ -321,8 +322,8 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
-                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><img src= images/edit.png width=10 height=20> </a></td>";
-                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><img src= images/delete.png width=20 height=20> </a></td>";
+                              echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
                             } ?>";
       }
