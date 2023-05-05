@@ -236,15 +236,17 @@ $lname = $_SESSION['lname'];
             <?php
             $query1 = "select * from login WHERE category='Teacher'";
             $result = mysqli_query($conn, $query1);
+            $i = 1;
             foreach ($result as $cols) {
               echo "<tr>";
-              echo "<td>" . $cols['id'] . "</td>";
+              echo "<td>" .$i. "</td>";
               echo "<td>" . $cols['fname'] . "</td>";
               echo "<td>" . $cols['lname'] . "</td>";
               echo "<td>" . $cols['email'] . "</td>";
               echo "<td><a href='edit.php?fname=$cols[fname]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
               echo "<td><a href='delete.php?email=$cols[email]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
               echo "</tr>";
+              $i++;
             }
             ?>
           </tbody>
@@ -294,15 +296,17 @@ $lname = $_SESSION['lname'];
         tbody.innerHTML = "<?php
                             $query1 = "select * from login WHERE category='Student'";
                             $result = mysqli_query($conn, $query1);
+                            $i = 1;
                             foreach ($result as $cols) {
                               echo "<tr>";
-                              echo "<td>$cols[id]</td>";
+                              echo "<td>$i</td>";
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
                               echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
+                              $i++;
                             } ?>";
       }
 
@@ -314,15 +318,17 @@ $lname = $_SESSION['lname'];
         tbody.innerHTML = "<?php
                             $query1 = "select * from login WHERE category='Teacher'";
                             $result = mysqli_query($conn, $query1);
+                            $i = 1;
                             foreach ($result as $cols) {
                               echo "<tr>";
-                              echo "<td>$cols[id]</td>";
+                              echo "<td>$i</td>";
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
                               echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
+                              $i++;
                             } ?>";
       }
 
@@ -334,15 +340,17 @@ $lname = $_SESSION['lname'];
         tbody.innerHTML = "<?php
                             $query1 = "select * from login WHERE category='Parent'";
                             $result = mysqli_query($conn, $query1);
+                            $i = 1;
                             foreach ($result as $cols) {
                               echo "<tr>";
-                              echo "<td>$cols[id]</td>";
+                              echo "<td>$i</td>";
                               echo "<td>$cols[fname]</td>";
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
                               echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
+                              $i++;
                             } ?>";
       }
 

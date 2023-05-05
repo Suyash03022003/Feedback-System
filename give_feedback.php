@@ -16,6 +16,7 @@
             $row = mysqli_fetch_assoc($run);
             $res_id = $row['MAX(res_id)'] + 1;
         }
+
         $i = 0;
         while ($row1 = mysqli_fetch_assoc($result1)) {
             $question_id = $row1['question_id'];
@@ -24,14 +25,18 @@
             echo $query12;
             $result2 = mysqli_query($conn, $query12);
             $i++;
+
         }
         if ($result2) {
             $user = $id;
             header("Location:CES.php");
             exit(0);
-        } else {
+        } 
+        
+        else {
             exit(0);
         }
+
     }
     
 ?>
