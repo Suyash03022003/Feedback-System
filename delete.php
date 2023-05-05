@@ -8,7 +8,7 @@ $query = "DELETE FROM login WHERE EMAIL = '$EMAIL'";
 $query_run = mysqli_query($conn, $query); 
 
 if($query_run){
-    header("Location: ManageUser.php?email=$EMAIL");
+    header("Location: ManageUser.php?email=$EMAIL&active=$CATEGORY");
     exit(0);
   }
   else{

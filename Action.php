@@ -40,8 +40,8 @@
       $query_run = mysqli_query($conn,$query);
 
       if($query_run){
-        $_SESSION['message'] = "User Added Successfully";
-        header("Location: ManageUser.php");
+        $_SESSION['message'] = "User Updated Successfully";
+        header("Location: ManageUser.php?active=$CATEGORY");
         exit(0);
       }
       else{

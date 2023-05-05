@@ -6,6 +6,21 @@ include('check.php');
 $query = "select * from login";
 $query1 = "select * from faculty";
 $result = mysqli_query($conn, $query1);
+$faculty = false;
+$student = false;
+$parent = false;
+if (isset($_GET['active'])) {
+  $active = $_GET['active'];
+
+  if ($active == "Faculty") {
+    $faculty = true;
+  } else if ($active == "Student") {
+    $student = true;
+  } else if ($active == "Parent") {
+    $parent = true;
+  }
+}
+
 
 if (isset($_POST["submit"])) {
   if ($_FILES['file']['name']) {
@@ -74,7 +89,7 @@ $lname = $_SESSION['lname'];
   <script src="https://kit.fontawesome.com/9dcdbf7660.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="load()">
   <div class="csv" id="log">
     <div class="form">
       <div class="frm animate">
@@ -199,7 +214,9 @@ $lname = $_SESSION['lname'];
           <p class="display_student" id="student" onclick="display_student()">Student</p>
           <p class="display_parent" id="parent" onclick="display_parent()">Parent</p>
         </div>
-        <input type="submit" class="add_user" onclick="display()" value="Add User">
+        <div class="buttons">
+          <input type="submit" class="add_user" onclick="display()" value="Add User">
+        </div>
       </div>
 
       <div class="User">
@@ -308,6 +325,7 @@ $lname = $_SESSION['lname'];
                               echo "</tr>";
                             } ?>";
       }
+
       function display_parent() {
         user3.classList.remove("active");
         user1.classList.remove("active");
@@ -327,11 +345,23 @@ $lname = $_SESSION['lname'];
                               echo "</tr>";
                             } ?>";
       }
-    function profileAccount(){
-      const list = document.querySelector('.account');
-      list.classList.toggle('active')
-    }
-  
+
+      function profileAccount() {
+        const list = document.querySelector('.account');
+        list.classList.toggle('active')
+      }
+
+      function load() {
+        var active1 = "<?php echo $faculty; ?>";
+        var active2 = "<?php echo $parent; ?>";
+        var active3 = "<?php echo $student; ?>";
+        if (active1)
+          user1.click();
+        if (active2)
+          user2.click();
+        if (active3)
+          user3.click();
+      }
     </script>
 </body>
 

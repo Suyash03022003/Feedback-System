@@ -48,10 +48,11 @@ include('check.php');
           <label>CATEGORY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;</label>
 
           <select name="CATEGORY">
-            <option value="Not Selected">Select</option>
-            <option value="TEACHER">Teacher</option>
+            <!-- <option value="Not Selected">Select</option> -->
+            <option value="Teacher" selected>Teacher</option>
             <option value="HOD">HOD</option>
-            <option value="PRINCIPAL">Principal</option>
+            <option value="Student">Student</option>
+            <option value="Parent">Parent</option>
           </select>
 
 
@@ -64,8 +65,8 @@ include('check.php');
           <label>DEPARTMENT&nbsp; :&nbsp;&nbsp;&nbsp;</label>
 
           <select name="DEPARTMENT">
-            <option value="Not Selected">SELECT</option>
-            <option value="COMPUTER">COMPUTER</option>
+            <!-- <option value="Not Selected">SELECT</option> -->
+            <option value="COMPUTER" selected>COMPUTER</option>
             <option value="ELECTRICAL">ELECTRICAL</option>
             <option value="CIVIL">CIVIL</option>
             <option value="MECHANICAL">MECHANICAL</option>
