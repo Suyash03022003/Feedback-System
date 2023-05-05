@@ -10,7 +10,7 @@ body {
 }
 
 .nav {
-  background-color: #102543;
+  background-color: #102543; /*#001738*/
   position: fixed;
   width: 100%;
   z-index: 100;
@@ -106,10 +106,10 @@ body {
 .left {
   height: 100vh;
   width: 20vw;
-  background-color: #102543;
+  background-color: #102543; /*#001738*/
   color: white;
   border-top: 2px solid #E4EDF9;
-  box-shadow: 1px 0px 5px #102543;
+  box-shadow: 1px 0px 5px #102543; /*#001738*/
   position: fixed;
 }
 
