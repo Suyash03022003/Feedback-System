@@ -19,6 +19,7 @@ $lname = $_SESSION['lname'];
     <link rel="icon" href="images/bitlogo.jpg" />
     <link rel="stylesheet" href="css/generate.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/pop.css?v=<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -165,7 +166,12 @@ $lname = $_SESSION['lname'];
             </form>
         </div>
     </div>
-
+    <div class="popup" id="popup"> 
+        <img src="images/t1.png" alt="">
+        <h3>Are you sure you want to LogOut?</h3>
+        <button type="button" onclick="closePopup()" onclick="window.location.href = 'index.php'">LogOut</button>
+        <button type="button" onclick="cancelPopup()">Cancel</button>
+    </div>
     <script>
         var dropdown1 = document.getElementById("dropdown1");
         var dropdown2 = document.getElementById("dropdown2");
@@ -235,6 +241,18 @@ $lname = $_SESSION['lname'];
             var log = document.getElementById('log');
             log.style.display = 'block';
         }
+        let popup = document.getElementById("popup");
+    function openPopup(){
+        popup.classList.add("open-popup");       
+    }
+    
+    function closePopup(){
+        popup.classList.remove("open-popup");
+        window.location.href = "logout.php";
+    }
+    function cancelPopup(){
+        popup.classList.remove("open-popup");  
+    }
     </script>
 </body>
 </html>

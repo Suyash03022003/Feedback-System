@@ -209,3 +209,6 @@ body {
   font-size: 18px;
 }
 
+.pointer{
+  cursor: pointer;
+}

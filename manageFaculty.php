@@ -16,6 +16,7 @@ $result = mysqli_query($conn, $query);
   <link rel="icon" href="images/bitlogo.jpg" />
   <link rel="stylesheet" href="css/hod.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/pop.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -35,7 +36,7 @@ $result = mysqli_query($conn, $query);
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
           <a href="Hodprofile.php">Profile</a><br>
-          <a href="logout.php">Log out</a>
+          <a onclick="openPopup()" class="pointer">Log out</a>
         </div>
       </div>
     </div>
@@ -56,29 +57,30 @@ $result = mysqli_query($conn, $query);
       <p>Dashboard/<span>Manage Faculty</span></p>
       <br></br>
 
-      <!-- <h2>Active Feedback</h2>
-      <?php
-
-      while ($row = mysqli_fetch_assoc($result)) {
-        $id = $row['feedback_id'];
-      ?>
-      <a href = "feedbackform.php?id=<?php echo $id;?>">
-        <?php echo $row['feedback_id']; ?>
-        <?php echo $row['feedback_type']; ?>
-        <?php echo $row['subject']; ?><br>
-        <a href="StopResponses.php?id=<?php echo $id;?>">Stop Responses</a>&nbsp;&nbsp;&nbsp;
-        <a href="ViewResponses.php?id=<?php echo $id;?>">View Responses</a><br>
-      </a><br>
-      <?php
-      }        
-      ?>
-       -->
     </div>
+  </div>
+  <div class="popup" id="popup"> 
+        <img src="images/t1.png" alt="">
+        <h3>Are you sure you want to LogOut?</h3>
+        <button type="button" onclick="closePopup()" onclick="window.location.href = 'index.php'">LogOut</button>
+        <button type="button" onclick="cancelPopup()">Cancel</button>
   </div>
   <script>
     function profileAccount() {
       const list = document.querySelector('.account');
       list.classList.toggle('active')
+    }
+    let popup = document.getElementById("popup");
+    function openPopup(){
+        popup.classList.add("open-popup");       
+    }
+    
+    function closePopup(){
+        popup.classList.remove("open-popup");
+        window.location.href = "logout.php";
+    }
+    function cancelPopup(){
+        popup.classList.remove("open-popup");  
     }
   </script>
 </body>

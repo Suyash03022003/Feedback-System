@@ -9,7 +9,7 @@
             <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
             <div id="account" class="account">
                 <a href="Adminprofile.php">Profile</a><br>
-                <a href="logout.php">Log out</a>
+                <a onclick="openPopup()" class="pointer">Log out</a>
             </div>
         </div>
     </div>

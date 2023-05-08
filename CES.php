@@ -20,6 +20,7 @@ $result = mysqli_query($conn, $sql);
   <link rel="icon" href="images/bitlogo.jpg" />
   <link rel="stylesheet" href="css/ces.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/pop.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -38,7 +39,7 @@ $result = mysqli_query($conn, $sql);
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
           <a href="Studentprofile.php">Profile</a><br>
-          <a href="logout.php">Log out</a>
+          <a onclick="openPopup()" class="pointer">Log out</a>
         </div>
       </div>
     </div>
@@ -76,10 +77,28 @@ $result = mysqli_query($conn, $sql);
   </div>
   </div>
   </div>
+  <div class="popup" id="popup"> 
+        <img src="images/t1.png" alt="">
+        <h3>Are you sure you want to LogOut?</h3>
+        <button type="button" onclick="closePopup()" onclick="window.location.href = 'index.php'">LogOut</button>
+        <button type="button" onclick="cancelPopup()">Cancel</button>
+    </div>
   <script>
     function profileAccount() {
       const list = document.querySelector('.account');
       list.classList.toggle('active')
+    }
+    let popup = document.getElementById("popup");
+    function openPopup(){
+        popup.classList.add("open-popup");       
+    }
+    
+    function closePopup(){
+        popup.classList.remove("open-popup");
+        window.location.href = "logout.php";
+    }
+    function cancelPopup(){
+        popup.classList.remove("open-popup");  
     }
   </script>
 </body>
