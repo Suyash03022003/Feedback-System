@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('connect.php');
-$query1 = "select * from login";
+$query1 = "select * from user";
 $stake = 'Admin';
 include('check.php');
 ?>
@@ -26,7 +26,7 @@ include('check.php');
   <?php
   if (isset($_GET['fname'])) {
     $fname = mysqli_real_escape_string($conn, $_GET['fname']);
-    $query = "SELECT * FROM login WHERE fname= '$fname' ";
+    $query = "SELECT * FROM user WHERE fname= '$fname' ";
     $query_run = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($query_run) > 0) {

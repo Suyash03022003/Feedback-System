@@ -10,12 +10,12 @@
     padding: 0px 5px 20px 5px;
     transform: translate(-50%,-50%) scale(0.1);
     transition:transform 0.4s, top 1s;
-    visibility: hidden;
+    display: none;
 }
 .open-popup{
     top: 50%;
     transform: translate(-30%,-50%) scale(1);
-    visibility: visible;
+    display: block;
     
     background-color: #c0cbd9;
 }

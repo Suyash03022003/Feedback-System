@@ -3,8 +3,8 @@ session_start();
 include('connect.php');
 $stake = 'Admin';
 include('check.php');
-$query = "select * from login";
-$query1 = "select * from faculty";
+$query = "select * from user";
+$query1 = "select * from user";
 $result = mysqli_query($conn, $query1);
 $faculty = false;
 $student = false;
@@ -21,7 +21,7 @@ if (isset($_GET['active'])) {
   }
 }
 
-
+//student
 if (isset($_POST["submit"])) {
   if ($_FILES['file']['name']) {
     $filename = explode(".", $_FILES['file']['name']);
@@ -34,11 +34,15 @@ if (isset($_POST["submit"])) {
         $item4 = mysqli_real_escape_string($conn, $data[3]);
         $item5 = mysqli_real_escape_string($conn, $data[4]);
         $item6 = mysqli_real_escape_string($conn, $data[5]);
-        $item7 = mysqli_real_escape_string($conn, $data[6]);
-        $item8 = mysqli_real_escape_string($conn, $data[7]);
-        $query = "INSERT into students (prn, fname, lname, department, semester, email, password) values('$item1','$item2','$item3','$item4','$item5','$item6','$item7')";
-        $query1 = "INSERT into login (fname, lname, category, email, password) values('$item2','$item3','$item8','$item6','$item7')";
-
+        // $item7 = mysqli_real_escape_string($conn, $data[6]);
+        // $item8 = mysqli_real_escape_string($conn, $data[7]);
+        $item9 = mysqli_real_escape_string($conn, $data[6]);
+        $item10 = mysqli_real_escape_string($conn, $data[7]);
+        $item11 = mysqli_real_escape_string($conn, $data[8]);
+        $item12 = mysqli_real_escape_string($conn, $data[9]);
+        $query = "INSERT into user (userId, fname, mname, lname, email, departmentId, password, category, semester, year, section, contact)
+                   values('$item1','$item2','$item3','$item4','$item5','$item6','123','Student','$item9','$item10','$item11','$item12')";
+        
         mysqli_query($conn, $query);
       }
       fclose($handle);
@@ -46,7 +50,7 @@ if (isset($_POST["submit"])) {
   }
 }
 
-
+//parent
 if (isset($_POST["submit1"])) {
   if ($_FILES['file']['name']) {
     $filename = explode(".", $_FILES['file']['name']);
@@ -58,7 +62,8 @@ if (isset($_POST["submit1"])) {
         $item3 = mysqli_real_escape_string($conn, $data[2]);
         $item4 = mysqli_real_escape_string($conn, $data[3]);
         $item5 = mysqli_real_escape_string($conn, $data[4]);
-        $query = "INSERT into parents (fname, lname, email, contact, password) values('$item1','$item2','$item3','$item4','$item5')";
+        $query = "INSERT into user (userId, fname, lname, email, departmentId, password, category, semester, year, section, contact)
+                  values('$item1','$item2','$item3','$item4','$item5','$item6','$item7')";
         mysqli_query($conn, $query);
       }
       fclose($handle);
@@ -82,6 +87,7 @@ $lname = $_SESSION['lname'];
   <link rel="stylesheet" href="css/ManageUser.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/form.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/pop.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -123,18 +129,48 @@ $lname = $_SESSION['lname'];
         <button onclick="document.getElementById('fac').style.display='none'">&times;</button>
         <h2>Add User: </h2>
         <form action="Action.php" method="POST">
+
+        <div>
+            <label>ID</label>
+            <input type="text" name="ID" required>
+          </div>
+
           <div>
             <label>FIRST NAME</label>
             <input type="text" name="FNAME" required>
           </div>
+
+          <div>
+            <label>MIDDLE NAME</label>
+            <input type="text" name="MNAME" required>
+          </div>
+
           <div>
             <label>LAST NAME</label>
             <input type="text" name="LNAME" required>
           </div>
+
           <div>
-            <label>CONTACT </label>
-            <input type="text" name="CONTACT" required>
+            <label>EMAIL</label>
+            <input type="text" name="EMAIL" required>
           </div>
+
+          <div class="category">
+            <label>DEPARTMENT</label>
+            <select name="DEPARTMENT">
+              <option value="Not Selected">SELECT</option>
+              <option value="COMPUTER">Computer</option>
+              <option value="ELECTRICAL">Electrical</option>
+              <option value="CIVIL">Civil</option>
+              <option value="MECHANICAL">Mechanical</option>
+            </select>
+          </div>
+
+          <div>
+            <label>PASSWORD</label>
+            <input type="text" name="PASSWORD" required>
+          </div>
+
           <div class="category">
             <label>CATEGORY</label>
 
@@ -144,32 +180,13 @@ $lname = $_SESSION['lname'];
               <option value="HOD">HOD</option>
               <option value="Principal">Principal</option>
             </select>
-
           </div>
+          
           <div>
-            <label>EMAIL</label>
-            <input type="text" name="EMAIL" required>
+            <label>CONTACT </label>
+            <input type="text" name="CONTACT" required>
           </div>
-          <div class="category">
-            <label>DEPARTMENT</label>
-
-            <select name="DEPARTMENT">
-              <option value="Not Selected">SELECT</option>
-              <option value="COMPUTER">Computer</option>
-              <option value="ELECTRICAL">Electrical</option>
-              <option value="CIVIL">Civil</option>
-              <option value="MECHANICAL">Mechanical</option>
-            </select>
-
-          </div>
-          <div>
-            <label>USERNAME</label>
-            <input type="text" name="USERNAME" required>
-          </div>
-          <div>
-            <label>PASSWORD</label>
-            <input type="text" name="PASSWORD" required>
-          </div>
+          
           <input type="submit" name="submit">
         </form>
       </div>
@@ -234,7 +251,7 @@ $lname = $_SESSION['lname'];
           </thead>
           <tbody id="tbody">
             <?php
-            $query1 = "select * from login WHERE category='Teacher'";
+            $query1 = "select * from user WHERE category='Teacher'";
             $result = mysqli_query($conn, $query1);
             $i = 1;
             foreach ($result as $cols) {
@@ -285,7 +302,6 @@ $lname = $_SESSION['lname'];
       var user1 = document.getElementById("faculty");
       var user2 = document.getElementById("parent");
       var user3 = document.getElementById("student");
-
       var table = document.getElementById("table");
 
       function display() {
@@ -300,7 +316,7 @@ $lname = $_SESSION['lname'];
         user3.classList.add("active");
         div = "log";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from login WHERE category='Student'";
+                            $query1 = "select * from user WHERE category='Student'";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {
@@ -322,7 +338,7 @@ $lname = $_SESSION['lname'];
         user1.classList.add("active");
         div = "fac";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from login WHERE category='Teacher'";
+                            $query1 = "select * from user WHERE category='Teacher'";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {
@@ -344,7 +360,7 @@ $lname = $_SESSION['lname'];
         user2.classList.add("active");
         div = "p";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from login WHERE category='Parent'";
+                            $query1 = "select * from user WHERE category='Parent'";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {

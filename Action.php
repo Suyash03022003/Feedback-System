@@ -2,30 +2,37 @@
     session_start();
     require 'connect.php';
 
-    if(isset($_POST['submit1'])){
+    if(isset($_POST['submit1']))
+    {
       $option = $_POST['option'];
       $query = "INSERT INTO responses (answer) values('$option')";
       $result = mysqli_query($conn, $query);
     }
 
-    if(isset($_POST['delete'])){
+    if(isset($_POST['delete']))
+    {
         $FNAME = $_POST['FNAME '];
         $query = "DELETE FROM faculty WHERE FNAME = '$FNAME' "; 
         $query_run = mysqli_query($conn, $query);
 
-    if($query_run){
+    if($query_run)
+     {
         $_SESSION['message'] = "User deleted Successfully";
         header("Location: ManageUser.php");
         exit(0);
       }
-      else{
+
+      else
+      {
         $_SESSION['message'] = "User Not deleted";
         header("Location: ManageUser.php");
         exit(0);
       }
+
     }   
 
-    if(isset($_POST['Update'])){
+    if(isset($_POST['Update']))
+    {
       $fname = $_POST['fname'];
       $FNAME = $_POST['FNAME'];
       $LNAME = $_POST['LNAME'];
@@ -36,7 +43,7 @@
       $USERNAME = $_POST['USERNAME'];
       $PASSWORD = $_POST['PASSWORD'];
 
-      $query ="UPDATE faculty SET FNAME = '$FNAME', LNAME = '$LNAME', CONTACT = '$CONTACT', CATEGORY = '$CATEGORY', EMAIL = '$EMAIL', DEPARTMENT = '$DEPARTMENT', USERNAME = '$USERNAME', PASSWORD='$PASSWORD' WHERE FNAME ='$fname' ";
+      $query ="UPDATE user SET FNAME = '$FNAME', LNAME = '$LNAME', CONTACT = '$CONTACT', CATEGORY = '$CATEGORY', EMAIL = '$EMAIL', DEPARTMENT = '$DEPARTMENT', USERNAME = '$USERNAME', PASSWORD='$PASSWORD' WHERE FNAME ='$fname' ";
       $query_run = mysqli_query($conn,$query);
 
       if($query_run){
@@ -52,30 +59,18 @@
     }
 
     if(isset($_POST['submit'])){
+        $ID = $_POST['ID'];
         $FNAME = $_POST['FNAME'];
+        $MNAME = $_POST['MNAME'];
         $LNAME = $_POST['LNAME'];
-        $CONTACT = $_POST['CONTACT'];
-        $CATEGORY = $_POST['CATEGORY'];
         $EMAIL = $_POST['EMAIL'];
         $DEPARTMENT = $_POST['DEPARTMENT'];
-        $USERNAME = $_POST['USERNAME'];
         $PASSWORD = $_POST['PASSWORD'];
-        $query = "INSERT INTO faculty (FNAME, LNAME, CONTACT,CATEGORY, EMAIL, DEPARTMENT, USERNAME, PASSWORD) values('$FNAME','$LNAME', '$CONTACT','$CATEGORY','$EMAIL','$DEPARTMENT','$USERNAME','$PASSWORD')";
+        $CATEGORY = $_POST['CATEGORY'];
+        $CONTACT = $_POST['CONTACT'];
+        $query = "INSERT into user (userId, fname, mname, lname, email, departmentId, password, category, contact)
+                  values('$ID','$FNAME','$MNAME','$LNAME','$EMAIL','$DEPARTMENT','$PASSWORD','$CATEGORY','$CONTACT')";
         $result = mysqli_query($conn, $query);
-     
-        if($result){
-         $ans1 = "INSERT INTO login (fname, lname,category, email, password) values('$FNAME','$LNAME', '$CATEGORY','$EMAIL','$PASSWORD')";
-         $data1 = mysqli_query($conn, $ans1);
-
-          $_SESSION['message'] = "User Added Successfully";
-          header("Location: ManageUser.php?email=$EMAIL");
-          exit(0);
-        }
-        else{
-          $_SESSION['message'] = "User Not Added";
-          header("Location: ManageUser.php");
-          exit(0);
-        }
-
+        
     }
 ?>
