@@ -62,8 +62,9 @@ if (isset($_POST["submit1"])) {
         $item3 = mysqli_real_escape_string($conn, $data[2]);
         $item4 = mysqli_real_escape_string($conn, $data[3]);
         $item5 = mysqli_real_escape_string($conn, $data[4]);
-        $query = "INSERT into user (userId, fname, lname, email, departmentId, password, category, semester, year, section, contact)
-                  values('$item1','$item2','$item3','$item4','$item5','$item6','$item7')";
+        $item6 = mysqli_real_escape_string($conn, $data[5]);
+        $query = "INSERT into user (userId, fname, mname, lname, email, password, category, contact)
+                  values('$item1','$item2','$item3','$item4','$item5','123','Parent','$item6')";
         mysqli_query($conn, $query);
       }
       fclose($handle);
