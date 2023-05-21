@@ -43,7 +43,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     $i++;
 }
-
 }
 
 ?>
@@ -75,5 +74,4 @@ while ($row = mysqli_fetch_assoc($result)) {
       <?php echo "Good  ".$row['count']; ?> <br>
       
 </body>
-
 </html>

@@ -8,7 +8,6 @@ $result = mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +21,6 @@ $result = mysqli_query($conn, $query);
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Welcome!</title>
 </head>
-
 <body>
     <div class="csv" id="log">
         <div class="form">
@@ -44,7 +42,6 @@ $result = mysqli_query($conn, $query);
                             <option value="Radio">Radio</option>
                             <option value="Check box">Check box</option>
                         </select>
-
                     </div>
 
                     <div>
@@ -135,6 +132,4 @@ $result = mysqli_query($conn, $query);
         }
     </script>
 </body>
-
-
 </html>

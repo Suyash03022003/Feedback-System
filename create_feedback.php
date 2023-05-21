@@ -19,7 +19,8 @@
     $section = $_POST['section'];
     $sub = $_POST['sub'];
     $author = $_POST['author'];
-    $query = "INSERT INTO feedbacks (feedback_id, feedback_type, author, subject, dept, year, sem, section, status) values($id, 'CES', '$author', '$sub', '$dept', '$year', '$sem', '$section', 'Active')";
+    $query = "INSERT INTO allfeedbackforms (feedback_id, feedback_type, author, subject, dept, year, sem, section, status) 
+              values($id, 'CES', '$author', '$sub', '$dept', '$year', '$sem', '$section', 'Active')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -31,6 +32,7 @@
       exit(0);
     }
   }
+  
   if (isset($_POST['submit'])) {
     $quesid = $_POST['quesid'];
     $questype = $_POST['type'];
