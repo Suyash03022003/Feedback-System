@@ -89,6 +89,7 @@ $lname = $_SESSION['lname'];
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/form.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/pop.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/popdelete.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -262,7 +263,7 @@ $lname = $_SESSION['lname'];
               echo "<td>" . $cols['lname'] . "</td>";
               echo "<td>" . $cols['email'] . "</td>";
               echo "<td><a href='edit.php?fname=$cols[fname]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
-              echo "<td><a href='delete.php?email=$cols[email]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
+              echo "<td><i onclick='openPopupp()' class='fa-solid fa-trash delete'></i></td>";
               echo "</tr>";
               $i++;
             }
@@ -277,22 +278,40 @@ $lname = $_SESSION['lname'];
         <button type="button" onclick="closePopup()" onclick="window.location.href = 'index.php'">LogOut</button>
         <button type="button" onclick="cancelPopup()">Cancel</button>
     </div>
+    <div class="popupp" id="popupp"> 
+        <img src="images/t1.png" alt="">
+        <h3>Are you sure you want to Delete this Record</h3>
+        <a href="delete.php?email=<?php echo $cols['email']?>"><button type="button" onclick="deletePopup()">Ok</button></a>
+        <button type="button" onclick="dcancelPopup()">Cancel</button>
+    </div>
     <script>
-      var dropdown = document.getElementById("dropdown1");
-      var dropdown = document.getElementById("dropdown2");
-      var dropdown = document.getElementById("dropdown3");
 
-      function clicked1(char) {
-        dropdown1.innerHTML = char;
-      }
+    let popupp = document.getElementById("popupp");
+    function openPopupp(){
+        popupp.classList.add("open-popupp");       
+    }
+    
+    function deletePopup(){
+        popupp.classList.remove("open-popupp");
+    }
+    function dcancelPopup(){
+        popupp.classList.remove("open-popupp");  
+    }
+      // var dropdown = document.getElementById("dropdown1");
+      // var dropdown = document.getElementById("dropdown2");
+      // var dropdown = document.getElementById("dropdown3");
 
-      function clicked2(char) {
-        dropdown2.innerHTML = char;
-      }
+      // function clicked1(char) {
+      //   dropdown1.innerHTML = char;
+      // }
 
-      function clicked3(char) {
-        dropdown3.innerHTML = char;
-      }
+      // function clicked2(char) {
+      //   dropdown2.innerHTML = char;
+      // }
+
+      // function clicked3(char) {
+      //   dropdown3.innerHTML = char;
+      // }
 
       function login() {
         var log = document.getElementById('log');
@@ -327,7 +346,7 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
-                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
+                              echo "<td><i onclick='openPopupp()' class='fa-solid fa-trash delete'></i></td>";
                               echo "</tr>";
                               $i++;
                             } ?>";
@@ -349,7 +368,7 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
-                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
+                              echo "<td><i onclick='openPopupp()'class='fa-solid fa-trash delete'></i></td>";
                               echo "</tr>";
                               $i++;
                             } ?>";
@@ -371,7 +390,7 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
-                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
+                              echo "<td><i onclick='openPopupp()'class='fa-solid fa-trash delete'></i></td>";
                               echo "</tr>";
                               $i++;
                             } ?>";
