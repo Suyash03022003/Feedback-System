@@ -1,4 +1,5 @@
 <?php
+
 $userid  = $_SESSION['email'];
 if($userid == true){
     if($_SESSION['category'] != $stake)

@@ -1,4 +1,6 @@
 <?php
+
+
 $link = mysqli_connect("localhost", "root", "", "feedback_system");
  
 if($link === false){
