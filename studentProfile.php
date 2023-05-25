@@ -4,7 +4,7 @@ session_start();
 include('connect.php');
 $stake = 'Student';
 include('check.php');
-$loginfo = "SELECT * FROM login WHERE email = '$email';";
+$loginfo = "SELECT * FROM user WHERE email = '$email';";
 $loginresult = mysqli_query($conn, $loginfo);
 $var = mysqli_fetch_array($loginresult);
 $f_name = $var['fname'];

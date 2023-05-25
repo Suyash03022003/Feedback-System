@@ -242,4 +242,5 @@ h2 {
 .delete {
   font-size: large;
   color: #0a223d;
+  cursor: pointer;
 }

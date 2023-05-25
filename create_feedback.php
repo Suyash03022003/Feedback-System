@@ -2,24 +2,25 @@
   session_start();
   require 'connect.php';
   if (isset($_POST['submit_next'])) {
-    $sql = "SELECT * FROM feedbacks";
+    $sql = "SELECT * FROM allfeedbackforms";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     if($count == 0)
     $id = 101;
     else {
-      $sql = "SELECT MAX(feedback_id) FROM feedbacks";
+      $sql = "SELECT MAX(feedbackId) FROM allfeedbackforms";
       $result1 = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result1);
-      $id = $row['MAX(feedback_id)'] + 1;
-    }
+      $id = $row['MAX(feedbackId)'] + 1;
+    } 
     $dept = $_POST['dept'];
     $year = $_POST['year'];
     $sem = $_POST['sem'];
     $section = $_POST['section'];
     $sub = $_POST['sub'];
     $author = $_POST['author'];
-    $query = "INSERT INTO feedbacks (feedback_id, feedback_type, author, subject, dept, year, sem, section, status) values($id, 'CES', '$author', '$sub', '$dept', '$year', '$sem', '$section', 'Active')";
+    $query = "INSERT INTO allfeedbackforms (feedbackId, feedbackType, author, subject, dept, year, sem, section, status) 
+              values($id, 'CES', '$author', '$sub', '$dept', '$year', '$sem', '$section', 'Active')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -30,7 +31,9 @@
       header("Location: generatefeedback.php");
       exit(0);
     }
+
   }
+  
   if (isset($_POST['submit'])) {
     $quesid = $_POST['quesid'];
     $questype = $_POST['type'];
