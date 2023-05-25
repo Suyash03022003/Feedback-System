@@ -1,4 +1,5 @@
-<?php      
+<?php   
+   
     include('connect.php');  
     session_start();
     $email = $_POST['user'];  
