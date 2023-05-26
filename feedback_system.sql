@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 11:56 AM
+-- Generation Time: May 26, 2023 at 12:50 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -20,22 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `feedback_system`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `faculty`
---
-
-CREATE TABLE `faculty` (
-  `fname` text NOT NULL,
-  `lname` text NOT NULL,
-  `contact` int(11) NOT NULL,
-  `category` text NOT NULL,
-  `email` varchar(35) NOT NULL,
-  `department` text NOT NULL,
-  `password` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -65,41 +49,6 @@ CREATE TABLE `feedbacks` (
   `year` varchar(3) NOT NULL,
   `sem` varchar(4) NOT NULL,
   `section` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `fname` varchar(10) NOT NULL,
-  `lname` varchar(10) NOT NULL,
-  `category` varchar(10) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `password` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`fname`, `lname`, `category`, `email`, `password`) VALUES
-('Abhishek', 'Kinekar', 'Admin', 'admin@bitwardha.ac.in', '123');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `parents`
---
-
-CREATE TABLE `parents` (
-  `fname` text NOT NULL,
-  `lname` text NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `contact` int(15) NOT NULL,
-  `password` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -153,22 +102,6 @@ CREATE TABLE `responses` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `students`
---
-
-CREATE TABLE `students` (
-  `prn` varchar(15) NOT NULL,
-  `fname` text NOT NULL,
-  `lname` text NOT NULL,
-  `department` text NOT NULL,
-  `sem` char(4) DEFAULT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -176,7 +109,7 @@ CREATE TABLE `users` (
   `userid` varchar(20) NOT NULL,
   `fname` text NOT NULL,
   `lname` text NOT NULL,
-  `email` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `dept` text NOT NULL,
   `password` varchar(20) NOT NULL,
   `category` text NOT NULL,
@@ -192,18 +125,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userid`, `fname`, `lname`, `email`, `dept`, `password`, `category`, `semester`, `year`, `section`, `contact`) VALUES
 ('Admin01', 'Abhishek', 'Kinhekar', 'admin@bitwardha.ac.in', 'Computer', '123', 'Admin', NULL, NULL, NULL, 123456789),
-('comp123', 'Urvashi', 'Pote', 'urvashi.pote@bitwardha.ac', 'COMPUTER', '123', 'Teacher', NULL, NULL, NULL, 123456789),
-('﻿T2046491245047', 'Shreya', 'Raut', 'co.2020.smraut@bitwardha.', 'Computer', '123', 'Student', 'VI', 'III', 'A', 0);
+('comp123', 'UrvashiI', 'Pote', 'urvashi.pote@bitwardha.ac.in', 'COMPUTER', '123', 'Teacher', NULL, NULL, NULL, 0),
+('comp345', 'Sheetal', 'Kale', 'comp.hod@bitwardha.ac.in', 'COMPUTER', '123', 'HOD', NULL, NULL, NULL, 123456789),
+('P2046491245003', 'Nandlal', 'Jibhkate', 'amitjibhkate03@gmail.com', '', '123', 'Parent', NULL, NULL, NULL, 2147483647),
+('﻿P2046491245047', 'Maroti', 'Raut', 'marotiraut94@gmail.com', '', '123', 'Parent', NULL, NULL, NULL, 2147483647),
+('﻿T2046491245047', 'Shreya', 'Raut', 'co.2020.smraut@bitwardha.ac.in', 'COMPUTER', '123', 'Student', 'VI', 'III', 'A', 0);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `faculty`
---
-ALTER TABLE `faculty`
-  ADD PRIMARY KEY (`email`);
 
 --
 -- Indexes for table `feedback`
@@ -218,28 +148,10 @@ ALTER TABLE `feedbacks`
   ADD PRIMARY KEY (`feedback_id`);
 
 --
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`email`);
-
---
--- Indexes for table `parents`
---
-ALTER TABLE `parents`
-  ADD PRIMARY KEY (`contact`);
-
---
 -- Indexes for table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`questionid`);
-
---
--- Indexes for table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`prn`);
 
 --
 -- Indexes for table `users`

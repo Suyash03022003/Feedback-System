@@ -51,7 +51,7 @@
       <form action="create_feedback.php" method="POST">
                 <div class="options">
                     <div class="option" id="option1">
-                        <input type="text" class="content" id="dropdown1" name="dept" value="Select Department">
+                        <input type="text" readonly class="content" id="dropdown1" name="dept" value="Select Department">
                         <div class="drop">
                             <p onclick="clicked1('Computer')">Computer</p>
                             <p onclick="clicked1('Electrical')">Electrical</p>
