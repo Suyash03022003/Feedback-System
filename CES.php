@@ -5,9 +5,9 @@ include('connect.php');
 $stake = 'Student';
 include('check.php');
 $sql = "SELECT * 
-        FROM allfeedbackforms 
-        JOIN user ON allfeedbackforms.semester = user.semester
-        WHERE user.email = '$userid' AND status = 'Active' ";
+        FROM feedbacks 
+        JOIN users ON feedbacks.sem = users.semester
+        WHERE users.email = '$userid' AND status = 'Active' ";
 
 $result = mysqli_query($conn, $sql);
 ?>

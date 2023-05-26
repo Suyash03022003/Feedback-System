@@ -4,7 +4,7 @@ session_start();
 include('connect.php');
 $stake = 'Teacher';
 include('check.php');
-$query = "select * from question";
+$query = "select * from questions";
 $result = mysqli_query($conn, $query);
 $email = $_SESSION['email'];
 $fname = $_SESSION['fname'];

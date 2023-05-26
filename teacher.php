@@ -4,7 +4,7 @@ session_start();
 include('connect.php');
 $stake = 'Teacher';
 include('check.php');
-$query = "SELECT * from allfeedbackforms WHERE authorId = (SELECT FNAME from user WHERE email = '$email') ";
+$query = "SELECT * from feedbacks WHERE author = (SELECT fname from users WHERE email = '$email') ";
 $result = mysqli_query($conn, $query);
 ?>
 <html lang="en">
