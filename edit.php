@@ -92,7 +92,6 @@ include('check.php');
     </div>
         <div>
           <label>CATEGORY :</label>
-
           <select name="CATEGORY">
             <option value="Not Selected">Select</option>
             <option value="Teacher" selected>Teacher</option>
