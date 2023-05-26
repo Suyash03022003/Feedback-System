@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 11:47 AM
+-- Generation Time: May 26, 2023 at 11:56 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -191,6 +191,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `fname`, `lname`, `email`, `dept`, `password`, `category`, `semester`, `year`, `section`, `contact`) VALUES
+('Admin01', 'Abhishek', 'Kinhekar', 'admin@bitwardha.ac.in', 'Computer', '123', 'Admin', NULL, NULL, NULL, 123456789),
 ('comp123', 'Urvashi', 'Pote', 'urvashi.pote@bitwardha.ac', 'COMPUTER', '123', 'Teacher', NULL, NULL, NULL, 123456789),
 ('﻿T2046491245047', 'Shreya', 'Raut', 'co.2020.smraut@bitwardha.', 'Computer', '123', 'Student', 'VI', 'III', 'A', 0);
 
@@ -239,6 +240,12 @@ ALTER TABLE `questions`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`prn`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userid`);
 
 --
 -- AUTO_INCREMENT for dumped tables

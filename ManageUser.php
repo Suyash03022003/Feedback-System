@@ -4,7 +4,7 @@ include('connect.php');
 $stake = 'Admin';
 include('check.php');
 $query = "select * from user";
-$query1 = "select * from user";
+$query1 = "select * from users";
 $result = mysqli_query($conn, $query1);
 $faculty = false;
 $student = false;
@@ -37,9 +37,6 @@ if (isset($_POST["submit"])) {
         $item7 = mysqli_real_escape_string($conn, $data[6]);
         $item8 = mysqli_real_escape_string($conn, $data[7]);
         $item9 = mysqli_real_escape_string($conn, $data[6]);
-        // $item10 = mysqli_real_escape_string($conn, $data[7]);
-        // $item11 = mysqli_real_escape_string($conn, $data[8]);
-        // $item12 = mysqli_real_escape_string($conn, $data[9]);
         $query = "INSERT into users (userid, fname, lname, email, dept, password, category, semester, year, section, contact)
                    values('$item1','$item2','$item3','$item4','$item5','123','Student','$item6','$item7','$item8','$item9')";
         
@@ -62,9 +59,8 @@ if (isset($_POST["submit1"])) {
         $item3 = mysqli_real_escape_string($conn, $data[2]);
         $item4 = mysqli_real_escape_string($conn, $data[3]);
         $item5 = mysqli_real_escape_string($conn, $data[4]);
-        $item6 = mysqli_real_escape_string($conn, $data[5]);
-        $query = "INSERT into user (userId, fname, mname, lname, email, password, category, contact)
-                  values('$item1','$item2','$item3','$item4','$item5','123','Parent','$item6')";
+        $query = "INSERT into users (userid, fname, lname, email, password, category, contact)
+                  values('$item1','$item2','$item3','$item4','123','Parent','$item5')";
         mysqli_query($conn, $query);
       }
       fclose($handle);
