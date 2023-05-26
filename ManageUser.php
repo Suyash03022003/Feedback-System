@@ -3,7 +3,7 @@ session_start();
 include('connect.php');
 $stake = 'Admin';
 include('check.php');
-$query = "select * from user";
+$query = "select * from users";
 $query1 = "select * from users";
 $result = mysqli_query($conn, $query1);
 $faculty = false;
