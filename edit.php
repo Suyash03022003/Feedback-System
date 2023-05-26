@@ -2,7 +2,7 @@
 
 session_start();
 include('connect.php');
-$query1 = "select * from user";
+$query1 = "select * from users";
 $stake = 'Admin';
 include('check.php');
 ?>

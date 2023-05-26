@@ -43,7 +43,7 @@
       $USERNAME = $_POST['USERNAME'];
       $PASSWORD = $_POST['PASSWORD'];
 
-      $query ="UPDATE users SET fname = '$FNAME', lname = '$LNAME', contact = '$CONTACT', category = '$CATEGORY', email = '$EMAIL', dept = '$DEPARTMENT', password ='$PASSWORD' WHERE FNAME ='$fname' ";
+      $query ="UPDATE users SET fname = '$FNAME', lname = '$LNAME', email = '$EMAIL', contact = '$CONTACT', category = '$CATEGORY', dept = '$DEPARTMENT', password ='$PASSWORD' WHERE fname ='$fname' ";
       $query_run = mysqli_query($conn,$query);
 
       if($query_run){
