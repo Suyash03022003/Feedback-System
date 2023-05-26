@@ -3,13 +3,13 @@
   session_start();
   require 'connect.php';
   if (isset($_POST['submit_next'])) {
-    $sql = "SELECT * FROM allfeedbackforms";
+    $sql = "SELECT * FROM feedbacks";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     if($count == 0)
     $id = 101;
     else {
-      $sql = "SELECT MAX(feedbackId) FROM allfeedbackforms";
+      $sql = "SELECT MAX(feedbackId) FROM feedbacks";
       $result1 = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result1);
       $id = $row['MAX(feedbackId)'] + 1;
@@ -20,8 +20,8 @@
     $section = $_POST['section'];
     $sub = $_POST['sub'];
     $author = $_POST['author'];
-    $query = "INSERT INTO allfeedbackforms (feedbackId, feedbackType, author, subject, dept, year, sem, section, status) 
-              values($id, 'CES', '$author', '$sub', '$dept', '$year', '$sem', '$section', 'Active')";
+    $query = "INSERT INTO feedbacks (feedback_id, feedback_type, author, subject, status, dept, year, sem, section) 
+              values($id, 'CES', '$author', '$sub', 'Active', '$dept', '$year', '$sem', '$section')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {

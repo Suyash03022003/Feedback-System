@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 12:50 PM
+-- Generation Time: May 26, 2023 at 12:58 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -33,6 +33,19 @@ CREATE TABLE `feedback` (
   `question_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
+(219, 101, 101),
+(220, 101, 102),
+(221, 101, 103),
+(222, 101, 104),
+(223, 101, 105),
+(224, 101, 106),
+(225, 101, 109);
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +63,13 @@ CREATE TABLE `feedbacks` (
   `sem` varchar(4) NOT NULL,
   `section` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `feedbacks`
+--
+
+INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `status`, `dept`, `year`, `sem`, `section`) VALUES
+(101, 'CES', 'Urvashi', 'CN', 'Active', 'Computer', 'III', 'VI', 'A');
 
 -- --------------------------------------------------------
 
@@ -167,7 +187,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
