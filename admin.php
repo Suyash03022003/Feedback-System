@@ -26,7 +26,6 @@
       <h1>ADMIN</h1>
       <ul>
         <li><a href="ManageUser.php">Manage User</a></li>
-        <li><a href="Subject.php">Subject</a></li>
         <li><a href="GFeedback.php">Generate Feedback</a></li>
         <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>
@@ -40,7 +39,7 @@
       <br>
       <div class="cards">
         <div class="row1">
-          <div class="card">
+          <div class="card" >
             <div class="up-card">
               <img src="images/ManageUser.png" alt="Manage User">
               <h3>Manage Users</h3>
@@ -52,7 +51,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <!-- <div class="card">
             <div class="up-card">
               <img src="images/Subject.png" alt="Manage User">
               <h3>Add Subject</h3>
@@ -62,11 +61,9 @@
                 </div>
               </a>
             </div>
-          </div>
-        </div>
-        <div class="row2">
+          </div> -->
           <div class="card">
-            <div class="down-card">
+            <div class="up-card">
               <img src="images/gfeedback.jpg" alt="Manage User">
               <h3>Generate Feedback</h3>
               <a href="gfeedback.php">
@@ -76,7 +73,8 @@
               </a>
             </div>
           </div>
-
+        </div>
+        <div class="row2">
           <div class="card">
             <div class="down-card">
               <img src="images/vfeedback.jpg" alt="Manage User">

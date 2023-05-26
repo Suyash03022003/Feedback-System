@@ -1,30 +1,39 @@
-/* span {
-  color: rgb(89, 89, 89);
-}
+.efrm{
+    background-color: rgb(179, 219, 227);
+    border-radius: 10px ;
+    margin: 4% 10% 4% 10%;
+    padding: 70px;
+  }
+  .efrm label {
+  padding: 20px;
+  font-size: 20px;
+  }
+  
+  .efrm input {
+    padding: 10px;
+    margin: 10px;
+    border: 10px black;
+    width: 90%;  
+  }
 
-h2 {
-  color: white;
-}
-form{
-  border: 1px black solid;
-  margin: 6% 28% 6% 28%;
-  padding: 4% 7% 4% 11%;
-  background-color: #E4EDF9;
-}
-div{
-  padding-bottom: 20px;
-}
-.email{
-  padding-bottom: 20px;
-}
-button{
-  margin-top: 10px;
-  padding: 5px;
-}
-input{
-  padding: 5px;
-}
-select{
-  padding: 5px;
-} */
-
+  .efrm .label1{
+    float: left;
+    width: 50%;
+  }
+  .efrm .label2{
+    float: right;
+    width: 50%;
+  }
+  .div1{
+    margin-top: 50px;
+  }
+  .efrm button{
+    padding: 10px;
+    border-radius: 10px ;
+    margin-top: 7%;
+    margin-left: 45%;
+  }
+  .efrm button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  

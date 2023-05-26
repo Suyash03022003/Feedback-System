@@ -5,7 +5,7 @@ session_start();
 include('connect.php');
 $stake = 'Admin';
 include('check.php');
-$loginfo = "SELECT * FROM login WHERE email = '$email';";
+$loginfo = "SELECT * FROM users WHERE email = '$email';";
 $loginresult = mysqli_query($conn, $loginfo);
 $var = mysqli_fetch_array($loginresult);
 $f_name = $var['fname'];
@@ -49,7 +49,6 @@ $e_mail = $var['email'];
       <h1>ADMIN</h1>
       <ul>
         <li><a href="ManageUser.php">Manage User</a></li>
-        <li><a href="Subject.php">Subject</a></li>
         <li><a href="GFeedback.php">Generate Feedback</a></li>
         <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>

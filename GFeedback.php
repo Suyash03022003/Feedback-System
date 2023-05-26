@@ -40,7 +40,6 @@
       <h1>ADMIN</h1>
       <ul>
         <li><a href="ManageUser.php">Manage User</a></li>
-        <li><a href="Subject.php">Subject</a></li>
         <li><a href="GFeedback.php">Generate Feedback</a></li>
         <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>

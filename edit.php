@@ -16,7 +16,7 @@ include('check.php');
   <link rel="icon" href="images/bitlogo.jpg" />
   <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/edit.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="css/form.css?v=<?php echo time(); ?>">
+  <!-- <link rel="stylesheet" href="css/form.css?v=<?php echo time(); ?>"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -31,13 +31,13 @@ include('check.php');
     <h2 id="heading">Bajaj Institute of Technology</h2>
     <div class="links" id="links">
       <p class="input"><?php echo $fname, " ", $lname; ?></p>
-      <div class="account_div" onclick="profileAccount();">
+      <!-- <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
           <a href="Adminprofile.php">Profile</a><br>
           <a onclick="openPopup()" class="pointer">Log out</a>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="spaces"></div>
@@ -65,51 +65,55 @@ include('check.php');
       $user = mysqli_fetch_array($query_run);
   ?>
 
-      <form action="Action.php" method="POST">
+      <form action="Action.php" method="POST" class="efrm">
         <input type="hidden" name="fname" value="<?= $fname ?>">
-
-        <div>
-          <label>FIRST NAME&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="FNAME" value="<?= $user['fname'] ?>" required>
+    <div>
+      <div class="div1">
+        <div class="label1">
+          <label><b>FIRST NAME :</b></label>
+          <input class="l1" type="text" name="FNAME" value="<?= $user['fname'] ?>" required>
         </div>
-        <div>
-          <label>LAST NAME&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="LNAME" value="<?= $user['lname'] ?>" required>
+        <div class="label2">
+          <label><b>LAST NAME :</b></label>
+          <input class="l1" type="text" name="LNAME" value="<?= $user['lname'] ?>" required>
         </div>
+      </div>
+      <div>
+        <div  class="label1">
+          <label><b>EMAIL :</b></label>
+          <input class="l1" type="text" name="EMAIL" value="<?= $user['email'] ?>" required>
+        </div>
+        
+        <div class="label2">
+          <label><b>PASSWORD :</b></label>
+          <input class="l1" type="text" name="PASSWORD" value="<?= $user['password'] ?>" required>
+        </div>
+      </div>
+    </div>
         <div>
-          <label>CATEGORY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label>CATEGORY :</label>
 
           <select name="CATEGORY">
-            <!-- <option value="Not Selected">Select</option> -->
+            <option value="Not Selected">Select</option>
             <option value="Teacher" selected>Teacher</option>
             <option value="HOD">HOD</option>
             <option value="Student">Student</option>
             <option value="Parent">Parent</option>
           </select>
-
-
-        </div>
-        <div class="email">
-          <label>EMAIL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="EMAIL" value="<?= $user['email'] ?>" required>
         </div>
         <div>
-          <label>DEPARTMENT&nbsp; :&nbsp;&nbsp;&nbsp;</label>
-
+          <label>DEPARTMENT :</label>
           <select name="DEPARTMENT">
-            <!-- <option value="Not Selected">SELECT</option> -->
+            <option value="Not Selected">SELECT</option>
             <option value="COMPUTER" selected>COMPUTER</option>
             <option value="ELECTRICAL">ELECTRICAL</option>
             <option value="CIVIL">CIVIL</option>
             <option value="MECHANICAL">MECHANICAL</option>
           </select>
-
         </div>
-        <div>
-          <label>PASSWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp</label>
-          <input type="text" name="PASSWORD" value="<?= $user['password'] ?>" required>
-        </div>
+        <div class="bt">
         <button classtype="submit" name="Update">Update</button>
+        </div>
       </form>
 
   <?php

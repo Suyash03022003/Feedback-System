@@ -37,8 +37,7 @@ if (isset($_POST["submit"])) {
         $item7 = mysqli_real_escape_string($conn, $data[6]);
         $item8 = mysqli_real_escape_string($conn, $data[7]);
         $item9 = mysqli_real_escape_string($conn, $data[6]);
-        $query = "INSERT into users (userid, fname, lname, email, dept, password, category, semester, year, section, contact)
-                   values('$item1','$item2','$item3','$item4','$item5','123','Student','$item6','$item7','$item8','$item9')";
+        $query = "INSERT into users (userid, fname, lname, email, dept, password, category, semester, year, section, contact)values('$item1','$item2','$item3','$item4','$item5','123','Student','$item6','$item7','$item8','$item9')";
         
         mysqli_query($conn, $query);
       }
@@ -213,7 +212,6 @@ $lname = $_SESSION['lname'];
       <h1>ADMIN</h1>
       <ul>
         <li><a href="ManageUser.php">Manage User</a></li>
-        <li><a href="Subject.php">Subject</a></li>
         <li><a href="GFeedback.php">Generate Feedback</a></li>
         <li><a href="VFeedback.php">View Feedback</a></li>
       </ul>
