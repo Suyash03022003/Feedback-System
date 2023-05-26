@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "feedbacksystem";
+$db = "feedback_system";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);

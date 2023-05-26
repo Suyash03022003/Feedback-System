@@ -67,13 +67,9 @@
         $PASSWORD = $_POST['PASSWORD'];
         $CATEGORY = $_POST['CATEGORY'];
         $CONTACT = $_POST['CONTACT'];
-        $query = "INSERT into login (id, fname, lname, category, email, password)
-                  values('$ID','$FNAME','$LNAME', '$CATEGORY','$EMAIL','123')";
+        $query = "INSERT into users (userid, fname, lname, email, dept, password, category, contact)
+                  values('$ID','$FNAME','$LNAME','$EMAIL','$DEPARTMENT','$PASSWORD','$CATEGORY','$CONTACT')";
         $result = mysqli_query($conn, $query);
         
-        $query = "INSERT into faculty (id, fname, lname, category, email, department, password)
-                  values('$ID','$FNAME','$LNAME', '$CATEGORY','$EMAIL','123')";
-        $result = mysqli_query($conn, $query);
-
     }
 ?>

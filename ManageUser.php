@@ -1,4 +1,6 @@
 <?php
+
+
 session_start();
 include('connect.php');
 $stake = 'Admin';
@@ -34,14 +36,14 @@ if (isset($_POST["submit"])) {
         $item4 = mysqli_real_escape_string($conn, $data[3]);
         $item5 = mysqli_real_escape_string($conn, $data[4]);
         $item6 = mysqli_real_escape_string($conn, $data[5]);
-        // $item7 = mysqli_real_escape_string($conn, $data[6]);
-        // $item8 = mysqli_real_escape_string($conn, $data[7]);
+        $item7 = mysqli_real_escape_string($conn, $data[6]);
+        $item8 = mysqli_real_escape_string($conn, $data[7]);
         $item9 = mysqli_real_escape_string($conn, $data[6]);
-        $item10 = mysqli_real_escape_string($conn, $data[7]);
-        $item11 = mysqli_real_escape_string($conn, $data[8]);
-        $item12 = mysqli_real_escape_string($conn, $data[9]);
-        $query = "INSERT into login (userId, fname, mname, lname, email, departmentId, password, category, semester, year, section, contact)
-                   values('$item1','$item2','$item3','$item4','$item5','$item6','123','Student','$item9','$item10','$item11','$item12')";
+        // $item10 = mysqli_real_escape_string($conn, $data[7]);
+        // $item11 = mysqli_real_escape_string($conn, $data[8]);
+        // $item12 = mysqli_real_escape_string($conn, $data[9]);
+        $query = "INSERT into users (userid, fname, lname, email, dept, password, category, semester, year, section, contact)
+                   values('$item1','$item2','$item3','$item4','$item5','123','Student','$item6','$item7','$item8','$item9')";
         
         mysqli_query($conn, $query);
       }
@@ -141,6 +143,11 @@ $lname = $_SESSION['lname'];
             <label>FIRST NAME</label>
             <input type="text" name="FNAME" required>
           </div>
+
+          <!-- <div>
+            <label>MIDDLE NAME</label>
+            <input type="text" name="MNAME" required>
+          </div> -->
 
           <div>
             <label>LAST NAME</label>
@@ -248,7 +255,7 @@ $lname = $_SESSION['lname'];
           </thead>
           <tbody id="tbody">
             <?php
-            $query1 = "select * from user WHERE category='Teacher'";
+            $query1 = "select * from users WHERE category='Teacher'";
             $result = mysqli_query($conn, $query1);
             $i = 1;
             foreach ($result as $cols) {
@@ -258,7 +265,7 @@ $lname = $_SESSION['lname'];
               echo "<td>" . $cols['lname'] . "</td>";
               echo "<td>" . $cols['email'] . "</td>";
               echo "<td><a href='edit.php?fname=$cols[fname]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
-              echo "<td><i onclick='openPopupp()' class='fa-solid fa-trash delete'></i></td>";
+              echo "<td><a href='delete.php?fname=$cols[email]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
               echo "</tr>";
               $i++;
             }
@@ -273,25 +280,25 @@ $lname = $_SESSION['lname'];
         <button type="button" onclick="closePopup()" onclick="window.location.href = 'index.php'">LogOut</button>
         <button type="button" onclick="cancelPopup()">Cancel</button>
     </div>
-    <div class="popupp" id="popupp"> 
+    <!-- <div class="popupp" id="popupp"> 
         <img src="images/t1.png" alt="">
         <h3>Are you sure you want to Delete this Record</h3>
         <a href="delete.php?email=<?php echo $cols['email']?>"><button type="button" onclick="deletePopup()">Ok</button></a>
         <button type="button" onclick="dcancelPopup()">Cancel</button>
-    </div>
+    </div> -->
     <script>
-
-    let popupp = document.getElementById("popupp");
-    function openPopupp(){
-        popupp.classList.add("open-popupp");       
-    }
+    //   Delete popup
+    // let popupp = document.getElementById("popupp");
+    // function openPopupp(){
+    //     popupp.classList.add("open-popupp");       
+    // }
     
-    function deletePopup(){
-        popupp.classList.remove("open-popupp");
-    }
-    function dcancelPopup(){
-        popupp.classList.remove("open-popupp");  
-    }
+    // function deletePopup(){
+    //     popupp.classList.remove("open-popupp");
+    // }
+    // function dcancelPopup(){
+    //     popupp.classList.remove("open-popupp");  
+    // }
       // var dropdown = document.getElementById("dropdown1");
       // var dropdown = document.getElementById("dropdown2");
       // var dropdown = document.getElementById("dropdown3");
@@ -331,7 +338,7 @@ $lname = $_SESSION['lname'];
         user3.classList.add("active");
         div = "log";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from user WHERE category='Student'";
+                            $query1 = "select * from users WHERE category='Student'";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {
@@ -341,7 +348,7 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
-                              echo "<td><i onclick='openPopupp()' class='fa-solid fa-trash delete'></i></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
                               $i++;
                             } ?>";
@@ -353,7 +360,7 @@ $lname = $_SESSION['lname'];
         user1.classList.add("active");
         div = "fac";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from user WHERE category='Teacher'";
+                            $query1 = "select * from users WHERE category='Teacher'";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {
@@ -363,7 +370,7 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
-                              echo "<td><i onclick='openPopupp()'class='fa-solid fa-trash delete'></i></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
                               $i++;
                             } ?>";
@@ -375,7 +382,7 @@ $lname = $_SESSION['lname'];
         user2.classList.add("active");
         div = "p";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from user WHERE category='Parent'";
+                            $query1 = "select * from users WHERE category='Parent'";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {
@@ -385,7 +392,7 @@ $lname = $_SESSION['lname'];
                               echo "<td>$cols[lname]</td>";
                               echo "<td>$cols[email]</td>";
                               echo "<td><a href='edit.php?fname=$cols[fname]' name=edit><i class='fa-solid fa-pen-to-square edit'></a></td>";
-                              echo "<td><i onclick='openPopupp()'class='fa-solid fa-trash delete'></i></td>";
+                              echo "<td><a href='delete.php?email=$cols[email]' name=delete><i class='fa-solid fa-trash delete'></i></a></td>";
                               echo "</tr>";
                               $i++;
                             } ?>";
