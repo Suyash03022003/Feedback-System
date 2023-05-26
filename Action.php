@@ -61,16 +61,19 @@
     if(isset($_POST['submit'])){
         $ID = $_POST['ID'];
         $FNAME = $_POST['FNAME'];
-        $MNAME = $_POST['MNAME'];
         $LNAME = $_POST['LNAME'];
         $EMAIL = $_POST['EMAIL'];
         $DEPARTMENT = $_POST['DEPARTMENT'];
         $PASSWORD = $_POST['PASSWORD'];
         $CATEGORY = $_POST['CATEGORY'];
         $CONTACT = $_POST['CONTACT'];
-        $query = "INSERT into user (userId, fname, mname, lname, email, departmentId, password, category, contact)
-                  values('$ID','$FNAME','$MNAME','$LNAME','$EMAIL','$DEPARTMENT','$PASSWORD','$CATEGORY','$CONTACT')";
+        $query = "INSERT into login (id, fname, lname, category, email, password)
+                  values('$ID','$FNAME','$LNAME', '$CATEGORY','$EMAIL','123')";
         $result = mysqli_query($conn, $query);
         
+        $query = "INSERT into faculty (id, fname, lname, category, email, department, password)
+                  values('$ID','$FNAME','$LNAME', '$CATEGORY','$EMAIL','123')";
+        $result = mysqli_query($conn, $query);
+
     }
 ?>

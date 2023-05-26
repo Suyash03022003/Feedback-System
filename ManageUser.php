@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 include('connect.php');
 $stake = 'Admin';
@@ -42,7 +40,7 @@ if (isset($_POST["submit"])) {
         $item10 = mysqli_real_escape_string($conn, $data[7]);
         $item11 = mysqli_real_escape_string($conn, $data[8]);
         $item12 = mysqli_real_escape_string($conn, $data[9]);
-        $query = "INSERT into user (userId, fname, mname, lname, email, departmentId, password, category, semester, year, section, contact)
+        $query = "INSERT into login (userId, fname, mname, lname, email, departmentId, password, category, semester, year, section, contact)
                    values('$item1','$item2','$item3','$item4','$item5','$item6','123','Student','$item9','$item10','$item11','$item12')";
         
         mysqli_query($conn, $query);
@@ -142,11 +140,6 @@ $lname = $_SESSION['lname'];
           <div>
             <label>FIRST NAME</label>
             <input type="text" name="FNAME" required>
-          </div>
-
-          <div>
-            <label>MIDDLE NAME</label>
-            <input type="text" name="MNAME" required>
           </div>
 
           <div>
