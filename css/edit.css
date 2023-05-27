@@ -1,8 +1,9 @@
 .efrm{
     background-color: rgb(179, 219, 227);
     border-radius: 10px ;
-    margin: 4% 10% 4% 10%;
-    padding: 70px;
+    margin: 2% 10% 4% 10%;
+    padding: 40px 50px 60px 50px;
+    
   }
   .efrm label {
   padding: 20px;
@@ -28,12 +29,16 @@
     margin-top: 50px;
   }
   .efrm button{
+    height: 50px;
+    width: 150px;
     padding: 10px;
     border-radius: 10px ;
     margin-top: 7%;
-    margin-left: 45%;
+    margin-left: 5%;
   }
   .efrm button:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: blue;
+    color: white;
   }
   
