@@ -89,7 +89,8 @@ include('check.php');
           <input class="l1" type="text" name="PASSWORD" value="<?= $user['password'] ?>" required>
         </div>
       </div>
-       <div>
+      <br>
+       <div class="labelbtn">
         <div class="label1">
           <label><b>CATEGORY :</b></label>
           <select name="CATEGORY">
@@ -114,7 +115,6 @@ include('check.php');
       </div>
         <div class="bt">
         <button classtype="submit" name="Update"><b>Update</b></button>
-        <button classtype="submit" name="Cancel" href = 'ManageUser.php'><b>Cancel</b></button>
         </div>
       </form>
 
