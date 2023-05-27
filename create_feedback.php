@@ -9,10 +9,10 @@
     if($count == 0)
     $id = 101;
     else {
-      $sql = "SELECT MAX(feedbackId) FROM feedbacks";
+      $sql = "SELECT MAX(feedback_id) FROM feedbacks";
       $result1 = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result1);
-      $id = $row['MAX(feedbackId)'] + 1;
+      $id = $row['MAX(feedback_id)'] + 1;
     } 
     $dept = $_POST['dept'];
     $year = $_POST['year'];

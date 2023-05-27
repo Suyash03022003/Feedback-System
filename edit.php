@@ -89,32 +89,29 @@ include('check.php');
           <input class="l1" type="text" name="PASSWORD" value="<?= $user['password'] ?>" required>
         </div>
       </div>
-      <br>
-       <div class="labelbtn">
-        <div class="label1">
-          <label><b>CATEGORY :</b></label>
+    </div>
+        <div>
+          <label>CATEGORY :</label>
           <select name="CATEGORY">
-            <!-- <option value="Not Selected">Select</option> -->
+            <option value="Not Selected">Select</option>
             <option value="Teacher" selected>Teacher</option>
             <option value="HOD">HOD</option>
             <option value="Student">Student</option>
             <option value="Parent">Parent</option>
           </select>
         </div>
-        <div class="label2">
-          <label><b>DEPARTMENT :</b></label>
-          <select name="DEPARTMENT" >
-            <!-- <option value="Not Selected">SELECT</option> -->
+        <div>
+          <label>DEPARTMENT :</label>
+          <select name="DEPARTMENT">
+            <option value="Not Selected">SELECT</option>
             <option value="COMPUTER" selected>COMPUTER</option>
             <option value="ELECTRICAL">ELECTRICAL</option>
             <option value="CIVIL">CIVIL</option>
             <option value="MECHANICAL">MECHANICAL</option>
           </select>
         </div>
-       </div>
-      </div>
         <div class="bt">
-        <button classtype="submit" name="Update"><b>Update</b></button>
+        <button classtype="submit" name="Update">Update</button>
         </div>
       </form>
 

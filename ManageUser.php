@@ -228,7 +228,6 @@ $lname = $_SESSION['lname'];
       </div>
 
       <div class="User">
-
         <table class="tablecontent">
           <thead>
             <tr>

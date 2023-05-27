@@ -1,12 +1,11 @@
 <?php
-
-
 session_start();
 include('connect.php');
 $stake = 'HOD';
 include('check.php');
-$query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from login WHERE EMAIL = '$email') ";
+$query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from loginss WHERE EMAIL = '$email') ";
 $result = mysqli_query($conn, $query);
+
 ?>
 <html lang="en">
 

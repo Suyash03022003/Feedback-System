@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include('connect.php');
 
@@ -7,13 +6,12 @@ if (isset($_GET['id'])) {
     $Feedid = $_GET['id'];
 
     $query = "SELECT questionid 
-          FROM responses
-          WHERE feedbackid = '$Feedid' ";
+              FROM responses
+              WHERE feedbackid = '$Feedid' ";
     $result = mysqli_query($conn, $query);
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +28,21 @@ if (isset($_GET['id'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .chart-item {
+      width: 48%;
+      height: 400px; 
+      margin-bottom: 100px;
+    }
+  </style>
 </head>
 
 <body>
@@ -65,99 +78,94 @@ if (isset($_GET['id'])) {
       <br>
       <p>Dashboard</p>
       <br></br>
-        <a href="export.php"><button>Export</button></a><br>
-      <?php
-      
-      while ($row = mysqli_fetch_assoc($result)) {
-          $id = $row['questionid'];
-         
-          $query1 = "SELECT COUNT(answer) as count1
-                     FROM responses
-                     WHERE answer = 'Strongly Agree' AND questionid = '$id' AND feedbackid = '$Feedid'";
-          $result1 = mysqli_query($conn, $query1);
-          $row1 = mysqli_fetch_assoc($result1);
-          
-          $query2 = "SELECT COUNT(answer) as count2
-                     FROM responses
-                     WHERE answer = 'Agree' AND questionid = '$id' AND feedbackid = '$Feedid'";
-          $result2 = mysqli_query($conn, $query2);
-          $row2 = mysqli_fetch_assoc($result2);
-      
-          $query3 = "SELECT COUNT(answer) as count3
-                     FROM responses
-                     WHERE answer = 'Neutral' AND questionid = '$id' AND feedbackid = '$Feedid'";
-          $result3 = mysqli_query($conn, $query3);
-          $row3 = mysqli_fetch_assoc($result3);
-      
-          $query4 = "SELECT COUNT(answer) as count4
-                     FROM responses
-                     WHERE answer = 'Disagree' AND questionid = '$id' AND feedbackid = '$Feedid'";
-          $result4 = mysqli_query($conn, $query4);
-          $row4 = mysqli_fetch_assoc($result4);
-      
-          $query5 = "SELECT COUNT(answer) as count5
-                     FROM responses
-                     WHERE answer = 'Strongly Disagree' AND questionid = '$id' AND feedbackid = '$Feedid'";
-          $result5 = mysqli_query($conn, $query5);
-          $row5 = mysqli_fetch_assoc($result5);
-          
-          echo "Question ID: " . $id . "<br>";
-          echo "Strongly Agree: " . $row1['count1'] . "<br>";
-          echo "Agree: " . $row2['count2'] . "<br>";
-          echo "Neutral: " . $row3['count3'] . "<br>";
-          echo "Disagree: " . $row4['count4'] . "<br>";
-          echo "Strongly Disagree: " . $row5['count5'] . "<br><br>";
-      }
-      ?>
+      <a href="export.php"><button>Export</button></a><br>
 
+      <div class="chart-container">
+  <?php
+  $distinctQuestionIds = array(); // Array to store distinct question IDs
+  while ($row = mysqli_fetch_assoc($result)) {
+    $id = $row['questionid'];
+    if (!in_array($id, $distinctQuestionIds)) {
+      $distinctQuestionIds[] = $id; // Add the distinct question ID to the array
 
-    <!-- <?php
-    while ($row = mysqli_fetch_assoc($result)) {
-        $i = 0;
-      $id = $row['questionid'];
-     
       $query1 = "SELECT COUNT(answer) as count1
                  FROM responses
-                 WHERE answer = 'Strongly Agree' AND questionid = '101' AND feedbackid = '$Feedid'";
+                 WHERE answer = 'Strongly Agree' AND questionid = '$id' AND feedbackid = '$Feedid'";
       $result1 = mysqli_query($conn, $query1);
+      $row1 = mysqli_fetch_assoc($result1);
 
       $query2 = "SELECT COUNT(answer) as count2
                  FROM responses
-                 WHERE answer = 'Agree' AND questionid = '$id' AND feedbackid = '$Feedid' ";
+                 WHERE answer = 'Agree' AND questionid = '$id' AND feedbackid = '$Feedid'";
       $result2 = mysqli_query($conn, $query2);
-  
+      $row2 = mysqli_fetch_assoc($result2);
+
       $query3 = "SELECT COUNT(answer) as count3
                  FROM responses
-                 WHERE answer = 'Neutral' AND questionid = '$id' AND feedbackid = '$Feedid' ";
+                 WHERE answer = 'Neutral' AND questionid = '$id' AND feedbackid = '$Feedid'";
       $result3 = mysqli_query($conn, $query3);
-  
+      $row3 = mysqli_fetch_assoc($result3);
+
       $query4 = "SELECT COUNT(answer) as count4
                  FROM responses
-                 WHERE answer = 'Disagree' AND questionid = '$id' AND feedbackid = '$Feedid' ";
+                 WHERE answer = 'Disagree' AND questionid = '$id' AND feedbackid = '$Feedid'";
       $result4 = mysqli_query($conn, $query4);
-  
+      $row4 = mysqli_fetch_assoc($result4);
+
       $query5 = "SELECT COUNT(answer) as count5
                  FROM responses
-                 WHERE answer = 'Strongly Disagree' AND questionid = '$id' AND feedbackid = '$Feedid' ";
+                 WHERE answer = 'Strongly Disagree' AND questionid = '$id' AND feedbackid = '$Feedid'";
       $result5 = mysqli_query($conn, $query5);
-        $i++;
+      $row5 = mysqli_fetch_assoc($result5);
+
+      $data = array();
+      $data[] = array(
+        'label' => 'Strongly Agree',
+        'count' => $row1['count1']
+      );
+      $data[] = array(
+        'label' => 'Agree',
+        'count' => $row2['count2']
+      );
+      $data[] = array(
+        'label' => 'Neutral',
+        'count' => $row3['count3']
+      );
+      $data[] = array(
+        'label' => 'Disagree',
+        'count' => $row4['count4']
+      );
+      $data[] = array(
+        'label' => 'Strongly Disagree',
+        'count' => $row5['count5']
+      );
+      ?>
+      <div class="chart-item">
+        <br>
+        <h4>Question Id <?php echo $id; ?></h4>
+        <canvas id="chart-<?php echo $id; ?>"></canvas>
+      </div>
+      <script>
+        var ctx = document.getElementById('chart-<?php echo $id; ?>').getContext('2d');
+        var chart = new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: <?php echo json_encode(array_column($data, 'label')); ?>,
+            datasets: [{
+              data: <?php echo json_encode(array_column($data, 'count')); ?>,
+              backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange'], // Customize colors as needed
+            }]
+          },
+         
+        });
+      </script>
+      <?php
+    }
   }
-    ?>
-      <?php $row = mysqli_fetch_assoc($result1); ?>
-      <?php echo "Strongly Agree  ".$row['count1']; ?> <br>
-
-      <?php $row = mysqli_fetch_assoc($result2); ?>
-      <?php echo "Agree  ".$row['count2']; ?> <br>
-
-      <?php $row = mysqli_fetch_assoc($result3); ?>
-      <?php echo "Neutral  ".$row['count3']; ?> <br>
-
-      <?php $row = mysqli_fetch_assoc($result4); ?>
-      <?php echo "Disagree  ".$row['count4']; ?> <br>
-
-      <?php $row = mysqli_fetch_assoc($result5); ?>
-      <?php echo "Strongly Disagree  ".$row['count5']; ?> <br> -->
-      
+  ?>
 </div>
+    </div>
+  </div>
 </body>
+
 </html>

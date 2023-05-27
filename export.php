@@ -8,4 +8,8 @@ while($row = mysqli_fetch_assoc($result)){
     $excel.= '<tr><td>'.$row['questionid'].'</td><td>'.$row['answer'].'</td><td>'.$row['res_id'].'</td></tr>';
 }
 $excel.='</table>';
+header('Content-Type:application/xls');
+header('Content-Disposition:attachment;filename=report.xls');
+
+echo $excel;
 ?>
