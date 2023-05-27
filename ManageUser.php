@@ -137,11 +137,6 @@ $lname = $_SESSION['lname'];
             <input type="text" name="FNAME" required>
           </div>
 
-          <!-- <div>
-            <label>MIDDLE NAME</label>
-            <input type="text" name="MNAME" required>
-          </div> -->
-
           <div>
             <label>LAST NAME</label>
             <input type="text" name="LNAME" required>

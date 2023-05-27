@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include('connect.php');
 $stake = 'Student';
@@ -13,7 +12,8 @@ $subject = $row['subject'];
 $query = "SELECT question_id FROM feedback WHERE feedback_id = '$id'";
 $result1 = mysqli_query($conn, $query);
 ?>
-<html lang="en">        
+
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -89,9 +89,9 @@ $result1 = mysqli_query($conn, $query);
                 </div>
                 <button type="submit" name="submit1">Submit</button>
             </form>
-        </div>
+       </div>
+      </div>
+     </div>
     </div>
-    </div>
-    </div>
-</body>
+  </body>
 </html>
