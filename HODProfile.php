@@ -6,7 +6,7 @@ session_start();
 include('connect.php');
 $stake = 'HOD';
 include('check.php');
-$loginfo = "SELECT * FROM login WHERE email = '$email';";
+$loginfo = "SELECT * FROM users WHERE email = '$email';";
 $loginresult = mysqli_query($conn, $loginfo);
 $var = mysqli_fetch_array($loginresult);
 $f_name = $var['fname'];
@@ -50,8 +50,9 @@ $e_mail = $var['email'];
     <div class="left">
       <h1>HOD</h1>
       <ul>
-        <li><a href="generatefeedback.php">PTM Feedback</a></li>
-        <li><a href="#">View Feedback</a></li>
+      <li><a href="manageFaculty.php">Manage Faculty</a></li>
+        <li><a href="generateptm.php">Generate PTM</a></li>
+        <li><a href="hodviewfeedback.php">View Faculty Feedback</a></li>
       </ul>
     </div>
 

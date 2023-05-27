@@ -4,7 +4,7 @@ session_start();
 include('connect.php');
 $stake = 'Teacher';
 include('check.php');
-$query = "SELECT * from feedbacks WHERE author = (SELECT fname from users WHERE email = '$email') ";
+$query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from users WHERE EMAIL = '$email') ";
 $result = mysqli_query($conn, $query);
 ?>
 <html lang="en">
@@ -49,8 +49,8 @@ $result = mysqli_query($conn, $query);
       <h1>TEACHER</h1>
       <ul>
         <li><a href="generatefeedback.php">Generate CES</a></li>
-        <!-- <li><a href="generatefeedback.php">Generate CES</a></li>
-        <li><a href="generatefeedback.php">Generate CES</a></li> -->
+        <li><a href="generatefeedback.php">Generate CES</a></li>
+        <li><a href="generatefeedback.php">Generate CES</a></li>
         <li><a href="viewfeedback.php">View Feedback</a></li>
       </ul>
     </div>
@@ -105,4 +105,5 @@ $result = mysqli_query($conn, $query);
     }
   </script>
 </body>
+
 </html>
