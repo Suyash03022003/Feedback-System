@@ -3,8 +3,8 @@
     background: rgb(184, 239, 212);
     border-radius: 10px;
     width: 400px;
-    height: auto;
-    position: absolute;
+    height: auto;   
+    position: sticky;
     left: 50%;
     text-align: center;
     padding: 0px 5px 20px 5px;
@@ -16,7 +16,7 @@
     top: 50%;
     transform: translate(-30%,-50%) scale(1);
     display: block;
-    
+   
     background-color: #c0cbd9;
 }
  

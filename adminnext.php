@@ -3,7 +3,7 @@
 
 session_start();
 include('connect.php');
-$stake = 'Teacher';
+$stake = 'Admin';
 include('check.php');
 $query = "select * from questions";
 $result = mysqli_query($conn, $query);
@@ -29,7 +29,7 @@ $result = mysqli_query($conn, $query);
             <div class="frm animate">
                 <button onclick="document.getElementById('log').style.display='none'">&times;</button>
                 <h2>Add Question: </h2>
-                <form action="create_feedback.php" method="POST">
+                <form action="create_adminfeedback.php" method="POST">
                     <div>
                         <label>Question Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
                         <input type="int" name="quesid" required>
@@ -94,19 +94,18 @@ $result = mysqli_query($conn, $query);
     <div class="spaces"></div>
     <div class="main">
         <div class="left">
-            <h1>TEACHER</h1>
+            <h1>ADMIN</h1>
             <ul>
-            <li><a href="generatefeedback.php">Generate CES</a></li>
-            <li><a href="addongeneratefeedback.php">Generate AddOn & VAP Feedback</a></li>
-            <li><a href="seminargeneratefeedback.php">Generate Seminar & Workshop Feedback</a></li>
-            <li><a href="viewfeedback.php">View Feedback</a></li>
+        <li><a href="ManageUser.php">Manage User</a></li>
+        <li><a href="GFeedback.php">Generate Feedback</a></li>
+        <li><a href="VFeedback.php">View Feedback</a></li>
             </ul>
         </div>
         <div class="right">
-            <h1>Generate Course Exit Survey</h1>
-            <p>Dashboard/<span> Generate Course Exit Survey</span></p>
+            <h1>Generate Feedback</h1>
+            <p>Dashboard/<span> Generate Feedback</span></p>
             <div class="questions" id="questions">
-                <form action="create_feedback.php" method="POST">
+                <form action="create_adminfeedback.php" method="POST">
                     <input type="text" value="<?php echo $_GET['id'];?>" name="feed">
                     <a class="add" onclick="login()">+</a>
                     <br>
