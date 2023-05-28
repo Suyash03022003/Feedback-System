@@ -59,7 +59,7 @@ $result = mysqli_query($conn, $sql);
     <div class="right">
       <h1>WELCOME</h1>
       <br>
-      <p class="s1">Dashboard/ <span class="head">Course Exit Survey</span></p>
+      <p class="s1">Dashboard/ <span class="head">Value Added Program Feedback</span></p>
       <br>
       <br>
       <h3>Feedbacks Available</h3>

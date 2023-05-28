@@ -46,9 +46,9 @@ include('check.php');
       <h1>STUDENT</h1>
       <ul>
         <li><a href="CES.php">Course Exit Survey</a></li>
-        <li><a href="#">Faculty</a></li>
-        <li><a href="#">Workshop/Seminar</a></li>
-        <li><a href="#">Value Added Program</a></li>
+        <li><a href="FF.php">Faculty Feedback</a></li>
+        <li><a href="WS.php">Workshop/Seminar Feedback</a></li>
+        <li><a href="VAP.php">Value Added Program Feedback</a></li>
       </ul>
     </div>
     <div class="right">

@@ -36,8 +36,8 @@ $result1 = mysqli_query($conn, $query);
         </div>
         <h2 id="heading">Bajaj Institute of Technology</h2>
         <div class="links" id="links">
-            <!-- <p class="para">X_Y_Z</p> -->
-            <div class="account_div">
+        <p class="input"><?php echo $fname, " ", $lname; ?></p>
+            <div class="account_div"  onclick="profileAccount();">
                 <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
                 <div id="account" class="account">
                     <a href="studentProfile.php">Profile</a><br>
@@ -51,10 +51,10 @@ $result1 = mysqli_query($conn, $query);
         <div class="left">
             <h1>STUDENT</h1>
             <ul>
-                <li><a href="CES.php">Course Exit Survey</a></li>
-                <li><a href="#">Faculty</a></li>
-                <li><a href="#">Workshop/Seminar</a></li>
-                <li><a href="#">Value Added Program</a></li>
+            <li><a href="CES.php">Course Exit Survey</a></li>
+        <li><a href="FF.php">Faculty Feedback</a></li>
+        <li><a href="WS.php">Workshop/Seminar Feedback</a></li>
+        <li><a href="VAP.php">Value Added Program Feedback</a></li>
             </ul>
         </div>
         <div class="right">
@@ -93,5 +93,29 @@ $result1 = mysqli_query($conn, $query);
       </div>
      </div>
     </div>
+    <div class="popup" id="popup"> 
+        <img src="images/t1.png" alt="">
+        <h3>Are you sure you want to LogOut?</h3>
+        <button type="button" onclick="closePopup()" onclick="window.location.href = 'index.php'">LogOut</button>
+        <button type="button" onclick="cancelPopup()">Cancel</button>
+    </div>
+  <script>
+    function profileAccount() {
+      const list = document.querySelector('.account');
+      list.classList.toggle('active')
+    }
+    let popup = document.getElementById("popup");
+    function openPopup(){
+        popup.classList.add("open-popup");       
+    }
+    
+    function closePopup(){
+        popup.classList.remove("open-popup");
+        window.location.href = "logout.php";
+    }
+    function cancelPopup(){
+        popup.classList.remove("open-popup");  
+    }
+  </script>
   </body>
 </html>

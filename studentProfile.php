@@ -6,7 +6,7 @@ session_start();
 include('connect.php');
 $stake = 'Student';
 include('check.php');
-$loginfo = "SELECT * FROM user WHERE email = '$email';";
+$loginfo = "SELECT * FROM users WHERE email = '$email';";
 $loginresult = mysqli_query($conn, $loginfo);
 $var = mysqli_fetch_array($loginresult);
 $f_name = $var['fname'];
@@ -39,7 +39,7 @@ $e_mail = $var['email'];
       <div class="account_div" onclick="profileAccount();">
         <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
         <div id="account" class="account">
-          <a href="Studentprofile.php">Profile</a><br>
+          <a href="studentProfile.php">Profile</a><br>
           <a href="logout.php">Log out</a>
         </div>
       </div>
@@ -50,10 +50,10 @@ $e_mail = $var['email'];
     <div class="left">
       <h1>STUDENT</h1>
       <ul>
-        <li><a href="CES.php">Course Exit Survey</a></li>
-        <li><a href="#">Faculty</a></li>
-        <li><a href="#">Workshop/Seminar</a></li>
-        <li><a href="#">Value Added Program</a></li>
+      <li><a href="CES.php">Course Exit Survey</a></li>
+        <li><a href="FF.php">Faculty Feedback</a></li>
+        <li><a href="WS.php">Workshop/Seminar Feedback</a></li>
+        <li><a href="VAP.php">Value Added Program Feedback</a></li>
       </ul>
     </div>
 
