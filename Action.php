@@ -75,4 +75,33 @@
     if($result){
       header("Location: ManageUser.php?active=$CATEGORY");
     }
+
+
+    if(isset($_POST['Updateque']))
+    {
+      $questionid = $_POST['questionid'];
+      $quesid = $_POST['quesid'];
+      $ques = $_POST['ques'];
+      $op1 = $_POST['op1'];
+      $op2 = $_POST['op2'];
+      $op3 = $_POST['op3'];
+      $op4 = $_POST['op4'];
+      $op5 = $_POST['op5'];
+
+      $query ="UPDATE questions SET quesid = '$quesid', ques = '$ques', op1 = '$op1', op2 = '$op2', op3 = '$op3', op4 = '$op4', op5 = '$op5' WHERE fname ='$fname' ";
+      $query_run = mysqli_query($conn,$query);
+
+      if($query_run){
+        $_SESSION['message'] = "User Updated Successfully";
+        header("Location: hodnext.php?active=$CATEGORY");
+        exit(0);
+      }
+      else{
+        $_SESSION['message'] = "User Not Added";
+        header("Location: hodnext.php");
+        exit(0);
+      }
+    }
+
 ?>
+

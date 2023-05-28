@@ -4,7 +4,7 @@
     border-radius: 10px;
     width: 400px;
     height: auto;   
-    position: sticky;
+    position: absolute;
     left: 50%;
     text-align: center;
     padding: 0px 5px 20px 5px;

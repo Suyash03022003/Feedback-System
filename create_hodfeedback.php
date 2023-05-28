@@ -47,10 +47,10 @@
     $query = "INSERT INTO questions (questionid, questiontype , question , option1, option2, option3, option4, option5) values('$quesid', '$questype', '$ques', '$op1', '$op2', '$op3', '$op4', '$op5')";
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
-    header("Location:next.php");
+    header("Location:hodnext.php");
       exit(0);
     } else {
-      header("Location: next.php");
+      header("Location: hodnext.php");
       exit(0);
     }
   }

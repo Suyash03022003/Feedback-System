@@ -28,13 +28,52 @@ $result = mysqli_query($conn, $query);
             <div class="frm animate">
                 <button onclick="document.getElementById('log').style.display='none'">&times;</button>
                 <h2>Add Question: </h2>
-                <form action="create_hodfeedback.php" method="POST">
+                
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="img">
+            <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">
+        </div>
+        <h2 id="heading">Bajaj Institute of Technology</h2>
+        <div class="links" id="links">
+        <p class="input"><?php echo $fname, " ", $lname; ?></p>
+            <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
+        </div>
+    </div>
+    <div class="spaces"></div>
+    <div class="main">
+        <div class="left">
+            <h1>HOD</h1>
+            <ul>
+        <li><a href="manageFaculty.php">Manage Faculty</a></li>
+        <li><a href="generateptm.php">Generate PTM</a></li>
+        <li><a href="hodviewfeedback.php">View Faculty Feedback</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>Generate Parent Teacher Meeting Feedback</h1>
+            <p>Dashboard/<span>Generate Parent Teacher Meeting Feedback</span></p>
+            <br>
+            <br>
+            <?php
+            if (isset($_GET['questionid'])) {
+            $questionid = mysqli_real_escape_string($conn, $_GET['questionid']);
+            $query = "SELECT * FROM questions WHERE questionid = '$questionid' ";
+            $query_run = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+            $user = mysqli_fetch_array($query_run);
+            ?>
+
+            <form action="Action.php" method="POST">
                     <div>
                         <label>Question Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
-                        <input type="int" name="quesid" required>
+                        <input class="l1" type="int" name="quesid" value="<?= $user['questionid'] ?>" required>
                     </div>
 
-                    <div>
+                    <!-- <div>
                         <label>Question Type&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
 
                         <select name="type">
@@ -43,7 +82,7 @@ $result = mysqli_query($conn, $query);
                             <option value="Radio">Radio</option>
                             <option value="Check box">Check box</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div>
                         <label>Question :</label><br>
@@ -75,64 +114,16 @@ $result = mysqli_query($conn, $query);
                         <input type="text" name="op5">
                     </div>         
 
-                    <input type="submit" value="Add" name="submit">
+                    <div class="bt">
+                    <button classtype="submit" name="Updateque"><b>Update</b></button>
+                    </div>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="nav">
-        <div class="img">
-            <img id="img" src="images/bitlogo_transparent.png" alt="BIT Logo">
-        </div>
-        <h2 id="heading">Bajaj Institute of Technology</h2>
-        <div class="links" id="links">
-        <p class="input"><?php echo $fname, " ", $lname; ?></p>
-            <img src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
-        </div>
-    </div>
-    <div class="spaces"></div>
-    <div class="main">
-        <div class="left">
-            <h1>HOD</h1>
-            <ul>
-        <li><a href="manageFaculty.php">Manage Faculty</a></li>
-        <li><a href="generateptm.php">Generate PTM</a></li>
-        <li><a href="hodviewfeedback.php">View Faculty Feedback</a></li>
-            </ul>
-        </div>
-        <div class="right">
-            <h1>Generate Parent Teacher Meeting Feedback</h1>
-            <p>Dashboard/<span>Generate Parent Teacher Meeting Feedback</span></p>
-            <div class="questions" id="questions">
-                <form action="create_hodfeedback.php" method="POST">
-                    <input type="text" value="<?php echo $_GET['id'];?>" name="feed">
-                    <?php
-                        $feed = $_GET['id'];
-                        echo '<input type="hidden" name="feed" value="'.$feed.'">';
-                        ?>
-                    <a class="add" onclick="login()">+</a>
-                    <br>
-                    <br>
-                    <?php
-                    while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                        <a href='EditQue.php?questionid=$row[questionid]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a>
-                        <?php echo $row['questionid'], "."; ?> <?php echo $row['question']; ?><br>
-                        <?php echo $row['option1']; ?><br>
-                        <?php echo $row['option2']; ?><br>
-                        <?php echo $row['option3']; ?><br>
-                        <?php echo $row['option4']; ?><br>
-                        <?php echo $row['option5']; ?> <br>
-                        <!-- <a href='EditQue.php?id=$row[questionid]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a> -->
-                        <!-- <a href='DeleteQue.php?id=$row[questionid]' name='delete'><i class='fa-solid fa-trash delete'></i></a> -->
-                        <br>
-                    <?php
-                    }
-                    ?>
-                    <input type="submit" value="Submit" name="submit1" class="submit">
-                </form>
-            </div>
-        </div>
+                <?php
+    } else {
+      echo "No such record found";
+    }
+  }
+  ?>
     </div>
     <script>
         function login() {

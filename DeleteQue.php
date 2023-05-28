@@ -1,28 +1,3 @@
-<!-- <?php 
-
-session_start();
-include('connect.php');
-
-$QueID = $_GET['id'];
-$feed = $_GET['feed'];
-$query1 = "SELECT * FROM questions WHERE questionid = '$QueID'";
-$result = mysqli_query($conn, $query1);
-// $row = mysqli_fetch_array($result);
-// $CATEGORY = $row['category'];
-$query = "DELETE FROM questions WHERE questionid = '$QueID'";
-$query_run = mysqli_query($conn, $query); 
-
-if($query_run){
-    header("Location: hodnext.php". urlencode($feed));
-    exit(0);
-  }
-  else{
-    echo "Not Delete";
-    // header("Location: index.php");
-    exit(0);
-  }
-?> -->
-
 <?php
 session_start();
 include('connect.php');
