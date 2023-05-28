@@ -30,7 +30,7 @@
         }
         if ($result2) {
             $user = $id;
-            header("Location:CES.php");
+            header("Location:Parent.php");
             exit(0);
         } 
         
