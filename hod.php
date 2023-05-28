@@ -70,8 +70,8 @@ while ($row = mysqli_fetch_assoc($result)) {
   <?php echo $row['feedback_id']; ?>
   <?php echo $row['feedback_type']; ?>
   <?php echo $row['subject']; ?><br>
-  <a href="StopResponses.php?id=<?php echo $id;?>">Stop Responses</a>&nbsp;&nbsp;&nbsp;
-  <a href="ViewResponses.php?id=<?php echo $id;?>">View Responses</a><br>
+  <a href="hodstopresponses.php?id=<?php echo $id;?>">Stop Responses</a>&nbsp;&nbsp;&nbsp;
+  <a href="hodviewresponses.php?id=<?php echo $id;?>">View Responses</a><br>
 </a><br>
 <?php
 }        

@@ -2,8 +2,11 @@
   
 <?php 
   session_start();
+  include('connect.php');
   $stake = 'Admin';
   include('check.php');
+  $query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from users WHERE EMAIL = '$email') ";
+$result = mysqli_query($conn, $query);
 ?>
 <head>
   <meta charset="UTF-8">
@@ -88,10 +91,28 @@
           </div>
         </div>
       </div>
+      <br>
+      <h2>Active Feedback</h2>
+       <?php
+
+while ($row = mysqli_fetch_assoc($result)) {
+  $id = $row['feedback_id'];
+?>
+<a href = "feedbackform.php?id=<?php echo $id;?>">
+  <?php echo $row['feedback_id']; ?>
+  <?php echo $row['feedback_type']; ?>
+  <?php echo $row['subject']; ?><br>
+  <a href="adminstopresponses.php?id=<?php echo $id;?>">Stop Responses</a>&nbsp;&nbsp;&nbsp;
+  <a href="adminviewresponse.php?id=<?php echo $id;?>">View Responses</a><br>
+</a><br>
+<?php
+}        
+?>
     </div>
   </div>
   </div>
   </div>
+
   <div class="popup" id="popup"> 
         <img src="images/t1.png" alt="">
         <h3>Are you sure you want to LogOut?</h3>
