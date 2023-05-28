@@ -18,13 +18,13 @@
           </div>
 
             <div>
-            <label>Question Type&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
+            <label>Feedback Type&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
             
               <select name="type">
                 <option value="Not Selected">Select Question Type</option>
-                <option value="Text">Text</option>
-                <option value="Radio">Radio</option>
-                <option value="Check box">Check box</option>
+                <option value="Text">PTM</option>
+                <option value="Radio">CES</option>
+                <option value="Check box">Faculty Feedback</option>
               </select>
             
           </div>

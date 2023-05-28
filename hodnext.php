@@ -3,7 +3,7 @@ session_start();
 include('connect.php');
 $stake = 'HOD';
 include('check.php');
-$query = "select * from questions";
+$query = "SELECT * from questions WHERE feedbacktype = 'PTM' ";
 $result = mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>
@@ -39,9 +39,9 @@ $result = mysqli_query($conn, $query);
 
                         <select name="type">
                             <option value="Not Selected">Select Question Type</option>
-                            <option value="Text">Text</option>
-                            <option value="Radio">Radio</option>
-                            <option value="Check box">Check box</option>
+                            <option value="CES">CES</option>
+                            <option value="PTM">PTM</option>
+                            <option value="Faculty Feedback">Faculty Feedback</option>
                         </select>
                     </div>
 
@@ -104,7 +104,8 @@ $result = mysqli_query($conn, $query);
             <h1>Generate Parent Teacher Meeting Feedback</h1>
             <p>Dashboard/<span>Generate Parent Teacher Meeting Feedback</span></p>
             <div class="questions" id="questions">
-                <form action="create_hodfeedback.php" method="POST">
+               
+                <form action="create_hodfeedback.php?id=<?php echo $_GET['id']; ?>" method="POST">
                     <input type="text" value="<?php echo $_GET['id'];?>" name="feed">
                     <?php
                         $feed = $_GET['id'];
@@ -115,9 +116,10 @@ $result = mysqli_query($conn, $query);
                     <br>
                     <?php
                     while ($row = mysqli_fetch_assoc($result)) {
+                        $i= 1 ;
                     ?>
                         <a href='EditQue.php?questionid=$row[questionid]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a>
-                        <?php echo $row['questionid'], "."; ?> <?php echo $row['question']; ?><br>
+                        <?php echo $i, "."; ?> <?php echo $row['question']; ?><br>
                         <?php echo $row['option1']; ?><br>
                         <?php echo $row['option2']; ?><br>
                         <?php echo $row['option3']; ?><br>
@@ -126,7 +128,9 @@ $result = mysqli_query($conn, $query);
                         <!-- <a href='EditQue.php?id=$row[questionid]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a> -->
                         <!-- <a href='DeleteQue.php?id=$row[questionid]' name='delete'><i class='fa-solid fa-trash delete'></i></a> -->
                         <br>
+                        
                     <?php
+                    $i++;
                     }
                     ?>
                     <input type="submit" value="Submit" name="submit1" class="submit">

@@ -107,6 +107,7 @@ $result = mysqli_query($conn, $query);
             <p>Dashboard/<span> Generate Course Exit Survey</span></p>
             <div class="questions" id="questions">
                 <form action="create_feedback.php" method="POST">
+                    
                     <input type="text" value="<?php echo $_GET['id'];?>" name="feed">
                     <a class="add" onclick="login()">+</a>
                     <br>
