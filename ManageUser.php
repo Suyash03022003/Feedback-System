@@ -151,10 +151,10 @@ $lname = $_SESSION['lname'];
             <label>DEPARTMENT</label>
             <select name="DEPARTMENT">
               <option value="Not Selected">SELECT</option>
-              <option value="COMPUTER">Computer</option>
-              <option value="ELECTRICAL">Electrical</option>
-              <option value="CIVIL">Civil</option>
-              <option value="MECHANICAL">Mechanical</option>
+              <option value="Computer">Computer</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Civil">Civil</option>
+              <option value="Mechanical">Mechanical</option>
             </select>
           </div>
 

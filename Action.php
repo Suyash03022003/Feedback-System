@@ -72,4 +72,7 @@
         $result = mysqli_query($conn, $query);
         
     }
+    if($result){
+      header("Location: ManageUser.php?active=$CATEGORY");
+    }
 ?>

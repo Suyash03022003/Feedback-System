@@ -19,6 +19,7 @@ $result = mysqli_query($conn, $query);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9dcdbf7660.js" crossorigin="anonymous"></script>
     <title>Welcome!</title>
 </head>
 <body>
@@ -72,7 +73,7 @@ $result = mysqli_query($conn, $query);
                     <div>
                         <label>Option 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</label>
                         <input type="text" name="op5">
-                    </div>
+                    </div>         
 
                     <input type="submit" value="Add" name="submit">
                 </form>
@@ -105,6 +106,10 @@ $result = mysqli_query($conn, $query);
             <div class="questions" id="questions">
                 <form action="create_hodfeedback.php" method="POST">
                     <input type="text" value="<?php echo $_GET['id'];?>" name="feed">
+                    <?php
+                        $feed = $_GET['id'];
+                        echo '<input type="hidden" name="feed" value="'.$feed.'">';
+                        ?>
                     <a class="add" onclick="login()">+</a>
                     <br>
                     <br>
@@ -117,6 +122,8 @@ $result = mysqli_query($conn, $query);
                         <?php echo $row['option3']; ?><br>
                         <?php echo $row['option4']; ?><br>
                         <?php echo $row['option5']; ?> <br>
+                        <?php echo "<td><a href='edit.php?questionid=$row[questionid]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";?> &nbsp;&nbsp;
+                        <a href='DeleteQue.php?id=$row[questionid]' name='delete'><i class='fa-solid fa-trash delete'></i></a>
                         <br>
                     <?php
                     }

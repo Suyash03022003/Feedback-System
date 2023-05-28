@@ -21,51 +21,51 @@ if (isset($_GET['active'])) {
   }
 }
 
-//student
-if (isset($_POST["submit"])) {
-  if ($_FILES['file']['name']) {
-    $filename = explode(".", $_FILES['file']['name']);
-    if ($filename[1] == 'csv') {
-      $handle = fopen($_FILES['file']['tmp_name'], "r");
-      while ($data = fgetcsv($handle)) {
-        $item1 = mysqli_real_escape_string($conn, $data[0]);
-        $item2 = mysqli_real_escape_string($conn, $data[1]);
-        $item3 = mysqli_real_escape_string($conn, $data[2]);
-        $item4 = mysqli_real_escape_string($conn, $data[3]);
-        $item5 = mysqli_real_escape_string($conn, $data[4]);
-        $item6 = mysqli_real_escape_string($conn, $data[5]);
-        $item7 = mysqli_real_escape_string($conn, $data[6]);
-        $item8 = mysqli_real_escape_string($conn, $data[7]);
-        $item9 = mysqli_real_escape_string($conn, $data[6]);
-        $query = "INSERT into users (userid, fname, lname, email, dept, password, category, semester, year, section, contact)values('$item1','$item2','$item3','$item4','$item5','123','Student','$item6','$item7','$item8','$item9')";
+// //student
+// if (isset($_POST["submit"])) {
+//   if ($_FILES['file']['name']) {
+//     $filename = explode(".", $_FILES['file']['name']);
+//     if ($filename[1] == 'csv') {
+//       $handle = fopen($_FILES['file']['tmp_name'], "r");
+//       while ($data = fgetcsv($handle)) {
+//         $item1 = mysqli_real_escape_string($conn, $data[0]);
+//         $item2 = mysqli_real_escape_string($conn, $data[1]);
+//         $item3 = mysqli_real_escape_string($conn, $data[2]);
+//         $item4 = mysqli_real_escape_string($conn, $data[3]);
+//         $item5 = mysqli_real_escape_string($conn, $data[4]);
+//         $item6 = mysqli_real_escape_string($conn, $data[5]);
+//         $item7 = mysqli_real_escape_string($conn, $data[6]);
+//         $item8 = mysqli_real_escape_string($conn, $data[7]);
+//         $item9 = mysqli_real_escape_string($conn, $data[6]);
+//         $query = "INSERT into users (userid, fname, lname, email, dept, password, category, semester, year, section, contact)values('$item1','$item2','$item3','$item4','$item5','123','Student','$item6','$item7','$item8','$item9')";
         
-        mysqli_query($conn, $query);
-      }
-      fclose($handle);
-    }
-  }
-}
+//         mysqli_query($conn, $query);
+//       }
+//       fclose($handle);
+//     }
+//   }
+// }
 
-//parent
-if (isset($_POST["submit1"])) {
-  if ($_FILES['file']['name']) {
-    $filename = explode(".", $_FILES['file']['name']);
-    if ($filename[1] == 'csv') {
-      $handle = fopen($_FILES['file']['tmp_name'], "r");
-      while ($data = fgetcsv($handle)) {
-        $item1 = mysqli_real_escape_string($conn, $data[0]);
-        $item2 = mysqli_real_escape_string($conn, $data[1]);
-        $item3 = mysqli_real_escape_string($conn, $data[2]);
-        $item4 = mysqli_real_escape_string($conn, $data[3]);
-        $item5 = mysqli_real_escape_string($conn, $data[4]);
-        $query = "INSERT into users (userid, fname, lname, email, password, category, contact)
-                  values('$item1','$item2','$item3','$item4','123','Parent','$item5')";
-        mysqli_query($conn, $query);
-      }
-      fclose($handle);
-    }
-  }
-}
+// //parent
+// if (isset($_POST["submit1"])) {
+//   if ($_FILES['file']['name']) {
+//     $filename = explode(".", $_FILES['file']['name']);
+//     if ($filename[1] == 'csv') {
+//       $handle = fopen($_FILES['file']['tmp_name'], "r");
+//       while ($data = fgetcsv($handle)) {
+//         $item1 = mysqli_real_escape_string($conn, $data[0]);
+//         $item2 = mysqli_real_escape_string($conn, $data[1]);
+//         $item3 = mysqli_real_escape_string($conn, $data[2]);
+//         $item4 = mysqli_real_escape_string($conn, $data[3]);
+//         $item5 = mysqli_real_escape_string($conn, $data[4]);
+//         $query = "INSERT into users (userid, fname, lname, email, password, category, contact)
+//                   values('$item1','$item2','$item3','$item4','123','Parent','$item5')";
+//         mysqli_query($conn, $query);
+//       }
+//       fclose($handle);
+//     }
+//   }
+// }
 
 
 $email = $_SESSION['email'];
@@ -93,7 +93,7 @@ $lname = $_SESSION['lname'];
 </head>
 
 <body onload="load()">
-  <div class="csv" id="log">
+  <!-- <div class="csv" id="log">
     <div class="form">
       <div class="frm animate">
         <button onclick="document.getElementById('log').style.display='none'">&times;</button>
@@ -183,7 +183,7 @@ $lname = $_SESSION['lname'];
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="nav">
     <div class="img">
@@ -222,9 +222,9 @@ $lname = $_SESSION['lname'];
           <p class="display_student" id="student" onclick="display_student()">Student</p>
           <p class="display_parent" id="parent" onclick="display_parent()">Parent</p>
         </div>
-        <div class="buttons">
+        <!-- <div class="buttons">
           <input type="submit" class="add_user" onclick="display()" value="Add User">
-        </div>
+        </div> -->
       </div>
 
       <div class="User">
@@ -241,7 +241,7 @@ $lname = $_SESSION['lname'];
           </thead>
           <tbody id="tbody">
             <?php
-            $query1 = "select * from users WHERE category='Teacher'";
+            $query1 = "select * from users WHERE category='Teacher' AND dept='Computer' ";
             $result = mysqli_query($conn, $query1);
             $i = 1;
             foreach ($result as $cols) {
@@ -324,7 +324,7 @@ $lname = $_SESSION['lname'];
         user3.classList.add("active");
         div = "log";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from users WHERE category='Student'";
+                            $query1 = "select * from users WHERE category='Student' AND dept='Computer' ";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {
@@ -346,7 +346,7 @@ $lname = $_SESSION['lname'];
         user1.classList.add("active");
         div = "fac";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from users WHERE category='Teacher'";
+                            $query1 = "select * from users WHERE category='Teacher' AND dept='Computer' ";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {
@@ -368,7 +368,7 @@ $lname = $_SESSION['lname'];
         user2.classList.add("active");
         div = "p";
         tbody.innerHTML = "<?php
-                            $query1 = "select * from users WHERE category='Parent'";
+                            $query1 = "select * from users WHERE category='Parent' AND dept='Computer' ";
                             $result = mysqli_query($conn, $query1);
                             $i = 1;
                             foreach ($result as $cols) {

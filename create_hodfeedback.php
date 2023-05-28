@@ -21,7 +21,7 @@
     $sub = $_POST['sub'];
     $author = $_POST['author'];
     $query = "INSERT INTO feedbacks (feedback_id, feedback_type, author, subject, status, dept, year, sem, section) 
-              values($id, 'CES', '$author', '$sub', 'Active', '$dept', '$year', '$sem', '$section')";
+              values($id, 'PTM', '$author', '$sub', 'Active', '$dept', '$year', '$sem', '$section')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -32,7 +32,7 @@
       header("Location: hodgeneratefeedback.php");
       exit(0);
     }
-
+         
   }
   
   if (isset($_POST['submit'])) {
@@ -54,6 +54,7 @@
       exit(0);
     }
   }
+
   if (isset($_POST['submit1'])) {
     $query = "select * from questions";
     $result = mysqli_query($conn, $query);
