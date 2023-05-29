@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include('connect.php');
 
@@ -8,15 +7,13 @@ if (isset($_GET['id'])) {
 
     $query = "SELECT questionid 
           FROM responses
-          WHERE feedbackid = '$Feedid' ";
+          WHERE feedbackid = '$Feedid'";
     $result = mysqli_query($conn, $query);
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +28,6 @@ if (isset($_GET['id'])) {
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
-
 <body>
   <div class="nav">
     <div class="img">
@@ -57,6 +53,8 @@ if (isset($_GET['id'])) {
       <h1>TEACHER</h1>
       <ul>
         <li><a href="generatefeedback.php">Generate CES</a></li>
+        <li><a href="addongeneratefeedback.php">Generate AddOn & VAP Feedback</a></li>
+        <li><a href="seminargeneratefeedback.php">Generate Seminar & Workshop Feedback</a></li>
         <li><a href="viewfeedback.php">View Feedback</a></li>
       </ul>
     </div>
@@ -65,9 +63,8 @@ if (isset($_GET['id'])) {
       <br>
       <p>Dashboard</p>
       <br></br>
-        <a href="export.php"><button>Export</button></a><br>
+    
       <?php
-      
       while ($row = mysqli_fetch_assoc($result)) {
           $id = $row['questionid'];
          
@@ -100,72 +97,16 @@ if (isset($_GET['id'])) {
                      WHERE answer = 'Strongly Disagree' AND questionid = '$id' AND feedbackid = '$Feedid'";
           $result5 = mysqli_query($conn, $query5);
           $row5 = mysqli_fetch_assoc($result5);
+          
           echo "Question ID: " . $id . "<br>";
           echo "Strongly Agree: " . $row1['count1'] . "<br>";
           echo "Agree: " . $row2['count2'] . "<br>";
           echo "Neutral: " . $row3['count3'] . "<br>";
           echo "Disagree: " . $row4['count4'] . "<br>";
           echo "Strongly Disagree: " . $row5['count5'] . "<br><br>";
-
-          // echo "<tr>";
-          // // echo "<td>" . $i . "<br>";
-          // echo "<td>" . $row1['count1'] .  "</td>";
-          // echo "<td>" . $row2['count2'] .  "</td>";
-          // echo "<td>" . $row3['count3'] .  "</td>";
-          // echo "<td>" . $row4['count4'] .  "</td>";
-          // echo "<td>" . $row5['count5'] .  "</td>";
-          // echo "<tr>";
       }
       ?>
-
-
-    <!-- <?php
-    while ($row = mysqli_fetch_assoc($result)) {
-        $i = 0;
-      $id = $row['questionid'];
-     
-      $query1 = "SELECT COUNT(answer) as count1
-                 FROM responses
-                 WHERE answer = 'Strongly Agree' AND questionid = '101' AND feedbackid = '$Feedid'";
-      $result1 = mysqli_query($conn, $query1);
-
-      $query2 = "SELECT COUNT(answer) as count2
-                 FROM responses
-                 WHERE answer = 'Agree' AND questionid = '$id' AND feedbackid = '$Feedid' ";
-      $result2 = mysqli_query($conn, $query2);
-  
-      $query3 = "SELECT COUNT(answer) as count3
-                 FROM responses
-                 WHERE answer = 'Neutral' AND questionid = '$id' AND feedbackid = '$Feedid' ";
-      $result3 = mysqli_query($conn, $query3);
-  
-      $query4 = "SELECT COUNT(answer) as count4
-                 FROM responses
-                 WHERE answer = 'Disagree' AND questionid = '$id' AND feedbackid = '$Feedid' ";
-      $result4 = mysqli_query($conn, $query4);
-  
-      $query5 = "SELECT COUNT(answer) as count5
-                 FROM responses
-                 WHERE answer = 'Strongly Disagree' AND questionid = '$id' AND feedbackid = '$Feedid' ";
-      $result5 = mysqli_query($conn, $query5);
-        $i++;
-  }
-    ?>
-      <?php $row = mysqli_fetch_assoc($result1); ?>
-      <?php echo "Strongly Agree  ".$row['count1']; ?> <br>
-
-      <?php $row = mysqli_fetch_assoc($result2); ?>
-      <?php echo "Agree  ".$row['count2']; ?> <br>
-
-      <?php $row = mysqli_fetch_assoc($result3); ?>
-      <?php echo "Neutral  ".$row['count3']; ?> <br>
-
-      <?php $row = mysqli_fetch_assoc($result4); ?>
-      <?php echo "Disagree  ".$row['count4']; ?> <br>
-
-      <?php $row = mysqli_fetch_assoc($result5); ?>
-      <?php echo "Strongly Disagree  ".$row['count5']; ?> <br> -->
-      
-</div>
+    </div>
+  </div>
 </body>
 </html>

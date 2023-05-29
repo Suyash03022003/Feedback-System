@@ -51,7 +51,7 @@ $result = mysqli_query($conn, $query);
       <ul>
         <li><a href="manageFaculty.php">Manage Faculty</a></li>
         <li><a href="generateptm.php">Generate PTM</a></li>
-        <li><a href="hodviewfeedback.php">View Faculty Feedback</a></li>
+        <li><a href="hodviewfeedback.php?id=<?php echo $feed; ?>">View Faculty Feedback</a></li>
       </ul>
     </div>
     <div class="right">

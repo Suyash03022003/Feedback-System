@@ -106,7 +106,7 @@ $lname = $_SESSION['lname'];
                 <li><a href="generatefeedback.php">Generate CES</a></li>
                 <li><a href="addongeneratefeedback.php">Generate AddOn & VAP Feedback</a></li>
                 <li><a href="seminargeneratefeedback.php">Generate Seminar & Workshop Feedback</a></li>
-                <li><a href="viewfeedback.php">View Feedback</a></li>
+                <li><a href="viewfeedback.php?id=<?php echo $id;?>">View Feedback</a></li>
             </ul>
         </div>
         <div class="right">

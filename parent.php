@@ -48,7 +48,7 @@ $result = mysqli_query($conn, $sql);
     <div class="left">
       <h1>PARENTS</h1>
       <ul>
-        <li><a href="giveFeedback.php">Give Feedback</a></li>
+        <li><a href="Giveptm.php">Give Feedback</a></li>
       </ul>
     </div>
     <div class="right">

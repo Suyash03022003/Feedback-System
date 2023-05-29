@@ -69,8 +69,8 @@ $result1 = mysqli_query($conn, $query);
                 <?php
                 $i = 0;
                 while ($row1 = mysqli_fetch_assoc($result1)) {
-                    $question_id = $row1['question_id'];
-                    $query2 = "SELECT * FROM questions WHERE questionid = '$question_id'";
+                    $questionid = $row1['question_id'];
+                    $query2 = "SELECT * FROM questions WHERE questionid = '$questionid'";
                     $result2 = mysqli_query($conn, $query2);
                     $row2 = mysqli_fetch_assoc($result2);
                 ?>

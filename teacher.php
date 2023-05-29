@@ -4,7 +4,7 @@ session_start();
 include('connect.php');
 $stake = 'Teacher';
 include('check.php');
-$query = "SELECT * from feedbacks WHERE author = (SELECT FNAME from users WHERE EMAIL = '$email') ";
+$query = "SELECT * from feedbacks WHERE author = (SELECT fname from users WHERE email = '$email') ";
 $result = mysqli_query($conn, $query);
 ?>
 <html lang="en">
@@ -47,11 +47,16 @@ $result = mysqli_query($conn, $query);
   <div class="full">
     <div class="left">
       <h1>TEACHER</h1>
+      <?php
+      while ($row = mysqli_fetch_assoc($result)){
+        $id = $row['feedback_id'];
+      }
+      ?>
       <ul>
         <li><a href="generatefeedback.php">Generate CES</a></li>
         <li><a href="addongeneratefeedback.php">Generate AddOn & VAP Feedback</a></li>
         <li><a href="seminargeneratefeedback.php">Generate Seminar & Workshop Feedback</a></li>
-        <li><a href="viewfeedback.php">View Feedback</a></li>
+        <li><a href="viewfeedback.php?id=<?php echo $id;?>">View Feedback</a></li>
       </ul>
     </div>
     <div class="right">

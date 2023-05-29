@@ -9,7 +9,7 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $type = $row['feedback_type'];
 $subject = $row['subject'];
-$query = "SELECT question_id FROM feedback WHERE feedback_id = '$id' ";
+$query = "SELECT question_id FROM feedback WHERE feedback_id = '$id'";
 $result1 = mysqli_query($conn, $query);
 ?>
 
@@ -19,7 +19,7 @@ $result1 = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELCOME</title>
+    <title>Student</title>
     <link rel="icon" href="images/bitlogo.jpg">
     <link rel="stylesheet" href="css/ces.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/common.css?v=<?php echo time(); ?>">
@@ -36,8 +36,8 @@ $result1 = mysqli_query($conn, $query);
         </div>
         <h2 id="heading">Bajaj Institute of Technology</h2>
         <div class="links" id="links">
-            <!-- <p class="para">X_Y_Z</p> -->
-            <div class="account_div">
+        <p class="input"><?php echo $fname, " ", $lname; ?></p>
+            <div class="account_div"  onclick="profileAccount();">
                 <img class="account_img" src="images/user.png" alt="User" width="7%" style="border-radius: 50%;">
                 <div id="account" class="account">
                     <a href="studentProfile.php">Profile</a><br>
@@ -49,9 +49,12 @@ $result1 = mysqli_query($conn, $query);
     <div class="spaces"></div>
     <div class="full">
         <div class="left">
-            <h1>PARENT</h1>
+            <h1>STUDENT</h1>
             <ul>
-                <li><a href="CES.php">Give Feedback</a></li>
+            <li><a href="CES.php">Course Exit Survey</a></li>
+        <li><a href="FF.php">Faculty Feedback</a></li>
+        <li><a href="WS.php">Workshop/Seminar Feedback</a></li>
+        <li><a href="VAP.php">Value Added Program Feedback</a></li>
             </ul>
         </div>
         <div class="right">
@@ -60,14 +63,14 @@ $result1 = mysqli_query($conn, $query);
             <p class="s1">Dashboard/ <span class="head">Course Exit Survey</span></p>
             <br>
             <br>
-            <form action="give_feedback.php?id=<?php echo $id;?>" method="POST" class="ces">
+            <form action="Giveptm.php?id=<?php echo $id;?>" method="POST" class="ces">
                 <h3><?php echo $id, ". Feedback Form: ", $type, " ", $subject;?></h3><br /><br />
                 <div class="questions">
                 <?php
                 $i = 0;
                 while ($row1 = mysqli_fetch_assoc($result1)) {
-                    $question_id = $row1['question_id'];
-                    $query2 = "SELECT DISTINCT questionid, question, option1, option2, option3, option4, option5 FROM questions WHERE feedback_type = 'PTM'";
+                    $questionid = $row1['question_id'];
+                    $query2 = "SELECT * FROM questions WHERE questionid = '$questionid'";
                     $result2 = mysqli_query($conn, $query2);
                     $row2 = mysqli_fetch_assoc($result2);
                 ?>
@@ -90,5 +93,29 @@ $result1 = mysqli_query($conn, $query);
       </div>
      </div>
     </div>
+    <div class="popup" id="popup"> 
+        <img src="images/t1.png" alt="">
+        <h3>Are you sure you want to LogOut?</h3>
+        <button type="button" onclick="closePopup()" onclick="window.location.href = 'index.php'">LogOut</button>
+        <button type="button" onclick="cancelPopup()">Cancel</button>
+    </div>
+  <script>
+    function profileAccount() {
+      const list = document.querySelector('.account');
+      list.classList.toggle('active')
+    }
+    let popup = document.getElementById("popup");
+    function openPopup(){
+        popup.classList.add("open-popup");       
+    }
+    
+    function closePopup(){
+        popup.classList.remove("open-popup");
+        window.location.href = "logout.php";
+    }
+    function cancelPopup(){
+        popup.classList.remove("open-popup");  
+    }
+  </script>
   </body>
 </html>

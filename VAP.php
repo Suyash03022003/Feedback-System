@@ -7,7 +7,7 @@ include('check.php');
 $sql = "SELECT * 
         FROM feedbacks 
         JOIN users ON feedbacks.sem = users.semester
-        WHERE users.email = '$userid' AND status = 'Active' AND feedback_type = 'CES' ";
+        WHERE users.email = '$userid' AND status = 'Active' AND feedback_type = 'VAP' ";
 
 $result = mysqli_query($conn, $sql);
 ?>
