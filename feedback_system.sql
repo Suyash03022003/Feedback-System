@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 12:54 PM
+-- Generation Time: May 29, 2023 at 05:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -38,35 +38,27 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `feedback_id`, `question_id`) VALUES
-(247, 101, 101),
-(248, 101, 102),
-(249, 101, 103),
-(250, 101, 104),
-(251, 101, 105),
-(252, 101, 106),
-(253, 101, 107),
-(254, 110, 101),
-(255, 110, 102),
-(256, 110, 103),
-(257, 110, 104),
-(258, 110, 105),
-(259, 110, 106),
-(260, 103, 101),
-(261, 103, 102),
-(262, 103, 103),
-(263, 103, 104),
-(264, 103, 105),
-(265, 103, 106),
-(266, 106, 101),
-(267, 106, 102),
-(268, 106, 103),
-(269, 106, 104),
-(270, 106, 105),
-(271, 112, 101),
-(272, 112, 102),
-(273, 112, 103),
-(274, 112, 104),
-(275, 112, 105);
+(281, 101, 101),
+(282, 101, 102),
+(283, 101, 103),
+(284, 101, 104),
+(285, 101, 105),
+(286, 101, 106),
+(287, 101, 107),
+(288, 102, 101),
+(289, 102, 102),
+(290, 102, 103),
+(291, 102, 104),
+(292, 102, 105),
+(293, 102, 106),
+(294, 102, 107),
+(295, 103, 101),
+(296, 103, 102),
+(297, 103, 103),
+(298, 103, 104),
+(299, 103, 105),
+(300, 103, 106),
+(301, 103, 107);
 
 -- --------------------------------------------------------
 
@@ -91,18 +83,9 @@ CREATE TABLE `feedbacks` (
 --
 
 INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `status`, `dept`, `year`, `sem`, `section`) VALUES
-(101, 'CES', 'Urvashiii', 'CN', 'Active', 'Computer', 'III', 'VI', 'A'),
-(102, 'PTM', 'Sheetal', 'Seminar', 'Active', 'Computer', 'III', 'VI', 'A'),
-(103, 'PTM', 'Sheetal', 'Seminar', 'Active', 'Computer', 'III', 'VI', 'A'),
-(104, 'PTM', 'Sheetal', 'Seminar1', 'Active', 'Computer', 'III', 'VI', 'A'),
-(105, 'PTM', 'Sheetal', 'Sem', 'Active', 'Computer', 'III', 'VI', 'A'),
-(106, 'PTM', 'Sheetal', 'ptm', 'Active', 'Computer', 'III', 'V', 'A'),
-(107, 'PTM', 'Sheetal', 'ptm1', 'Active', 'Computer', 'III', 'VI', 'A'),
-(108, 'PTM', 'Sheetal', 'DBMSPTM', 'Active', 'Computer', 'III', 'VI', 'A'),
-(109, 'CES', 'Abhishek', 'CP', 'Active', 'Computer', 'III', 'VI', 'A'),
-(110, 'CES', 'Abhishek', 'CP', 'Active', 'Select Dep', 'III', 'VI', 'A'),
-(111, 'CES', 'Abhishek', 'CP', 'Active', 'Computer', 'III', 'VI', 'A'),
-(112, 'CES', 'Urvashi', 'CN', 'Active', 'Computer', 'III', 'VI', 'A');
+(101, 'PTM', 'Sheetal', 'Seminar', 'Active', 'Computer', 'III', 'VI', 'A'),
+(102, 'CES', 'Urvashi', 'CN', 'Active', 'Computer', 'III', 'VI', 'A'),
+(103, 'CES', 'Kinjal', 'CP', 'Active', 'Computer', 'III', 'VI', 'A');
 
 -- --------------------------------------------------------
 
@@ -113,7 +96,6 @@ INSERT INTO `feedbacks` (`feedback_id`, `feedback_type`, `author`, `subject`, `s
 CREATE TABLE `questions` (
   `questionid` int(100) NOT NULL,
   `question` text NOT NULL,
-  `questiontype` text NOT NULL,
   `feedbacktype` char(25) NOT NULL,
   `option1` text NOT NULL,
   `mark1` int(10) DEFAULT 10,
@@ -131,12 +113,14 @@ CREATE TABLE `questions` (
 -- Dumping data for table `questions`
 --
 
-INSERT INTO `questions` (`questionid`, `question`, `questiontype`, `feedbacktype`, `option1`, `mark1`, `option2`, `mark2`, `option3`, `mark3`, `option4`, `mark4`, `option5`, `mark5`) VALUES
-(101, 'Does the teacher explain the principle/theory of experiment?', 'Radio', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
-(102, 'The lectures, tests and assignments complemented each other?	', 'Radio', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
-(103, 'The instructional materials (i.e., e-books, handouts, videos, lab manuals, multimedia) helped me better to understand CAD modeling techniques.	', 'Radio', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
-(104, 'The course was organized in such a manner, that helped me understand the underlying concepts in transformations, algorithms and CAD workstations.	\r\n	', 'Radio', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
-(105, 'The course gave me the confidence to do more advanced work in Finite Element Analysis.	', 'Radio', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1);
+INSERT INTO `questions` (`questionid`, `question`, `feedbacktype`, `option1`, `mark1`, `option2`, `mark2`, `option3`, `mark3`, `option4`, `mark4`, `option5`, `mark5`) VALUES
+(101, 'Does the teacher explain the principle/theory of experiment?', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(102, 'The lectures, tests and assignments complemented each other?	', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(103, 'The instructional materials (i.e., e-books, handouts, videos, lab manuals, multimedia) helped me better to understand CAD modeling techniques.	', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(104, 'The course was organized in such a manner, that helped me understand the underlying concepts in transformations, algorithms and CAD workstations.	\r\n	', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(105, 'The course gave me the confidence to do more advanced work in Finite Element Analysis.	', 'CES', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1),
+(106, 'The course is designed in such a way that concept of Group Technology is well understood.', 'PTM', 'Strongly Agree\r\n', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree\r\n', 1),
+(107, 'Robot configurations, sensors and programming techniques are well covered in the class.', 'PTM', 'Strongly Agree', 10, 'Agree', 8, 'Neutral', 5, 'Disagree', 3, 'Strongly Disagree', 1);
 
 -- --------------------------------------------------------
 
@@ -156,23 +140,20 @@ CREATE TABLE `responses` (
 --
 
 INSERT INTO `responses` (`res_id`, `feedbackid`, `questionid`, `answer`) VALUES
-(1, 101, 101, 'Strongly Agree'),
-(1, 101, 102, 'Agree'),
-(1, 101, 103, 'Disagree'),
-(1, 101, 104, 'Strongly Disagree'),
-(1, 101, 105, 'Disagree'),
-(1, 101, 106, 'Neutral'),
-(1, 101, 107, 'Agree'),
-(2, 112, 101, 'Strongly Agree'),
-(2, 112, 102, 'Agree'),
-(2, 112, 103, 'Neutral'),
-(2, 112, 104, 'Disagree'),
-(2, 112, 105, 'Strongly Disagree'),
-(3, 112, 101, 'Strongly Disagree'),
-(3, 112, 102, 'Disagree'),
-(3, 112, 103, 'Neutral'),
-(3, 112, 104, 'Agree'),
-(3, 112, 105, 'Strongly Agree');
+(1, 103, 101, 'Strongly Agree'),
+(1, 103, 102, 'Agree'),
+(1, 103, 103, 'Neutral'),
+(1, 103, 104, 'Disagree'),
+(1, 103, 105, 'Strongly Disagree'),
+(1, 103, 106, 'Disagree'),
+(1, 103, 107, 'Neutral'),
+(2, 101, 101, 'Strongly Agree'),
+(2, 101, 102, 'Agree'),
+(2, 101, 103, 'Neutral'),
+(2, 101, 104, 'Disagree'),
+(2, 101, 105, 'Strongly Disagree'),
+(2, 101, 106, 'Disagree'),
+(2, 101, 107, 'Neutral');
 
 -- --------------------------------------------------------
 
@@ -199,12 +180,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `fname`, `lname`, `email`, `dept`, `password`, `category`, `semester`, `year`, `section`, `contact`) VALUES
+('3', 'Kinjal', 'Patel', 'kinjal.patel@bitwardha.ac.in', 'Computer', '123', 'Teacher', NULL, NULL, NULL, 123456789),
 ('Admin01', 'Abhishek', 'Kinhekar', 'admin@bitwardha.ac.in', 'Computer', '123', 'Admin', NULL, NULL, NULL, 123456789),
 ('comp123', 'Urvashi', 'Pote', 'urvashi.pote@bitwardha.ac.in', 'Computer', '123', 'Teacher', NULL, NULL, NULL, 0),
 ('comp345', 'Sheetal', 'Kale', 'comp.hod@bitwardha.ac.in', 'Computer', '123', 'HOD', NULL, NULL, NULL, 123456789),
 ('comp678', 'Akshay', 'Saraf', 'akshay.saraf@bitwardha.ac.in', 'Computer', '123', 'Teacher', NULL, NULL, NULL, 123456789),
 ('comp741', 'Harshad', 'Phadke', 'harshad.padhke@bitwardha.ac.in', 'Civil', '123', 'Teacher', NULL, NULL, NULL, 123456789),
 ('P2046491245003', 'Nandlal', 'Jibhkate', 'amitjibhkate03@gmail.com', '', '123', 'Parent', NULL, NULL, NULL, 2147483647),
+('T2046491245003', 'Amit', 'Jibhkate', 'co.2020.smraut@bitwardha.ac.in', 'Computer', '123', 'Student', 'V', 'III', 'A', 123456789),
 ('﻿P2046491245047', 'Maroti', 'Raut', 'marotiraut94@gmail.com', '', '123', 'Parent', NULL, NULL, NULL, 2147483647),
 ('﻿T2046491245047', 'Shreya', 'Raut', 'co.2020.smraut@bitwardha.ac.in', 'Computer', '123', 'Student', 'VI', 'III', 'A', 0);
 
@@ -244,7 +227,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=276;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
